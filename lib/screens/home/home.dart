@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:geocoder/geocoder.dart';
-import 'package:getflutter/getflutter.dart';
+import 'package:getwidget/getwidget.dart';
+
 import 'package:groceryPro/model/counterModel.dart';
 import 'package:groceryPro/screens/drawer/drawer.dart';
 import 'package:groceryPro/screens/tab/mycart.dart';

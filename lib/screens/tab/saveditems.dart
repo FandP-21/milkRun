@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:getflutter/getflutter.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:groceryPro/model/counterModel.dart';
 import 'package:groceryPro/screens/authe/login.dart';
 import 'package:groceryPro/screens/home/home.dart';

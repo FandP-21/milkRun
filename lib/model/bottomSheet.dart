@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:getflutter/getflutter.dart';
+import 'package:getwidget/components/loader/gf_loader.dart';
+import 'package:getwidget/types/gf_loader_type.dart';
 import 'package:groceryPro/model/addToCart.dart';
 import 'package:groceryPro/screens/authe/login.dart';
 import 'package:groceryPro/service/common.dart';

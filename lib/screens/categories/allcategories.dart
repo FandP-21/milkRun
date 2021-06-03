@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:getflutter/components/appbar/gf_appbar.dart';
-import 'package:getflutter/getflutter.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:groceryPro/screens/categories/subcategories.dart';
 import 'package:groceryPro/service/constants.dart';
 import 'package:groceryPro/service/localizations.dart';

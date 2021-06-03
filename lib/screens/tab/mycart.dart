@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:getflutter/components/appbar/gf_appbar.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:groceryPro/model/addToCart.dart';
 import 'package:groceryPro/screens/authe/login.dart';
 import 'package:groceryPro/service/auth-service.dart';
@@ -12,7 +12,6 @@ import 'package:groceryPro/style/style.dart';
 import 'package:groceryPro/service/cart-service.dart';
 import 'package:groceryPro/service/sentry-service.dart';
 import 'package:groceryPro/screens/checkout/checkout.dart';
-import 'package:getflutter/getflutter.dart';
 import 'package:groceryPro/widgets/loader.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 

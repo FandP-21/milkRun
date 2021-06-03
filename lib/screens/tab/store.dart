@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:getflutter/components/carousel/gf_carousel.dart';
-import 'package:getflutter/components/image/gf_image_overlay.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:groceryPro/screens/categories/allcategories.dart';
 import 'package:groceryPro/screens/categories/subcategories.dart';
 import 'package:groceryPro/screens/product/all_deals.dart';

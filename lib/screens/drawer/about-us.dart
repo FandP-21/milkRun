@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:getflutter/getwidget.dart';
+import 'package:getwidget/getwidget.dart';
+
 import '../../service/auth-service.dart';
 import '../../service/localizations.dart';
 import '../../service/sentry-service.dart';

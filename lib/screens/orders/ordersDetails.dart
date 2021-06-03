@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:getflutter/components/appbar/gf_appbar.dart';
-import 'package:getflutter/getflutter.dart';
+import 'package:getwidget/getwidget.dart';
+
 import 'package:intl/intl.dart';
 import 'package:groceryPro/service/common.dart';
 import 'package:groceryPro/service/constants.dart';
@@ -136,7 +136,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                 new Radius.circular(32.0),
               ),
             ),
-            child: RatingBar(
+            child: RatingBar.builder(
               initialRating: rating,
               minRating: 1,
               direction: Axis.horizontal,

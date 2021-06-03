@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:getflutter/getflutter.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:groceryPro/model/addToCart.dart';
 import 'package:groceryPro/screens/authe/login.dart';
 import 'package:groceryPro/service/cart-service.dart';
@@ -363,7 +363,7 @@ class _ProductDetailsState extends State<ProductDetails>
                                       child: Padding(
                                         padding: const EdgeInsets.only(
                                             top: 0.0, right: 5.0, left: 5.0),
-                                        child: RatingBar(
+                                        child: RatingBar.builder(
                                           initialRating: double.parse(
                                                   productDetail['averageRating']
                                                       .toStringAsFixed(1)) ??

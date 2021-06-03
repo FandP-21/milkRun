@@ -8,12 +8,12 @@ class DealsCard extends StatelessWidget {
   final image, title, price, currency, rating, category, offer, nullImage;
   final bool isPath;
   DealsCard(
-      {Key key,
+      { Key key,
       this.image,
       this.title,
       this.price,
       this.currency,
-      this.isPath,
+        this.isPath,
       this.rating,
       this.category,
       this.offer,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:getflutter/components/accordian/gf_accordian.dart';
-import 'package:getflutter/getflutter.dart';
+import 'package:getwidget/getwidget.dart';
+
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:groceryPro/screens/drawer/add-address.dart';
@@ -888,9 +888,9 @@ class _CheckoutState extends State<Checkout> {
                               ),
                             ),
                             GFAccordion(
-                              collapsedTitlebackgroundColor: Color(0xFFF0F0F0),
-                              titleborder: Border.all(color: Color(0xffD6D6D6)),
-                              contentbackgroundColor: Colors.white,
+                              collapsedTitleBackgroundColor: Color(0xFFF0F0F0),
+                              titleBorder: Border.all(color: Color(0xffD6D6D6)),
+                              contentBackgroundColor: Colors.white,
                               contentPadding:
                                   EdgeInsets.only(top: 5, bottom: 5),
                               titleChild: Text(

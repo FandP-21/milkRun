@@ -1,10 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:getflutter/components/appbar/gf_appbar.dart';
-import 'package:getflutter/components/button/gf_button.dart';
-import 'package:getflutter/components/loader/gf_loader.dart';
-import 'package:getflutter/components/typography/gf_typography.dart';
-import 'package:getflutter/getflutter.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:groceryPro/screens/authe/login.dart';
 import 'package:groceryPro/screens/home/home.dart';
 import 'package:groceryPro/service/auth-service.dart';

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:groceryPro/service/auth-service.dart';
-import 'package:getflutter/getflutter.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:groceryPro/service/localizations.dart';
 import 'package:groceryPro/service/sentry-service.dart';
 import 'package:groceryPro/service/common.dart';
@@ -129,7 +129,7 @@ class _EditProfileState extends State<EditProfile> {
 
   selectGallary() async {
     // ignore: deprecated_member_use
-    image = await ImagePicker.pickImage(source: ImageSource.gallery);
+    image = await ImagePicker().getImage(source: ImageSource.gallery);
     if (mounted) {
       setState(() {
         isPicUploading = true;
@@ -140,7 +140,7 @@ class _EditProfileState extends State<EditProfile> {
 
   selectCamera() async {
     // ignore: deprecated_member_use
-    image = await ImagePicker.pickImage(source: ImageSource.camera);
+    image = await ImagePicker().getImage(source: ImageSource.camera);
     if (mounted) {
       setState(() {
         isPicUploading = true;
