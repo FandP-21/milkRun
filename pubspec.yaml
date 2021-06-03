@@ -16,18 +16,18 @@ dependencies:
   intl: ^0.17.0
   http: ^0.12.0+2
   sentry: ^2.2.0
-  cupertino_icons: ^0.1.2
+  cupertino_icons: ^1.0.3
   image_picker: ^0.6.3+1
   async_loader: ^0.1.2
   google_maps_flutter: ^0.5.25+3
   socket_io_client: ^0.9.9
   onesignal_flutter: ^2.4.1
   flutter_rating_bar: ^3.0.1+1
-  dotted_border: ^1.0.5
-  flutter_svg: ^0.18.0
+  dotted_border: ^2.0.0
+  flutter_svg: ^0.22.0
   pagination: ^0.1.0
   geocoder: ^0.2.1
-  image: ^2.1.4
+  image: ^3.0.2
   pull_to_refresh: ^1.5.7
   url_launcher: ^5.4.5
   flutter_map_picker: ^0.1.2
@@ -35,7 +35,8 @@ dependencies:
   flutter_dotenv: ^2.1.0
   http_interceptor: ^0.3.2
   fluttertoast: ^7.0.2
-  flutter_html: ^1.0.2
+  flutter_html: ^2.0.0
+  archive: ^3.1.2
   flutter_localizations:
     sdk: flutter
 
@@ -45,8 +46,8 @@ dev_dependencies:
   flutter_driver:
     sdk: flutter
   test: ^1.5.1
-  screenshots: ^2.1.0
-  flutter_launcher_icons: "^0.7.5"
+  # screenshots: ^2.1.0
+  flutter_launcher_icons: ^0.9.0
 
 flutter_icons:
   android: true
