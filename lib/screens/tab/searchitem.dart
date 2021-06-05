@@ -382,8 +382,8 @@ class _SearchItemState extends State<SearchItem> {
                   context,
                   MaterialPageRoute(
                     builder: (BuildContext context) => Home(
-                      locale: widget.locale,
-                      localizedValues: widget.localizedValues,
+                      // locale: widget.locale,
+                      // localizedValues: widget.localizedValues,
                       currentIndex: 2,
                     ),
                   ),

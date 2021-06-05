@@ -243,8 +243,8 @@ class _SavedItemsState extends State<SavedItems> {
                   context,
                   MaterialPageRoute(
                     builder: (BuildContext context) => Home(
-                      locale: widget.locale,
-                      localizedValues: widget.localizedValues,
+                      // locale: widget.locale,
+                      // localizedValues: widget.localizedValues,
                       currentIndex: 2,
                     ),
                   ),

@@ -22,13 +22,13 @@ SentryError sentryError = new SentryError();
 
 class Home extends StatefulWidget {
   final int currentIndex;
-  final Map localizedValues;
-  final String locale;
+/*  final Map localizedValues;
+  final String locale;*/
   Home({
     Key key,
     this.currentIndex,
-    this.locale,
-    this.localizedValues,
+  /*  this.locale,
+    this.localizedValues,*/
   }) : super(key: key);
 
   @override
@@ -203,7 +203,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     }
     List<BottomNavigationBarItem> items = [
       BottomNavigationBarItem(
-        title: Text(MyLocalizations.of(context).getLocalizations("STORE")),
+        title: Text("STORE"),//Text(MyLocalizations.of(context).getLocalizations("STORE")),
         icon: Padding(
           padding: const EdgeInsets.only(top: 8.0),
           child: Icon(
@@ -271,20 +271,20 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
     List<Widget> _screens = [
       Store(
-        locale: widget.locale,
-        localizedValues: widget.localizedValues,
+        // locale: widget.locale,
+        // localizedValues: widget.localizedValues,
       ),
       SavedItems(
-        locale: widget.locale,
-        localizedValues: widget.localizedValues,
+        // locale: widget.locale,
+        // localizedValues: widget.localizedValues,
       ),
       MyCart(
-        locale: widget.locale,
-        localizedValues: widget.localizedValues,
+        // locale: widget.locale,
+        // localizedValues: widget.localizedValues,
       ),
       Profile(
-        locale: widget.locale,
-        localizedValues: widget.localizedValues,
+        // locale: widget.locale,
+        // localizedValues: widget.localizedValues,
       ),
     ];
 
@@ -303,8 +303,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       context,
                       MaterialPageRoute(
                         builder: (context) => SearchItem(
-                          locale: widget.locale,
-                          localizedValues: widget.localizedValues,
+                          // locale: widget.locale,
+                          // localizedValues: widget.localizedValues,
                           currency: currency,
                           token: getTokenValue,
                         ),
@@ -323,8 +323,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           : null,
       drawer: Drawer(
         child: DrawerPage(
-          locale: widget.locale,
-          localizedValues: widget.localizedValues,
+          // locale: widget.locale,
+          // localizedValues: widget.localizedValues,
           addressData: addressData ?? "",
         ),
       ),

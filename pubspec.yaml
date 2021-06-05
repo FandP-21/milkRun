@@ -16,13 +16,13 @@ dependencies:
   location: ^4.1.1
   intl: ^0.17.0
   http: ^0.13.3
-  sentry: ^2.2.0
+  sentry: ^5.0.0
   cupertino_icons: ^1.0.3
   image_picker: ^0.8.0
   async_loader: ^0.1.2
   google_maps_flutter: ^2.0.6
-  socket_io_client: ^0.9.9
-  onesignal_flutter: ^2.4.1
+  socket_io_client: ^1.0.1
+#  onesignal_flutter: ^2.4.1
   flutter_rating_bar: ^3.0.1+1
   dotted_border: ^2.0.0
   flutter_svg: ^0.22.0
@@ -47,7 +47,7 @@ dev_dependencies:
     sdk: flutter
   flutter_driver:
     sdk: flutter
-  test: ^1.5.1
+  test: 1.16.7
   # screenshots: ^2.1.0
   flutter_launcher_icons: ^0.9.0
 

@@ -84,8 +84,8 @@ class _DrawerPageState extends State<DrawerPage> {
                   child: _buildMenuTileList('lib/assets/icons/Home.png',
                       MyLocalizations.of(context).getLocalizations("HOME"), 0,
                       route: Home(
-                        locale: widget.locale,
-                        localizedValues: widget.localizedValues,
+                        // locale: widget.locale,
+                        // localizedValues: widget.localizedValues,
                         currentIndex: 0,
                       )),
                 ),
@@ -125,8 +125,8 @@ class _DrawerPageState extends State<DrawerPage> {
                         MyLocalizations.of(context).getLocalizations("PROFILE"),
                         0,
                         route: Home(
-                          locale: widget.locale,
-                          localizedValues: widget.localizedValues,
+                          // locale: widget.locale,
+                          // localizedValues: widget.localizedValues,
                           currentIndex: 3,
                         ))
                     : Container(),
@@ -158,8 +158,8 @@ class _DrawerPageState extends State<DrawerPage> {
                             .getLocalizations("FAVORITE"),
                         0,
                         route: Home(
-                          locale: widget.locale,
-                          localizedValues: widget.localizedValues,
+                          // locale: widget.locale,
+                          // localizedValues: widget.localizedValues,
                           currentIndex: 1,
                         ))
                     : Container(),

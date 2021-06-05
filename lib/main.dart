@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:groceryPro/screens/home/home.dart';
 import 'package:groceryPro/service/auth-service.dart';
 import 'package:groceryPro/service/common.dart';
@@ -29,11 +28,11 @@ void main() {
 
 void initializeMain() async {
   await DotEnv().load('.env');
-  WidgetsFlutterBinding.ensureInitialized();
-  configLocalNotification();
-  oneSignalTimer = Timer.periodic(Duration(seconds: 4), (timer) {
-    configLocalNotification();
-  });
+   WidgetsFlutterBinding.ensureInitialized();
+  // configLocalNotification();
+  // oneSignalTimer = Timer.periodic(Duration(seconds: 4), (timer) {
+  //   configLocalNotification();
+  // });
   runZoned<Future<Null>>(() {
     runApp(MaterialApp(
       home: AnimatedScreen(),
@@ -57,20 +56,21 @@ void initializeMain() async {
         Zone.current.handleUncaughtError(details.exception, details.stack);
       }
     };
-    LoginService.getLanguageJson(locale).then((value) async {
+    runApp(MainScreen(
+      /* locale: locale,
+          localizedValues: localizedValues,*/
+    ));
+/*    LoginService.getLanguageJson(locale).then((value) async {
       localizedValues = value['response_data']['json'];
       locale = value['response_data']['languageCode'];
       await Common.setSelectedLanguage(locale);
       runZoned<Future<Null>>(() {
-        runApp(MainScreen(
-          locale: locale,
-          localizedValues: localizedValues,
-        ));
+
         return Future.value(null);
       }, onError: (error, stackTrace) {
         sentryError.reportError(error, stackTrace);
       });
-    });
+    });*/
   });
 }
 
@@ -98,7 +98,7 @@ void userInfoMethod() async {
   });
 }
 
-Future<void> configLocalNotification() async {
+/*Future<void> configLocalNotification() async {
   var settings = {
     OSiOSSettings.autoPrompt: true,
     OSiOSSettings.promptBeforeOpeningPushUrl: true
@@ -120,22 +120,22 @@ Future<void> configLocalNotification() async {
     if (oneSignalTimer != null && oneSignalTimer.isActive)
       oneSignalTimer.cancel();
   }
-}
+}*/
 
 class MainScreen extends StatelessWidget {
-  final String locale;
-  final Map localizedValues;
-
+/*  final String locale;
+  final Map localizedValues;*/
+/*
   MainScreen({
     Key key,
     this.locale,
     this.localizedValues,
-  });
+  });*/
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: Locale(locale),
+      /*locale: Locale(locale),
       localizationsDelegates: [
         MyLocalizationsDelegate(localizedValues, [locale]),
         GlobalWidgetsLocalizations.delegate,
@@ -143,13 +143,13 @@ class MainScreen extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
         DefaultCupertinoLocalizations.delegate
       ],
-      supportedLocales: [Locale(locale)],
+      supportedLocales: [Locale(locale)],*/
       debugShowCheckedModeBanner: false,
       title: Constants.appName,
       theme: ThemeData(primaryColor: primary, accentColor: primary),
       home: Home(
-        locale: locale,
-        localizedValues: localizedValues,
+        // locale: locale,
+        // localizedValues: localizedValues,
       ),
     );
   }

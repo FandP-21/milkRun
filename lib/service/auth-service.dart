@@ -116,7 +116,7 @@ class LoginService {
   // get json data
   static Future getLanguageJson(languageCode) async {
     return client
-        .get(Uri.parse(Constants.apiUrl + "/languages/user?code=$languageCode"))
+        .get(Uri.parse(Constants.apiUrl + '/languages/user?code=$languageCode'))
         .then((response) {
       return json.decode(response.body);
     });
