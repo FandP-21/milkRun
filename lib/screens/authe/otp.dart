@@ -109,7 +109,7 @@ class _OtpState extends State<Otp> {
           isOtpVerifyLoading = false;
         });
       }
-      showSnackbar(MyLocalizations.of(context).getLocalizations("OTP_MSG"));
+      showSnackbar("OTP_MSG");
     }
   }
 
@@ -120,7 +120,7 @@ class _OtpState extends State<Otp> {
       builder: (BuildContext context) {
         return new AlertDialog(
           title: new Text(
-            MyLocalizations.of(context).getLocalizations("ERROR"),
+            "ERROR",
             style: hintSfMediumredsmall(),
           ),
           content: new SingleChildScrollView(
@@ -136,7 +136,7 @@ class _OtpState extends State<Otp> {
           actions: <Widget>[
             new FlatButton(
               child: new Text(
-                MyLocalizations.of(context).getLocalizations("OK"),
+                "WELCOME",
                 style: textbarlowRegularaPrimary(),
               ),
               onPressed: () {
@@ -197,7 +197,7 @@ class _OtpState extends State<Otp> {
           Padding(
             padding: const EdgeInsets.only(top: 40.0, left: 15.0, right: 20.0),
             child: Text(
-              MyLocalizations.of(context).getLocalizations("VERIFY_OTP"),
+              "VERIFY_OTP",
               style: textbarlowMediumBlack(),
             ),
           ),
@@ -226,7 +226,7 @@ class _OtpState extends State<Otp> {
                   padding:
                       const EdgeInsets.only(left: 20.0, top: 10.0, right: 20.0),
                   child: Text(
-                    MyLocalizations.of(context).getLocalizations("RESENT_OTP"),
+                    "RESENT_OTP",
                     style: textBarlowRegularBlack(),
                   ),
                 ),
@@ -286,7 +286,7 @@ class _OtpState extends State<Otp> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      MyLocalizations.of(context).getLocalizations("SUBMIT"),
+                      "SUBMIT",
                       style: textBarlowRegularrwhite(),
                     ),
                     SizedBox(

@@ -226,7 +226,7 @@ class _AllProductsState extends State<AllProducts> {
         backgroundColor: bg,
         elevation: 0,
         title: Text(
-          MyLocalizations.of(context).getLocalizations("PRODUCTS"),
+          "PRODUCTS",
           style: textbarlowSemiBoldBlack(),
         ),
         centerTitle: true,
@@ -323,8 +323,7 @@ class _AllProductsState extends State<AllProducts> {
                                               ),
                                             ),
                                             child: Text(
-                                              MyLocalizations.of(context)
-                                                  .getLocalizations("ALL"),
+                                              "ALL",
                                               textAlign: TextAlign.center,
                                               style: textbarlowMediumBlackm(),
                                             ),
@@ -547,10 +546,7 @@ class _AllProductsState extends State<AllProducts> {
                                                                               'dealPercent']
                                                                           .toString() +
                                                                       "% " +
-                                                                      MyLocalizations.of(
-                                                                              context)
-                                                                          .getLocalizations(
-                                                                              "OFF"),
+                                                                      "OFF",
                                                                   style:
                                                                       hintSfboldwhitemed(),
                                                                   textAlign:

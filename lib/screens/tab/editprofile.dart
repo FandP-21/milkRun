@@ -215,7 +215,7 @@ class _EditProfileState extends State<EditProfile> {
                   Padding(
                     padding: const EdgeInsets.only(top: 8.0),
                     child: Text(
-                      MyLocalizations.of(context).getLocalizations("SELECT"),
+                      "SELECT",
                       style: TextStyle(
                           color: Colors.red,
                           fontSize: 20,
@@ -229,8 +229,7 @@ class _EditProfileState extends State<EditProfile> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
-                          MyLocalizations.of(context)
-                              .getLocalizations("TAKE_PHOTO"),
+                          "TAKE_PHOTO",
                           style: hintSfboldBig(),
                         ),
                         Icon(Icons.camera_alt),
@@ -244,8 +243,7 @@ class _EditProfileState extends State<EditProfile> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
-                          MyLocalizations.of(context)
-                              .getLocalizations("CHOOSE_FROM_PHOTOS"),
+                          "CHOOSE_FROM_PHOTOS",
                           style: hintSfboldBig(),
                         ),
                         Icon(Icons.image),
@@ -260,8 +258,7 @@ class _EditProfileState extends State<EditProfile> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Text(
-                                MyLocalizations.of(context)
-                                    .getLocalizations("REMOVE_PHOTO"),
+                                "REMOVE_PHOTO",
                                 style: hintSfboldBig(),
                               ),
                               Icon(Icons.delete_forever),
@@ -306,7 +303,7 @@ class _EditProfileState extends State<EditProfile> {
       key: _scaffoldKey,
       appBar: GFAppBar(
         title: Text(
-          MyLocalizations.of(context).getLocalizations("EDIT_PROFILE"),
+          "EDIT_PROFILE",
           style: textbarlowSemiBoldwhite(),
         ),
         centerTitle: true,
@@ -407,8 +404,7 @@ class _EditProfileState extends State<EditProfile> {
                     padding: const EdgeInsets.only(
                         left: 18.0, right: 18.0, bottom: 5, top: 5),
                     child: Text(
-                      MyLocalizations.of(context)
-                          .getLocalizations("FIRST_NAME", true),
+                      "FIRST_NAME",
                       style: textbarlowRegularBlack(),
                     ),
                   ),
@@ -444,8 +440,7 @@ class _EditProfileState extends State<EditProfile> {
                       },
                       validator: (String value) {
                         if (value.isEmpty) {
-                          return MyLocalizations.of(context)
-                              .getLocalizations("ENTER_FIRST_NAME");
+                          return "ENTER_FIRST_NAME";
                         } else
                           return null;
                       },
@@ -456,8 +451,7 @@ class _EditProfileState extends State<EditProfile> {
                     padding: const EdgeInsets.only(
                         left: 18.0, right: 18.0, bottom: 5, top: 5),
                     child: Text(
-                      MyLocalizations.of(context)
-                          .getLocalizations("LAST_NAME", true),
+                      "LAST_NAME",
                       style: textbarlowRegularBlack(),
                     ),
                   ),
@@ -493,8 +487,7 @@ class _EditProfileState extends State<EditProfile> {
                       },
                       validator: (String value) {
                         if (value.isEmpty) {
-                          return MyLocalizations.of(context)
-                              .getLocalizations("ENTER_LAST_NAME");
+                          return "ENTER_LAST_NAME";
                         } else
                           return null;
                       },
@@ -505,8 +498,7 @@ class _EditProfileState extends State<EditProfile> {
                     padding: const EdgeInsets.only(
                         left: 18.0, bottom: 5.0, right: 18.0),
                     child: Text(
-                      MyLocalizations.of(context)
-                          .getLocalizations("CONTACT_NUMBER", true),
+                      "CONTACT_NUMBER",
                       style: textbarlowRegularBlack(),
                     ),
                   ),
@@ -542,8 +534,7 @@ class _EditProfileState extends State<EditProfile> {
                       },
                       validator: (String value) {
                         if (value.isEmpty) {
-                          return MyLocalizations.of(context)
-                              .getLocalizations("ENTER_CONTACT_NUMBER");
+                          return "ENTER_CONTACT_NUMBER";
                         } else
                           return null;
                       },
@@ -570,7 +561,7 @@ class _EditProfileState extends State<EditProfile> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  MyLocalizations.of(context).getLocalizations("SUBMIT"),
+                  "SUBMIT",
                   style: textBarlowRegularrwhite(),
                 ),
                 profileEdit

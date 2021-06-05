@@ -263,10 +263,10 @@ class _CheckoutState extends State<Checkout> {
   placeOrder() async {
     if (selecteAddressValue == null) {
       showSnackbar(
-          MyLocalizations.of(context).getLocalizations("SELECT_ADDESS_MSG"));
+          "SELECT_ADDESS_MSG");
     } else if (selectSlot == null) {
       showSnackbar(
-          MyLocalizations.of(context).getLocalizations("SELECT_TIME_MSG"));
+          "SELECT_TIME_MSG");
     } else {
       Map<String, dynamic> data = {
         "deliverySlotId": deliverySlotList[dateSelectedValue]['timings']
@@ -388,8 +388,7 @@ class _CheckoutState extends State<Checkout> {
                                 height: 30.0,
                                 decoration: BoxDecoration(),
                                 child: Text(
-                                  MyLocalizations.of(context)
-                                      .getLocalizations("OK"),
+                                  "OK",
                                   style: hintSfLightbig(),
                                 ),
                               ),
@@ -447,7 +446,7 @@ class _CheckoutState extends State<Checkout> {
       key: _scaffoldKey,
       appBar: GFAppBar(
         title: Text(
-          MyLocalizations.of(context).getLocalizations("CHECKOUT"),
+          "CHECKOUT",
           style: textbarlowSemiBoldBlack(),
         ),
         centerTitle: true,
@@ -487,8 +486,7 @@ class _CheckoutState extends State<Checkout> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                      MyLocalizations.of(context)
-                                          .getLocalizations("CART_SUMMARY"),
+                                      "CART_SUMMARY",
                                       style: textBarlowSemiBoldBlackbigg()),
                                   SizedBox(height: 10),
                                   Row(
@@ -496,11 +494,9 @@ class _CheckoutState extends State<Checkout> {
                                         MainAxisAlignment.spaceBetween,
                                     children: <Widget>[
                                       Text(
-                                        MyLocalizations.of(context)
-                                                .getLocalizations("SUB_TOTAL") +
+                                        "SUB_TOTAL" +
                                             ' ( ${cartItem['products'].length} ' +
-                                            MyLocalizations.of(context)
-                                                .getLocalizations("ITEMS") +
+                                            "ITEMS" +
                                             ')',
                                         style: textBarlowRegularBlack(),
                                       ),
@@ -538,18 +534,12 @@ class _CheckoutState extends State<Checkout> {
                                                 ),
                                                 cartItem['taxInfo'] == null
                                                     ? Text(
-                                                        MyLocalizations.of(
-                                                                context)
-                                                            .getLocalizations(
-                                                                "TAX"),
+                                                  "TAX",
                                                         style:
                                                             textBarlowRegularBlack(),
                                                       )
                                                     : Text(
-                                                        MyLocalizations.of(
-                                                                    context)
-                                                                .getLocalizations(
-                                                                    "TAX") +
+                                                  "TAX" +
                                                             " (" +
                                                             cartItem['taxInfo']
                                                                 ['taxName'] +
@@ -594,10 +584,7 @@ class _CheckoutState extends State<Checkout> {
                                                           .spaceBetween,
                                                   children: <Widget>[
                                                     Text(
-                                                      MyLocalizations.of(
-                                                                  context)
-                                                              .getLocalizations(
-                                                                  "COUPON_APPLIED") +
+                                                      "COUPON_APPLIED" +
                                                           " (" +
                                                           "${cartItem['couponCode']}"
                                                               ")",

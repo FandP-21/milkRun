@@ -20,14 +20,14 @@ bool get isInDebugMode {
   return inDebugMode;
 }
 
-Timer oneSignalTimer;
+//Timer oneSignalTimer;
 
 void main() {
   initializeMain();
 }
 
 void initializeMain() async {
-  await DotEnv().load('.env');
+  //await DotEnv().load('.env');
    WidgetsFlutterBinding.ensureInitialized();
   // configLocalNotification();
   // oneSignalTimer = Timer.periodic(Duration(seconds: 4), (timer) {
@@ -35,7 +35,7 @@ void initializeMain() async {
   // });
   runZoned<Future<Null>>(() {
     runApp(MaterialApp(
-      home: AnimatedScreen(),
+      home: MainScreen(),
       debugShowCheckedModeBanner: false,
     ));
     return Future.value(null);

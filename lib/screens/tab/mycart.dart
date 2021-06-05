@@ -295,7 +295,7 @@ class _MyCartState extends State<MyCart> {
     if (cartItem['subTotal'] >= minAmout['minimumOrderAmountToPlaceOrder']) {
       checkProductAvailableOrNot();
     } else {
-      showError(MyLocalizations.of(context).getLocalizations("MIN_AMOUNT_MEG") +
+      showError("Min Amount" +
           "($currency${minAmout['minimumOrderAmountToPlaceOrder'].toString()})");
     }
   }
@@ -346,7 +346,7 @@ class _MyCartState extends State<MyCart> {
           ),
           actions: <Widget>[
             FlatButton(
-              child: Text(MyLocalizations.of(context).getLocalizations("OK")),
+              child: Text("OK"),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -368,7 +368,7 @@ class _MyCartState extends State<MyCart> {
               ? null
               : GFAppBar(
                   title: Text(
-                    MyLocalizations.of(context).getLocalizations("MY_CART"),
+                    "My Cart",
                     style: textbarlowSemiBoldBlack(),
                   ),
                   centerTitle: true,
@@ -404,15 +404,12 @@ class _MyCartState extends State<MyCart> {
                                       cartItem == null
                                           ? Text(
                                               '0 ' +
-                                                  MyLocalizations.of(context)
-                                                      .getLocalizations("ITEM"),
+                                                  "Item",
                                               style: textBarlowMediumBlack(),
                                             )
                                           : Text(
                                               '(${cartItem['products'].length}) ' +
-                                                  MyLocalizations.of(context)
-                                                      .getLocalizations(
-                                                          "ITEMS"),
+                                                  "Items",
                                               style: textBarlowMediumBlack(),
                                             ),
                                       InkWell(
@@ -420,8 +417,7 @@ class _MyCartState extends State<MyCart> {
                                           deleteAllCart();
                                         },
                                         child: Text(
-                                          MyLocalizations.of(context)
-                                              .getLocalizations("CLEAR_CART"),
+                                          "Clear Cart",
                                           style: textBarlowMediumBlack(),
                                         ),
                                       ),
@@ -569,20 +565,14 @@ class _MyCartState extends State<MyCart> {
                                                             'isDealAvailable'] ==
                                                         true
                                                     ? Text(
-                                                        MyLocalizations.of(
-                                                                    context)
-                                                                .getLocalizations(
-                                                                    "DEAL") +
+                                                  "DEAL" +
                                                             " " +
                                                             (cartItem['products']
                                                                         [i][
                                                                     'dealPercent'])
                                                                 .toString() +
                                                             "% " +
-                                                            MyLocalizations.of(
-                                                                    context)
-                                                                .getLocalizations(
-                                                                    "OFF"),
+                                                      "OFF",
                                                         style:
                                                             barlowregularlack(),
                                                         // textBarlowRegularBlack(),
@@ -736,8 +726,7 @@ class _MyCartState extends State<MyCart> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             new Text(
-                              MyLocalizations.of(context)
-                                  .getLocalizations("SUB_TOTAL"),
+                              "SUB_TOTAL",
                               style: textBarlowRegularBlack(),
                             ),
                             new Text(
@@ -764,13 +753,11 @@ class _MyCartState extends State<MyCart> {
                                       SizedBox(width: 5),
                                       cartItem['taxInfo'] == null
                                           ? new Text(
-                                              MyLocalizations.of(context)
-                                                  .getLocalizations("TAX"),
+                                        "TAX",
                                               style: textBarlowRegularBlack(),
                                             )
                                           : new Text(
-                                              MyLocalizations.of(context)
-                                                      .getLocalizations("TAX") +
+                                        "TAX" +
                                                   " (" +
                                                   cartItem['taxInfo']
                                                       ['taxName'] +
@@ -801,11 +788,9 @@ class _MyCartState extends State<MyCart> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
                                   new Text(
-                                    MyLocalizations.of(context)
-                                            .getLocalizations(
-                                                "COUPON_APPLIED") +
+                                    "COUPON_APPLIED" +
                                         " (" +
-                                        "${MyLocalizations.of(context).getLocalizations("DISCOUNT")}"
+                                        "DISCOUNT"
                                             ")",
                                     style: textBarlowRegularBlack(),
                                   ),
@@ -830,13 +815,11 @@ class _MyCartState extends State<MyCart> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
                                   new Text(
-                                    MyLocalizations.of(context)
-                                        .getLocalizations("DELIVERY_CHARGES"),
+                                    "DELIVERY_CHARGES",
                                     style: textBarlowRegularBlack(),
                                   ),
                                   new Text(
-                                    MyLocalizations.of(context)
-                                        .getLocalizations("FREE"),
+                                    "FREE",
                                     style: textbarlowBoldsmBlack(),
                                   ),
                                 ],
@@ -854,9 +837,7 @@ class _MyCartState extends State<MyCart> {
                                         CrossAxisAlignment.center,
                                     children: <Widget>[
                                       new Text(
-                                        MyLocalizations.of(context)
-                                            .getLocalizations(
-                                                "DELIVERY_CHARGES"),
+                                        "DELIVERY_CHARGES",
                                         style: textBarlowRegularBlack(),
                                       ),
                                       new Text(
@@ -897,8 +878,7 @@ class _MyCartState extends State<MyCart> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   Text(
-                                    MyLocalizations.of(context)
-                                        .getLocalizations("TOTAL"),
+                                    "TOTAL",
                                     style: textBarlowRegularWhite(),
                                   ),
                                   new Text(
@@ -923,8 +903,7 @@ class _MyCartState extends State<MyCart> {
                                             )
                                           : Text(""),
                                       Text(
-                                        MyLocalizations.of(context)
-                                            .getLocalizations("CHECKOUT"),
+                                        "CHECKOUT",
                                         style: textbarlowRegularWhite(),
                                       ),
                                       Icon(

@@ -40,8 +40,7 @@ class _ChangePasswordState extends State<ChangePassword> {
     if (form.validate()) {
       form.save();
       if (newPassword == oldPassword) {
-        showSnackbar(MyLocalizations.of(context)
-            .getLocalizations("DO_NOT_ENTER_SAME_PASS"));
+        showSnackbar("DO_NOT_ENTER_SAME_PASS");
       } else {
         if (mounted) {
           setState(() {
@@ -120,7 +119,7 @@ class _ChangePasswordState extends State<ChangePassword> {
           ),
         ),
         title: Text(
-          MyLocalizations.of(context).getLocalizations("CHANGE_PASSWORD"),
+          "DO_NOT_ENTER_SAME_PASS",
           style: textbarlowSemiBoldwhite(),
         ),
         centerTitle: true,
@@ -143,8 +142,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                       text: TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: MyLocalizations.of(context)
-                                  .getLocalizations("ENTER_OLD_PASSWORD", true),
+                              text: "ENTER_OLD_PASSWORD",
                               style: textBarlowRegularBlack()),
                           TextSpan(
                             text: ' ',
@@ -191,11 +189,9 @@ class _ChangePasswordState extends State<ChangePassword> {
                     ),
                     validator: (String value) {
                       if (value.isEmpty) {
-                        return MyLocalizations.of(context)
-                            .getLocalizations("ENTER_OLD_PASSWORD");
+                        return "ENTER_OLD_PASSWORD";
                       } else if (value.length < 6) {
-                        return MyLocalizations.of(context)
-                            .getLocalizations("ERROR_PASS");
+                        return "ERROR_PASS";
                       } else
                         return null;
                     },
@@ -215,8 +211,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                     text: TextSpan(
                       children: <TextSpan>[
                         TextSpan(
-                            text: MyLocalizations.of(context)
-                                .getLocalizations("ENTER_NEW_PASSWORD", true),
+                            text: "ENTER_NEW_PASSWORD",
                             style: textBarlowRegularBlack()),
                         TextSpan(
                           text: ' ',
@@ -262,11 +257,9 @@ class _ChangePasswordState extends State<ChangePassword> {
                     ),
                     validator: (String value) {
                       if (value.isEmpty) {
-                        return MyLocalizations.of(context)
-                            .getLocalizations("ENTER_NEW_PASSWORD");
+                        return "ENTER_NEW_PASSWORD";
                       } else if (value.length < 6) {
-                        return MyLocalizations.of(context)
-                            .getLocalizations("ERROR_PASS");
+                        return "ERROR_PASS";
                       } else
                         return null;
                     },
@@ -287,8 +280,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                     text: TextSpan(
                       children: <TextSpan>[
                         TextSpan(
-                            text: MyLocalizations.of(context).getLocalizations(
-                                "ENTER_CONFIRM_PASSWORD", true),
+                            text: "ENTER_CONFIRM_PASSWORD",
                             style: textBarlowRegularBlack()),
                         TextSpan(
                           text: ' ',
@@ -336,14 +328,11 @@ class _ChangePasswordState extends State<ChangePassword> {
                     ),
                     validator: (String value) {
                       if (value.isEmpty) {
-                        return MyLocalizations.of(context)
-                            .getLocalizations("ENTER_CONFIRM_PASSWORD");
+                        return "ENTER_CONFIRM_PASSWORD";
                       } else if (value.length < 6) {
-                        return MyLocalizations.of(context)
-                            .getLocalizations("ERROR_PASS");
+                        return "ERROR_PASS";
                       } else if (_passwordTextController.text != value) {
-                        return MyLocalizations.of(context)
-                            .getLocalizations("PASS_NOT_MATCH");
+                        return "PASS_NOT_MATCH";
                       } else
                         return null;
                     },
@@ -375,8 +364,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          MyLocalizations.of(context)
-                              .getLocalizations("SUBMIT"),
+                          "SUBMIT",
                           style: textBarlowRegularrwhite(),
                         ),
                         SizedBox(

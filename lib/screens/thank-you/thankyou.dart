@@ -28,13 +28,13 @@ class _ThankyouState extends State<Thankyou> {
             Image.asset('lib/assets/images/thank-you.png'),
             SizedBox(height: 10.0),
             Text(
-              MyLocalizations.of(context).getLocalizations("ORDER_PLACED"),
+              "ORDER_PLACED",
               textAlign: TextAlign.center,
               style: textbarlowMediumBlack(),
             ),
             SizedBox(height: 13.0),
             Text(
-              MyLocalizations.of(context).getLocalizations("THANK_YOU"),
+              "THANK_YOU",
               textAlign: TextAlign.center,
               style: textbarlowMediumlgBlack(),
             ),
@@ -63,7 +63,7 @@ class _ThankyouState extends State<Thankyou> {
               },
               color: Colors.black,
               child: Text(
-                MyLocalizations.of(context).getLocalizations("ORDERS"),
+                "ORDERS",
                 style: textbarlowMediumPrimary(),
               ),
             ),

@@ -151,7 +151,7 @@ class _ChatState extends State<Chat> with TickerProviderStateMixin {
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20))),
           title: new Text(
-            MyLocalizations.of(context).getLocalizations("CHAT"),
+            "Chat",
             style: textbarlowSemiBoldwhite(),
           ),
           centerTitle: true,

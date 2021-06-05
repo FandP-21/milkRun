@@ -110,7 +110,7 @@ class _OrderDetailsState extends State<OrderDetails> {
       builder: (context) {
         return AlertDialog(
           title: Text(
-            MyLocalizations.of(context).getLocalizations("RATE_PRODUCT"),
+            "RATE_PRODUCT",
             style: TextStyle(
                 color: Colors.black,
                 fontSize: 20,
@@ -123,7 +123,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                 onPressed: () {
                   orderRating(productID);
                 },
-                text: MyLocalizations.of(context).getLocalizations("SUBMIT"),
+                text: "SUBMIT",
                 color: primary,
                 textStyle: textBarlowRegularrWhite(),
               ),
@@ -180,7 +180,7 @@ class _OrderDetailsState extends State<OrderDetails> {
       backgroundColor: Color(0xFFFDFDFD),
       appBar: GFAppBar(
         title: Text(
-          MyLocalizations.of(context).getLocalizations("ORDER_DETAILS"),
+          "ORDER_DETAILS",
           style: textbarlowSemiBoldwhite(),
         ),
         centerTitle: true,
@@ -217,9 +217,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                                       children: <Widget>[
                                         Expanded(
                                           child: Text(
-                                              MyLocalizations.of(context)
-                                                      .getLocalizations(
-                                                          "ORDER_ID", true) +
+                                              "ORDER_ID" +
                                                   "#" +
                                                   orderHistory['order']
                                                           ['orderID']
@@ -235,9 +233,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                                       children: <Widget>[
                                         Expanded(
                                           child: Text(
-                                              MyLocalizations.of(context)
-                                                      .getLocalizations(
-                                                          "DATE", true) +
+                                              "DATE" +
                                                   DateFormat(
                                                           'dd/MM/yyyy, hh:mm a')
                                                       .format(DateTime.parse(
@@ -259,10 +255,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                                       children: <Widget>[
                                         Expanded(
                                           child: Text(
-                                              MyLocalizations.of(context)
-                                                      .getLocalizations(
-                                                          "DELIVERY_DATE",
-                                                          true) +
+                                              "DELIVERY_DATE" +
                                                   orderHistory['order']
                                                       ['deliveryDate'],
                                               overflow: TextOverflow.ellipsis,
@@ -277,10 +270,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                                       children: <Widget>[
                                         Expanded(
                                           child: Text(
-                                              MyLocalizations.of(context)
-                                                      .getLocalizations(
-                                                          "DELIVERY_TIME",
-                                                          true) +
+                                              "DELIVERY_TIME"+
                                                   orderHistory['order']
                                                       ['deliveryTime'],
                                               style: textBarlowMediumBlack()),
@@ -295,9 +285,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                                             children: <Widget>[
                                               Expanded(
                                                 child: Text(
-                                                    MyLocalizations.of(context)
-                                                            .getLocalizations(
-                                                                "TIME_ZONE_MESSAGE") +
+                                                    "TIME_ZONE_MESSAGE"+
                                                         " *",
                                                     style:
                                                         textBarlowMediumBlackRed()),
@@ -314,9 +302,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                                       children: <Widget>[
                                         Expanded(
                                           child: Text(
-                                              MyLocalizations.of(context)
-                                                      .getLocalizations(
-                                                          "PAYMENT_TYPE", true) +
+                                              "PAYMENT_TYPE" +
                                                   (orderHistory['order']['paymentType'] == 'COD'
                                                       ? MyLocalizations.of(context)
                                                           .getLocalizations(
@@ -358,33 +344,23 @@ class _OrderDetailsState extends State<OrderDetails> {
                                           MainAxisAlignment.start,
                                       children: <Widget>[
                                         Text(
-                                            MyLocalizations.of(context)
-                                                .getLocalizations(
-                                                    "ORDER_STAUS", true),
+                                            "ORDER_STAUS",
                                             style: textBarlowMediumBlack()),
                                         SizedBox(height: 5),
                                         Expanded(
                                           child: Text(
                                               orderHistory['order']['orderStatus'] == "DELIVERED"
-                                                  ? MyLocalizations.of(context)
-                                                      .getLocalizations(
-                                                          "DELIVERED")
+                                                  ?  "DELIVERED"
                                                   : orderHistory['order']
                                                               ['orderStatus'] ==
                                                           "CANCELLED"
-                                                      ? MyLocalizations.of(context)
-                                                          .getLocalizations(
-                                                              "CANCELLED")
+                                                      ? "CANCELLED"
                                                       : orderHistory['order']['orderStatus'] == "OUT_FOR_DELIVERY"
-                                                          ? MyLocalizations.of(context)
-                                                              .getLocalizations(
-                                                                  "OUT_FOR_DELIVERY")
+                                                          ? "OUT_FOR_DELIVERY"
                                                           : orderHistory['order']['orderStatus'] == "CONFIRMED"
-                                                              ? MyLocalizations.of(context)
-                                                                  .getLocalizations(
-                                                                      "CONFIRMED")
+                                                              ? "CONFIRMED"
                                                               : orderHistory['order']['orderStatus'] == "PENDING"
-                                                                  ? MyLocalizations.of(context).getLocalizations("PENDING")
+                                                                  ? "PENDING"
                                                                   : orderHistory['order']['orderStatus'],
                                               style: textBarlowMediumGreen()),
                                         ),
@@ -654,8 +630,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Text(
-                                  MyLocalizations.of(context).getLocalizations(
-                                      "DELIVERY_CHARGES", true),
+                                  "DELIVERY_CHARGES",
                                   style: textBarlowMediumBlack()),
                               Container(
                                 margin: EdgeInsets.only(left: 8),

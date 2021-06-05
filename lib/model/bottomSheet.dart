@@ -150,10 +150,9 @@ class _BottonSheetClassDryCleanState extends State<BottonSheetClassDryClean> {
         });
       }
 
-      showSnackbar(MyLocalizations.of(context)
-              .getLocalizations("LIMITED_STOCK") +
+      showSnackbar("Limited Stocks"+
           " ${variantStock == null ? widget.variantsList[0]['productStock'] : variantStock} " +
-          MyLocalizations.of(context).getLocalizations("OF_THIS_ITEM"));
+          "Of This item");
     }
   }
 
@@ -172,8 +171,7 @@ class _BottonSheetClassDryCleanState extends State<BottonSheetClassDryClean> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    MyLocalizations.of(context)
-                        .getLocalizations("QUANTITY", true),
+                    "Quantity",
                     style: textBarlowMediumBlack(),
                   ),
                   Container(
@@ -222,11 +220,9 @@ class _BottonSheetClassDryCleanState extends State<BottonSheetClassDryClean> {
                                     quantity) {
                                   _changeProductQuantity(true);
                                 } else {
-                                  showSnackbar(MyLocalizations.of(context)
-                                          .getLocalizations("LIMITED_STOCK") +
+                                  showSnackbar("Limited Stocks" +
                                       " ${variantStock == null ? widget.variantsList[0]['productStock'] : variantStock} " +
-                                      MyLocalizations.of(context)
-                                          .getLocalizations("OF_THIS_ITEM"));
+                                      "Of this item");
                                 }
                               },
                               child: Icon(Icons.add),
@@ -343,8 +339,7 @@ class _BottonSheetClassDryCleanState extends State<BottonSheetClassDryClean> {
                                 style: textBarlowRegularWhite(),
                               ),
                               TextSpan(
-                                  text: MyLocalizations.of(context)
-                                      .getLocalizations("ITEMS"),
+                                  text: "ITEMS",
                                   style: textBarlowRegularWhite()),
                             ],
                           ),
@@ -370,7 +365,7 @@ class _BottonSheetClassDryCleanState extends State<BottonSheetClassDryClean> {
                 Padding(
                   padding: const EdgeInsets.only(left: 0.0),
                   child: new Text(
-                    MyLocalizations.of(context).getLocalizations("ADD_TO_CART"),
+                    "ADD_TO_CART",
                     style: textBarlowRegularBlack(),
                   ),
                 ),

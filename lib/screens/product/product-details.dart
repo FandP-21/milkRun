@@ -203,10 +203,9 @@ class _ProductDetailsState extends State<ProductDetails>
           addProductTocart = false;
         });
       }
-      showSnackbar(MyLocalizations.of(context)
-              .getLocalizations("LIMITED_STOCK") +
+      showSnackbar("LIMITED_STOCK" +
           " ${variantStock == null ? productDetail['variant'][0]['productStock'] : variantStock} " +
-          MyLocalizations.of(context).getLocalizations("OF_THIS_ITEM"));
+          "OF_THIS_ITEM");
     }
   }
 
@@ -262,14 +261,14 @@ class _ProductDetailsState extends State<ProductDetails>
           actions: <Widget>[
             FlatButton(
               child:
-                  Text(MyLocalizations.of(context).getLocalizations("CANCEL")),
+                  Text("CANCEL"),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             FlatButton(
               child: Text(
-                  MyLocalizations.of(context).getLocalizations("CLEAR_CART")),
+                  "CLEAR_CART"),
               onPressed: () {
                 Navigator.pop(context);
 
@@ -463,8 +462,7 @@ class _ProductDetailsState extends State<ProductDetails>
                                         MainAxisAlignment.spaceBetween,
                                     children: <Widget>[
                                       Text(
-                                        MyLocalizations.of(context)
-                                            .getLocalizations("QUANTITY", true),
+                                        "QUANTITY",
                                         style: textBarlowMediumBlack(),
                                       ),
                                       Container(
@@ -524,15 +522,9 @@ class _ProductDetailsState extends State<ProductDetails>
                                                       _changeProductQuantity(
                                                           true);
                                                     } else {
-                                                      showSnackbar(MyLocalizations
-                                                                  .of(context)
-                                                              .getLocalizations(
-                                                                  "LIMITED_STOCK") +
+                                                      showSnackbar("LIMITED_STOCK" +
                                                           " ${variantStock == null ? productDetail['variant'][0]['productStock'] : variantStock} " +
-                                                          MyLocalizations.of(
-                                                                  context)
-                                                              .getLocalizations(
-                                                                  "OF_THIS_ITEM"));
+                                                          "OF_THIS_ITEM");
                                                     }
                                                   },
                                                   child: Icon(Icons.add),
@@ -750,8 +742,7 @@ class _ProductDetailsState extends State<ProductDetails>
                                       style: textBarlowRegularWhite(),
                                     ),
                                     TextSpan(
-                                        text: MyLocalizations.of(context)
-                                            .getLocalizations("ITEMS"),
+                                        text: "ITEMS",
                                         style: textBarlowRegularWhite()),
                                   ],
                                 ),

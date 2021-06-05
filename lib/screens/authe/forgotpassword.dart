@@ -56,7 +56,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               actions: <Widget>[
                 new FlatButton(
                   child: new Text(
-                    MyLocalizations.of(context).getLocalizations("SUBMIT"),
+                    "SUBMIT",
                     style: textbarlowRegularaPrimary(),
                   ),
                   onPressed: () {
@@ -107,7 +107,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           ),
         ),
         title: Text(
-          MyLocalizations.of(context).getLocalizations("FORGET_PASSWORD"),
+          "FORGET_PASSWORD",
           style: textbarlowSemiBoldwhite(),
         ),
         centerTitle: true,
@@ -213,7 +213,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        MyLocalizations.of(context).getLocalizations("SUBMIT"),
+                        "SUBMIT",
                         style: textBarlowRegularrwhite(),
                       ),
                       SizedBox(

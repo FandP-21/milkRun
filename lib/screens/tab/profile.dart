@@ -201,7 +201,7 @@ class _ProfileState extends State<Profile> {
               : GFAppBar(
                   elevation: 0,
                   title: Text(
-                    MyLocalizations.of(context).getLocalizations("PROFILE"),
+                    "PROFILE",
                     style: textbarlowSemiBoldwhite(),
                   ),
                   centerTitle: true,
@@ -345,14 +345,11 @@ class _ProfileState extends State<Profile> {
                                               padding: const EdgeInsets.only(
                                                   top: 5.0),
                                               child: Text(
-                                                (MyLocalizations.of(context)
-                                                        .getLocalizations(
-                                                            "TOTAL_WALLET_AMOUNT",
-                                                            true) +
+                                                  "TOTAL_WALLET_AMOUNT" +
                                                     currency +
                                                     walletAmount
                                                         .toDouble()
-                                                        .toStringAsFixed(2)),
+                                                        .toStringAsFixed(2),
                                                 style: textbarlowmedium(),
                                               ),
                                             )
@@ -412,8 +409,7 @@ class _ProfileState extends State<Profile> {
                                       left: 20.0,
                                       right: 20.0),
                                   child: Text(
-                                    MyLocalizations.of(context)
-                                        .getLocalizations("ADDRESS"),
+    "ADDRESS",
                                     style: textBarlowMediumBlack(),
                                   ),
                                 ),
@@ -444,9 +440,7 @@ class _ProfileState extends State<Profile> {
                                             left: 20.0,
                                             right: 20.0),
                                         child: Text(
-                                          MyLocalizations.of(context)
-                                              .getLocalizations(
-                                                  "SELECT_LANGUAGE"),
+    "SELECT_LANGUAGE",
                                           style: textBarlowMediumBlack(),
                                         ),
                                       ),
@@ -485,8 +479,7 @@ class _ProfileState extends State<Profile> {
                                       left: 20.0,
                                       right: 20.0),
                                   child: Text(
-                                    MyLocalizations.of(context)
-                                        .getLocalizations("MY_ORDERS"),
+    "MY_ORDERS",
                                     style: textBarlowMediumBlack(),
                                   ),
                                 ),
@@ -523,8 +516,7 @@ class _ProfileState extends State<Profile> {
                                       left: 20.0,
                                       right: 20.0),
                                   child: Text(
-                                    MyLocalizations.of(context)
-                                        .getLocalizations("CHANGE_PASSWORD"),
+    "CHANGE_PASSWORD",
                                     style: textBarlowMediumBlack(),
                                   ),
                                 ),
@@ -550,8 +542,7 @@ class _ProfileState extends State<Profile> {
                                       left: 20.0,
                                       right: 20.0),
                                   child: Text(
-                                    MyLocalizations.of(context)
-                                        .getLocalizations("LOGOUT"),
+    "LOGOUT",
                                     style: textBarlowMediumBlack(),
                                   ),
                                 ),

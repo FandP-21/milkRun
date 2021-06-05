@@ -73,7 +73,7 @@ class _ResetPasswordState extends State<ResetPassword> {
               actions: <Widget>[
                 new FlatButton(
                   child: new Text(
-                    MyLocalizations.of(context).getLocalizations("OK"),
+                    "Ok",
                     style: textbarlowRegularaPrimary(),
                   ),
                   onPressed: () {
@@ -122,7 +122,7 @@ class _ResetPasswordState extends State<ResetPassword> {
           ),
         ),
         title: Text(
-          MyLocalizations.of(context).getLocalizations("RESET"),
+          "Reset",
           style: textbarlowSemiBoldwhite(),
         ),
         centerTitle: true,
@@ -145,8 +145,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                       text: TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: MyLocalizations.of(context)
-                                  .getLocalizations("ENTER_PASSWORD", true),
+                              text: "Enter Password",
                               style: textBarlowRegularBlack()),
                           TextSpan(
                             text: ' ',
@@ -193,11 +192,9 @@ class _ResetPasswordState extends State<ResetPassword> {
                     ),
                     validator: (String value) {
                       if (value.isEmpty) {
-                        return MyLocalizations.of(context)
-                            .getLocalizations("ENTER_PASSWORD");
+                        return "ENTER_PASSWORD";
                       } else if (value.length < 6) {
-                        return MyLocalizations.of(context)
-                            .getLocalizations("ERROR_PASS");
+                        return "ERROR_PASS";
                       } else
                         return null;
                     },
@@ -218,8 +215,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                     text: TextSpan(
                       children: <TextSpan>[
                         TextSpan(
-                            text: MyLocalizations.of(context).getLocalizations(
-                                "RE_ENTER_NEW_PASSWORD", true),
+                            text: "RE_ENTER_NEW_PASSWORD",
                             style: textBarlowRegularBlack()),
                         TextSpan(
                           text: ' ',
@@ -267,14 +263,11 @@ class _ResetPasswordState extends State<ResetPassword> {
                     ),
                     validator: (String value) {
                       if (value.isEmpty) {
-                        return MyLocalizations.of(context)
-                            .getLocalizations("ENTER_PASSWORD");
+                        return "ENTER_PASSWORD";
                       } else if (value.length < 6) {
-                        return MyLocalizations.of(context)
-                            .getLocalizations("ERROR_PASS");
+                        return "ERROR_PASS";
                       } else if (_passwordTextController.text != value) {
-                        return MyLocalizations.of(context)
-                            .getLocalizations("PASS_NOT_MATCH");
+                        return "PASS_NOT_MATCH";
                       } else
                         return null;
                     },
@@ -306,8 +299,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          MyLocalizations.of(context)
-                              .getLocalizations("SUBMIT"),
+                          "SUBMIT",
                           style: textBarlowRegularrwhite(),
                         ),
                         SizedBox(

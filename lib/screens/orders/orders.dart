@@ -97,7 +97,7 @@ class _OrdersState extends State<Orders> {
       backgroundColor: Color(0xFFFDFDFD),
       appBar: GFAppBar(
         title: Text(
-          MyLocalizations.of(context).getLocalizations("MY_ORDERS"),
+          "MY_ORDERS",
           style: textbarlowSemiBoldwhite(),
         ),
         centerTitle: true,
@@ -217,7 +217,7 @@ class _OrdersState extends State<Orders> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  '${MyLocalizations.of(context).getLocalizations("ORDER_ID", true)}  #${orderDetails['orderID']}' ??
+                  '"ORDER_ID"  #${orderDetails['orderID']}' ??
                       "",
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
@@ -235,10 +235,9 @@ class _OrdersState extends State<Orders> {
                 orderDetails['totalProduct'] == 1
                     ? Container()
                     : Text(
-                        MyLocalizations.of(context).getLocalizations("AND") +
+                  "AND" +
                             ' ${orderDetails['totalProduct'].toString()} ' +
-                            MyLocalizations.of(context)
-                                .getLocalizations("MORE_ITEMS"),
+                      "MORE_ITEMS",
                         style: textSMBarlowRegularrBlack(),
                       ),
                 SizedBox(height: 10),
@@ -248,8 +247,7 @@ class _OrdersState extends State<Orders> {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  MyLocalizations.of(context)
-                          .getLocalizations("ORDERED", true) +
+                  "ORDERED" +
                       DateFormat('dd/MM/yyyy, hh:mm a').format(
                           DateTime.parse(orderDetails['createdAt'].toString())
                               .toLocal()),
@@ -287,7 +285,7 @@ class _OrdersState extends State<Orders> {
               ],
             ),
             title: Text(
-              MyLocalizations.of(context).getLocalizations("ORDER_CONFIRMED"),
+              "ORDER_CONFIRMED",
               style: orderDetails['orderStatus'] == "CONFIRMED" ||
                       orderDetails['orderStatus'] == "OUT_FOR_DELIVERY"
                   ? titleSegoeGreen()
@@ -319,7 +317,7 @@ class _OrdersState extends State<Orders> {
               ],
             ),
             title: Text(
-              MyLocalizations.of(context).getLocalizations("OUT_FOR_DELIVERY"),
+              "OUT_FOR_DELIVERY",
               style: orderDetails['orderStatus'] == "OUT_FOR_DELIVERY"
                   ? titleSegoeGreen()
                   : titleSegoeGrey(),
@@ -348,7 +346,7 @@ class _OrdersState extends State<Orders> {
               ],
             ),
             title: Text(
-              MyLocalizations.of(context).getLocalizations("ORDER_DELIVERED"),
+              "ORDER_DELIVERED",
               style: titleSegoeGrey(),
             ),
             icon: orderDetails['orderStatus'] == "DELIVERED"

@@ -101,7 +101,7 @@ class _AboutUsState extends State<AboutUs> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
-          MyLocalizations.of(context).getLocalizations("ABOUT_US"),
+          "About Us",
           style: textBarlowRegularrBlack(),
         ),
         backgroundColor: Colors.transparent,
@@ -125,8 +125,7 @@ class _AboutUsState extends State<AboutUs> {
                 Container(
                   margin: EdgeInsets.only(left: 15, right: 15.0),
                   child: Text(
-                    MyLocalizations.of(context)
-                        .getLocalizations("DESCRIPTION", true),
+                    "Description",
                     style: textBarlowMediumBlack(),
                   ),
                 ),
@@ -137,7 +136,7 @@ class _AboutUsState extends State<AboutUs> {
                 Container(
                   margin: EdgeInsets.only(left: 15, bottom: 15, right: 15.0),
                   child: Text(
-                    MyLocalizations.of(context).getLocalizations("STORE", true),
+                    "Store",
                     style: textBarlowMediumBlack(),
                   ),
                 ),
@@ -149,8 +148,7 @@ class _AboutUsState extends State<AboutUs> {
                 Container(
                   margin: EdgeInsets.only(left: 15, bottom: 15, right: 15.0),
                   child: Text(
-                    MyLocalizations.of(context)
-                        .getLocalizations("LOCATION", true),
+                    "Location",
                     style: textBarlowMediumBlack(),
                   ),
                 ),
@@ -162,8 +160,7 @@ class _AboutUsState extends State<AboutUs> {
                 Container(
                   margin: EdgeInsets.only(left: 15, bottom: 15, right: 15.0),
                   child: Text(
-                    MyLocalizations.of(context)
-                        .getLocalizations("ADDRESS", true),
+                    "Address",
                     style: textBarlowMediumBlack(),
                   ),
                 ),
@@ -175,8 +172,7 @@ class _AboutUsState extends State<AboutUs> {
                 Container(
                   margin: EdgeInsets.only(left: 15, bottom: 15, right: 15.0),
                   child: Text(
-                    MyLocalizations.of(context)
-                        .getLocalizations("CONTACT_NUMBER", true),
+                    "Contact Number",
                     style: textBarlowMediumBlack(),
                   ),
                 ),
@@ -188,7 +184,7 @@ class _AboutUsState extends State<AboutUs> {
                 Container(
                   margin: EdgeInsets.only(left: 15, bottom: 15, right: 15.0),
                   child: Text(
-                    MyLocalizations.of(context).getLocalizations("EMAIL", true),
+                    "Email",
                     style: textBarlowMediumBlack(),
                   ),
                 ),

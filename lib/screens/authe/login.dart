@@ -132,7 +132,7 @@ class _LoginState extends State<Login> {
               }
             } else {
               showSnackbar(
-                  MyLocalizations.of(context).getLocalizations("INVAILD_USER"));
+                  "INVAILD_USER");
             }
           }
         }).catchError((error) {
@@ -167,7 +167,7 @@ class _LoginState extends State<Login> {
           actions: <Widget>[
             new FlatButton(
               child: new Text(
-                MyLocalizations.of(context).getLocalizations("CANCEL"),
+                "CANCEL",
                 style: textbarlowRegularaPrimary(),
               ),
               onPressed: () {
@@ -176,7 +176,7 @@ class _LoginState extends State<Login> {
             ),
             new FlatButton(
               child: new Text(
-                MyLocalizations.of(context).getLocalizations("VERI_LINK"),
+                "VERI_LINK",
                 style: textbarlowRegularaPrimary(),
               ),
               onPressed: () {
@@ -202,7 +202,7 @@ class _LoginState extends State<Login> {
                 bottomLeft: Radius.circular(20),
                 bottomRight: Radius.circular(20))),
         title: Text(
-          MyLocalizations.of(context).getLocalizations("LOGIN"),
+          "LOGIN",
           style: textbarlowSemiBoldwhite(),
         ),
         centerTitle: true,
@@ -256,7 +256,7 @@ class _LoginState extends State<Login> {
       child: GFTypography(
         showDivider: false,
         child: Text(
-          MyLocalizations.of(context).getLocalizations("WELCOME_BACK"),
+          "WELCOME_BACK",
           style: textbarlowMediumBlack(),
         ),
       ),
@@ -273,7 +273,7 @@ class _LoginState extends State<Login> {
             children: <TextSpan>[
               TextSpan(
                 text:
-                    MyLocalizations.of(context).getLocalizations("EMAIL", true),
+                "EMAIL",
                 style: textbarlowRegularBlackdull(),
               ),
               TextSpan(
@@ -305,7 +305,7 @@ class _LoginState extends State<Login> {
             } else if (!RegExp(
                     r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
                 .hasMatch(value)) {
-              return MyLocalizations.of(context).getLocalizations("ERROR_MAIL");
+              return "ERROR_MAIL";
             } else
               return null;
           },
@@ -363,7 +363,7 @@ class _LoginState extends State<Login> {
             return MyLocalizations.of(context)
                 .getLocalizations("ENTER_PASSWORD");
           } else if (value.length < 6) {
-            return MyLocalizations.of(context).getLocalizations("ERROR_PASS");
+            return "ERROR_PASS";
           } else
             return null;
         },
@@ -417,7 +417,7 @@ class _LoginState extends State<Login> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              MyLocalizations.of(context).getLocalizations("LOGIN"),
+              "LOGIN",
               style: textBarlowRegularrwhite(),
             ),
             SizedBox(
@@ -470,7 +470,7 @@ class _LoginState extends State<Login> {
 
   Widget buildcontinuetext() {
     return Text(
-      MyLocalizations.of(context).getLocalizations("OR"),
+      "OR",
       textAlign: TextAlign.center,
       style: textBarlowRegularBlack(),
     );
@@ -494,7 +494,7 @@ class _LoginState extends State<Login> {
           text: TextSpan(
             children: <TextSpan>[
               TextSpan(
-                text: MyLocalizations.of(context).getLocalizations("REGISTER") +
+                text: "REGISTER" +
                     "?",
                 style: textbarlowRegularaPrimary(),
               ),

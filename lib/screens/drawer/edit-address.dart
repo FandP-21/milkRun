@@ -155,7 +155,7 @@ class _EditAddressState extends State<EditAddress> {
           color: Colors.white,
         ),
         title: Text(
-          MyLocalizations.of(context).getLocalizations("EDIT_ADDRESS"),
+         "EDIT_ADDRESS",
           style: textbarlowSemiBoldwhite(),
         ),
         centerTitle: true,
@@ -178,8 +178,7 @@ class _EditAddressState extends State<EditAddress> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        MyLocalizations.of(context)
-                            .getLocalizations("LOCATION", true),
+                        "LOCATION",
                         style: regular(),
                       ),
                     ],
@@ -221,8 +220,7 @@ class _EditAddressState extends State<EditAddress> {
                       ),
                       validator: (String value) {
                         if (value.isEmpty) {
-                          return MyLocalizations.of(context)
-                              .getLocalizations("ENTER_LOCATION");
+                          return "ENTER_LOCATION";
                         } else
                           return null;
                       },
@@ -278,8 +276,7 @@ class _EditAddressState extends State<EditAddress> {
                                 pickerResult.address.toString();
                           });
                         },
-                        text: MyLocalizations.of(context)
-                            .getLocalizations("CHANGE"),
+                        text: "CHANGE",
                         textStyle: textBarlowRegularWhite()),
                   ),
                 ),
@@ -290,8 +287,7 @@ class _EditAddressState extends State<EditAddress> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        MyLocalizations.of(context)
-                            .getLocalizations("HOUSE_FLAT_BLOCK_NUMBER", true),
+                        "HOUSE_FLAT_BLOCK_NUMBER",
                         style: regular(),
                       ),
                     ],
@@ -322,8 +318,7 @@ class _EditAddressState extends State<EditAddress> {
                         )),
                     validator: (String value) {
                       if (value.isEmpty) {
-                        return MyLocalizations.of(context)
-                            .getLocalizations("ENTER_HOUSE_FLAT_BLOCK_NUMBER");
+                        return "ENTER_HOUSE_FLAT_BLOCK_NUMBER";
                       } else
                         return null;
                     },
@@ -342,8 +337,7 @@ class _EditAddressState extends State<EditAddress> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        MyLocalizations.of(context)
-                            .getLocalizations("APARTMENT_NAME", true),
+                        "APARTMENT_NAME",
                         style: regular(),
                       ),
                     ],
@@ -374,8 +368,7 @@ class _EditAddressState extends State<EditAddress> {
                       ),
                       validator: (String value) {
                         if (value.isEmpty) {
-                          return MyLocalizations.of(context)
-                              .getLocalizations("ENTER_APARTMENT_NAME");
+                          return "ENTER_APARTMENT_NAME";
                         } else
                           return null;
                       },
@@ -393,8 +386,7 @@ class _EditAddressState extends State<EditAddress> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        MyLocalizations.of(context)
-                            .getLocalizations("LANDMARK", true),
+                        "LANDMARK",
                         style: regular(),
                       ),
                     ],
@@ -425,8 +417,7 @@ class _EditAddressState extends State<EditAddress> {
                       ),
                       validator: (String value) {
                         if (value.isEmpty) {
-                          return MyLocalizations.of(context)
-                              .getLocalizations("ENTER_LANDMARK");
+                          return "ENTER_LANDMARK";
                         } else
                           return null;
                       },
@@ -444,8 +435,7 @@ class _EditAddressState extends State<EditAddress> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        MyLocalizations.of(context)
-                            .getLocalizations("POSTAL_CODE", true),
+                        "POSTAL_CODE",
                         style: regular(),
                       ),
                     ],
@@ -477,8 +467,7 @@ class _EditAddressState extends State<EditAddress> {
                       ),
                       validator: (String value) {
                         if (value.isEmpty) {
-                          return MyLocalizations.of(context)
-                              .getLocalizations("ENTER_POSTAL_CODE");
+                          return "ENTER_POSTAL_CODE";
                         } else
                           return null;
                       },
@@ -496,8 +485,7 @@ class _EditAddressState extends State<EditAddress> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        MyLocalizations.of(context)
-                            .getLocalizations("CONTACT_NUMBER", true),
+                        "CONTACT_NUMBER",
                         style: regular(),
                       ),
                     ],
@@ -530,8 +518,7 @@ class _EditAddressState extends State<EditAddress> {
                         )),
                     validator: (String value) {
                       if (value.isEmpty) {
-                        return MyLocalizations.of(context)
-                            .getLocalizations("ENTER_CONTACT_NUMBER");
+                        return "ENTER_CONTACT_NUMBER";
                       } else
                         return null;
                     },
@@ -550,8 +537,7 @@ class _EditAddressState extends State<EditAddress> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        MyLocalizations.of(context)
-                            .getLocalizations("ADDRESS_TYPE", true),
+                        "ADDRESS_TYPE",
                         style: regular(),
                       ),
                     ],
@@ -566,13 +552,12 @@ class _EditAddressState extends State<EditAddress> {
                     String type;
                     if (addressType[i] == 'HOME') {
                       type =
-                          MyLocalizations.of(context).getLocalizations("HOME");
+                      "HOME";
                     } else if (addressType[i] == 'WORK') {
                       type =
-                          MyLocalizations.of(context).getLocalizations("WORK");
+                      "WORK";
                     } else if (addressType[i] == 'OTHERS') {
-                      type = MyLocalizations.of(context)
-                          .getLocalizations("OTHERS");
+                      type = "OTHERS";
                     } else {
                       type = addressType[i];
                     }
@@ -617,8 +602,7 @@ class _EditAddressState extends State<EditAddress> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text(MyLocalizations.of(context)
-                              .getLocalizations("UPDATE")),
+                          Text("UPDATE"),
                           SizedBox(
                             height: 10,
                           ),

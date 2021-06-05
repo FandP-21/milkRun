@@ -47,21 +47,21 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   var addressData;
 
-  void initState() {
-    if (widget.currentIndex != null) {
-      if (mounted) {
-        setState(() {
-          currentIndex = widget.currentIndex;
-        });
-      }
-    }
-    getToken();
-    getResult();
-    getGlobalSettingsData();
-
-    tabController = TabController(length: 4, vsync: this);
-    super.initState();
-  }
+  // void initState() {
+  //   if (widget.currentIndex != null) {
+  //     if (mounted) {
+  //       setState(() {
+  //         currentIndex = widget.currentIndex;
+  //       });
+  //     }
+  //   }
+  //   getToken();
+  //   getResult();
+  //   getGlobalSettingsData();
+  //
+  //   tabController = TabController(length: 4, vsync: this);
+  //   super.initState();
+  // }
 
   getGlobalSettingsData() async {
     if (mounted) {
@@ -136,8 +136,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                MyLocalizations.of(context)
-                    .getLocalizations("YOUR_LOCATION", true),
+                "YOUR_LOCATION",
                 style: textBarlowRegularrBlacksm(),
               ),
               Text(
@@ -215,7 +214,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         ),
       ),
       BottomNavigationBarItem(
-        title: Text(MyLocalizations.of(context).getLocalizations("FAVORITE")),
+        title: Text("FAVORITE"),
         icon: Padding(
           padding: const EdgeInsets.only(top: 8.0),
           child: Icon(
@@ -227,7 +226,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         ),
       ),
       BottomNavigationBarItem(
-        title: Text(MyLocalizations.of(context).getLocalizations("MY_CART")),
+        title: Text("MY_CART"),
         icon: Padding(
           padding: const EdgeInsets.only(top: 8.0),
           child: GFIconBadge(
@@ -256,7 +255,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         ),
       ),
       BottomNavigationBarItem(
-        title: Text(MyLocalizations.of(context).getLocalizations("PROFILE")),
+        title: Text("PROFILE"),
         icon: Padding(
           padding: const EdgeInsets.only(top: 8.0),
           child: Icon(

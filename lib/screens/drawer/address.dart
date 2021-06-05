@@ -134,7 +134,7 @@ class _AddressState extends State<Address> {
           color: Colors.white,
         ),
         title: Text(
-          MyLocalizations.of(context).getLocalizations("ADDRESS"),
+          "ADDRESS",
           style: textbarlowSemiBoldwhite(),
         ),
         centerTitle: true,
@@ -151,8 +151,7 @@ class _AddressState extends State<Address> {
                       padding: const EdgeInsets.only(
                           top: 10.0, bottom: 10.0, left: 20.0, right: 20.0),
                       child: Text(
-                        MyLocalizations.of(context)
-                            .getLocalizations("SAVED_ADDRESS"),
+                        "SAVED_ADDRESS",
                         style: textbarlowSemiBoldBlack(),
                       ),
                     ),
@@ -263,7 +262,7 @@ class _AddressState extends State<Address> {
               }
             },
             text:
-                MyLocalizations.of(context).getLocalizations("ADD_NEW_ADDRESS"),
+            "ADD_NEW_ADDRESS",
             textStyle: textBarlowRegularWhite(),
           ),
         ),
@@ -330,7 +329,7 @@ class _AddressState extends State<Address> {
             child: Padding(
               padding: const EdgeInsets.only(left: 3.0, right: 3.0),
               child: Text(
-                MyLocalizations.of(context).getLocalizations("EDIT"),
+                "EDIT",
                 style: textbarlowRegularaPrimar(),
               ),
             ),
@@ -347,7 +346,7 @@ class _AddressState extends State<Address> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 3.0, right: 3.0),
                 child: Text(
-                  MyLocalizations.of(context).getLocalizations("DELETE"),
+                  "DELETE",
                   style: textbarlowRegularaPrimar(),
                 ),
               ),
@@ -405,8 +404,7 @@ class _AddressState extends State<Address> {
                                 height: 30.0,
                                 decoration: BoxDecoration(),
                                 child: Text(
-                                  MyLocalizations.of(context)
-                                      .getLocalizations("OK"),
+                                  "OK",
                                   style: hintSfLightbig(),
                                 ),
                               ),
