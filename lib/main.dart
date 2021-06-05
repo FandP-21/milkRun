@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+// import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:groceryPro/screens/home/home.dart';
 import 'package:groceryPro/service/auth-service.dart';
 import 'package:groceryPro/service/common.dart';
@@ -27,7 +27,7 @@ void main() {
 }
 
 void initializeMain() async {
-  //await DotEnv().load('.env');
+  await DotEnv().load('.env');
    WidgetsFlutterBinding.ensureInitialized();
   // configLocalNotification();
   // oneSignalTimer = Timer.periodic(Duration(seconds: 4), (timer) {

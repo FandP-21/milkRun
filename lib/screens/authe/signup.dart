@@ -256,7 +256,7 @@ class _SignupState extends State<Signup> {
       child: GFTypography(
         showDivider: false,
         child: Text(
-          "LETS_GET_STARTED" +
+          "Lets get started" +
               " !",
           style: textbarlowMediumBlack(),
         ),
@@ -273,7 +273,7 @@ class _SignupState extends State<Signup> {
           text: TextSpan(
             children: <TextSpan>[
               TextSpan(
-                  text: "FIRST_NAME",
+                  text: "First Name",
                   style: textbarlowRegularBlackdull()),
               TextSpan(
                 text: ' *',
@@ -295,7 +295,7 @@ class _SignupState extends State<Signup> {
           keyboardType: TextInputType.emailAddress,
           validator: (String value) {
             if (value.isEmpty) {
-              return "ENTER_FIRST_NAME";
+              return "Enter First Name";
             } else
               return null;
           },
@@ -328,7 +328,7 @@ class _SignupState extends State<Signup> {
           text: TextSpan(
             children: <TextSpan>[
               TextSpan(
-                  text:"LAST_NAME",
+                  text:"Last Name",
                   style: textbarlowRegularBlackdull()),
               TextSpan(
                 text: ' *',
@@ -350,7 +350,7 @@ class _SignupState extends State<Signup> {
           keyboardType: TextInputType.emailAddress,
           validator: (String value) {
             if (value.isEmpty) {
-              return "ENTER_LAST_NAME";
+              return "Enter Last Name";
             } else
               return null;
           },
@@ -460,8 +460,8 @@ class _SignupState extends State<Signup> {
         keyboardType: TextInputType.text,
         validator: (String value) {
           if (value.isEmpty) {
-            return MyLocalizations.of(context)
-                .getLocalizations("ENTER_PASSWORD");
+            return "Enter password";/*MyLocalizations.of(context)
+                .getLocalizations("ENTER_PASSWORD");*/
           } else if (value.length < 6) {
             return "ERROR_PASS";
           } else
@@ -511,8 +511,8 @@ class _SignupState extends State<Signup> {
         text: TextSpan(
           children: <TextSpan>[
             TextSpan(
-                text: MyLocalizations.of(context)
-                    .getLocalizations("CONTACT_NUMBER", true),
+                text: "Contact number"/*MyLocalizations.of(context)
+                    .getLocalizations("CONTACT_NUMBER", true)*/,
                 style: textbarlowRegularBlack()),
             TextSpan(
               text: ' *',
@@ -533,8 +533,8 @@ class _SignupState extends State<Signup> {
         keyboardType: TextInputType.number,
         validator: (String value) {
           if (value.isEmpty) {
-            return MyLocalizations.of(context)
-                .getLocalizations("ENTER_YOUR_CONTACT_NUMBER");
+            return "Enter your contact number"/*MyLocalizations.of(context)
+                .getLocalizations("ENTER_YOUR_CONTACT_NUMBER")*/;
           } else
             return null;
         },
@@ -609,7 +609,7 @@ class _SignupState extends State<Signup> {
           text: TextSpan(
             children: <TextSpan>[
               TextSpan(
-                  text: "HAVE_GOT_AN_ACCOUNT",
+                  text: "Have got an account  ",
                   style: textbarlowRegularBlack()),
               TextSpan(
                 text: "LOGIN",

@@ -406,15 +406,16 @@ class _SubCategoryProductCardState extends State<SubCategoryProductCard> {
                                                 }
                                               });
                                             }
-                                          } else {
-                                            showSnackbar(MyLocalizations.of(
+                                          } else {/*MyLocalizations.of(
                                                         context)
                                                     .getLocalizations(
-                                                        "LIMITED_STOCK") +
+                                                        "LIMITED_STOCK")*/
+                                            showSnackbar("Limited stock" +
                                                 " ${widget.variantList[0]['productStock']} " +
-                                                MyLocalizations.of(context)
+                                                "Of this item");
+                                            /*MyLocalizations.of(context)
                                                     .getLocalizations(
-                                                        "OF_THIS_ITEM"));
+                                                        "OF_THIS_ITEM")*/
                                           }
                                         });
                                       }
@@ -457,9 +458,9 @@ class _SubCategoryProductCardState extends State<SubCategoryProductCard> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: <Widget>[
-                                          Text(
-                                            MyLocalizations.of(context)
-                                                .getLocalizations("ADD"),
+                                          Text("Add"
+                                            /*MyLocalizations.of(context)
+                                                .getLocalizations("ADD")*/,
                                             style: textbarlowMediumw(),
                                           ),
                                         ],

@@ -300,22 +300,25 @@ class _OrderDetailsState extends State<OrderDetails> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       children: <Widget>[
+                                        /*MyLocalizations.of(context)
+                                                          .getLocalizations(
+                                                              "CASH_ON_DELIVERY")*/
+                                        /*MyLocalizations.of(context)
+                                                              .getLocalizations(
+                                                                  "PAY_BY_CARD")*/
+                                        /*MyLocalizations.of(context)
+                                                                  .getLocalizations(
+                                                                      "WALLET")*/
                                         Expanded(
                                           child: Text(
                                               "PAYMENT_TYPE" +
                                                   (orderHistory['order']['paymentType'] == 'COD'
-                                                      ? MyLocalizations.of(context)
-                                                          .getLocalizations(
-                                                              "CASH_ON_DELIVERY")
+                                                      ? "Cash on delivery"
                                                       : orderHistory['order']['paymentType'] == "CARD"
-                                                          ? MyLocalizations.of(context)
-                                                              .getLocalizations(
-                                                                  "PAY_BY_CARD")
+                                                          ? "Pay by card"
                                                           : orderHistory['order']['paymentType'] ==
                                                                   "WALLET"
-                                                              ? MyLocalizations.of(context)
-                                                                  .getLocalizations(
-                                                                      "WALLET")
+                                                              ? "WALLET"
                                                               : orderHistory['order']
                                                                   ['paymentType']),
                                               style: textBarlowMediumBlack()),
@@ -328,10 +331,9 @@ class _OrderDetailsState extends State<OrderDetails> {
                                           MainAxisAlignment.start,
                                       children: <Widget>[
                                         Expanded(
-                                          child: Text(
-                                              MyLocalizations.of(context)
+                                          child: Text("Address" +/*MyLocalizations.of(context)
                                                       .getLocalizations(
-                                                          "ADDRESS", true) +
+                                                          "ADDRESS", true)*/
                                                   orderHistory['order']
                                                       ['address']['address'],
                                               style: textBarlowMediumBlack()),
@@ -438,11 +440,10 @@ class _OrderDetailsState extends State<OrderDetails> {
                                         ? Container()
                                         : SizedBox(height: 5),
                                     order['dealTotalAmount'] == 0
-                                        ? Container()
-                                        : Text(
-                                            MyLocalizations.of(context)
+                                        ? Container()/*MyLocalizations.of(context)
                                                     .getLocalizations(
-                                                        "DEAL_AMOUNT", true) +
+                                                        "DEAL_AMOUNT", true)*/
+                                        : Text("Deal Amount" +
                                                 ' $currency${order['dealTotalAmount'].toStringAsFixed(2)}',
                                             style: textSMBarlowRegularrBlack(),
                                           ),
@@ -516,11 +517,10 @@ class _OrderDetailsState extends State<OrderDetails> {
                                                               ),
                                                             ],
                                                           )
-                                                        : Text(
-                                                            MyLocalizations.of(
+                                                        : Text("Rate Product",/*MyLocalizations.of(
                                                                     context)
                                                                 .getLocalizations(
-                                                                    "RATE_PRODUCT"),
+                                                                    "RATE_PRODUCT")*/
                                                             overflow:
                                                                 TextOverflow
                                                                     .ellipsis,
@@ -555,10 +555,9 @@ class _OrderDetailsState extends State<OrderDetails> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
-                              Text(
-                                  MyLocalizations.of(context)
-                                      .getLocalizations("SUB_TOTAL", true),
-                                  style: textBarlowMediumBlack()),
+                              Text("Sub Total",
+                                  style: textBarlowMediumBlack()),/*MyLocalizations.of(context)
+                                      .getLocalizations("SUB_TOTAL", true)*/
                               Container(
                                 margin: EdgeInsets.only(left: 8),
                                 child: Padding(
@@ -593,10 +592,9 @@ class _OrderDetailsState extends State<OrderDetails> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
-                                    Text(
-                                        MyLocalizations.of(context)
-                                            .getLocalizations("TAX", true),
-                                        style: textBarlowMediumBlack()),
+                                    Text("Tax",
+                                        style: textBarlowMediumBlack()),/*MyLocalizations.of(context)
+                                            .getLocalizations("TAX", true)*/
                                     Container(
                                       margin: EdgeInsets.only(left: 8),
                                       child: Padding(
@@ -642,10 +640,9 @@ class _OrderDetailsState extends State<OrderDetails> {
                                   child: orderHistory['cart']
                                               ['deliveryCharges'] ==
                                           0
-                                      ? Text(
-                                          MyLocalizations.of(context)
-                                              .getLocalizations("FREE"),
-                                          style: textBarlowBoldBlack(),
+                                      ? Text("Free",
+                                          style: textBarlowBoldBlack(),/*MyLocalizations.of(context)
+                                              .getLocalizations("FREE")*/
                                         )
                                       : Row(
                                           mainAxisAlignment:
@@ -678,10 +675,10 @@ class _OrderDetailsState extends State<OrderDetails> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
-                                    Text(
-                                        MyLocalizations.of(context)
+                                    /*MyLocalizations.of(context)
                                             .getLocalizations(
-                                                "USED_WALLET_AMOUNT", true),
+                                                "USED_WALLET_AMOUNT", true)*/
+                                    Text("User wallet Amount",
                                         style: textBarlowMediumBlack()),
                                     Container(
                                       margin: EdgeInsets.only(left: 8),
@@ -721,10 +718,10 @@ class _OrderDetailsState extends State<OrderDetails> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: <Widget>[
-                                        Text(
-                                            MyLocalizations.of(context)
+                                        /*MyLocalizations.of(context)
                                                 .getLocalizations(
-                                                    "COUPON_APPLIED", true),
+                                                    "COUPON_APPLIED", true)*/
+                                        Text("Coupon applied",
                                             style: textBarlowMediumBlack()),
                                         Container(
                                           margin: EdgeInsets.only(left: 8),
@@ -755,10 +752,10 @@ class _OrderDetailsState extends State<OrderDetails> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: <Widget>[
-                                        Text(
-                                            MyLocalizations.of(context)
+                                        /*MyLocalizations.of(context)
                                                 .getLocalizations(
-                                                    "DISCOUNT", true),
+                                                    "DISCOUNT", true)*/
+                                        Text("DISCOUNT",
                                             style: textBarlowMediumBlack()),
                                         Container(
                                           margin: EdgeInsets.only(left: 8),
@@ -802,9 +799,9 @@ class _OrderDetailsState extends State<OrderDetails> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          Text(
-                              MyLocalizations.of(context)
-                                  .getLocalizations("TOTAL", true),
+                          /*MyLocalizations.of(context)
+                              .getLocalizations("TOTAL", true)*/
+                          Text("TOTAL",
                               style: textBarlowMediumBlack()),
                           Container(
                             margin: EdgeInsets.only(left: 8),
@@ -851,9 +848,9 @@ class _OrderDetailsState extends State<OrderDetails> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  Text(
-                                    MyLocalizations.of(context)
-                                        .getLocalizations("CANCEL_ORDER"),
+                                  /*MyLocalizations.of(context)
+                                        .getLocalizations("CANCEL_ORDER")*/
+                                  Text("Cancel order",
                                     style: textBarlowRegularrWhite(),
                                   ),
                                   SizedBox(

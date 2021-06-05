@@ -404,7 +404,7 @@ class _EditProfileState extends State<EditProfile> {
                     padding: const EdgeInsets.only(
                         left: 18.0, right: 18.0, bottom: 5, top: 5),
                     child: Text(
-                      "FIRST_NAME",
+                      "First Name",
                       style: textbarlowRegularBlack(),
                     ),
                   ),
@@ -440,7 +440,7 @@ class _EditProfileState extends State<EditProfile> {
                       },
                       validator: (String value) {
                         if (value.isEmpty) {
-                          return "ENTER_FIRST_NAME";
+                          return "Enter First Name";
                         } else
                           return null;
                       },
@@ -451,7 +451,7 @@ class _EditProfileState extends State<EditProfile> {
                     padding: const EdgeInsets.only(
                         left: 18.0, right: 18.0, bottom: 5, top: 5),
                     child: Text(
-                      "LAST_NAME",
+                      "Last Name",
                       style: textbarlowRegularBlack(),
                     ),
                   ),
@@ -487,7 +487,7 @@ class _EditProfileState extends State<EditProfile> {
                       },
                       validator: (String value) {
                         if (value.isEmpty) {
-                          return "ENTER_LAST_NAME";
+                          return "Enter Last Name";
                         } else
                           return null;
                       },

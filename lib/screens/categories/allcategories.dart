@@ -73,7 +73,7 @@ class _AllCategoriesState extends State<AllCategories>
     return Scaffold(
       appBar: GFAppBar(
         title: Text(
-            "ALL_CATEGROIES",
+            "All Categroies",
             style: textbarlowSemiBoldBlack()),
         centerTitle: true,
         backgroundColor: Colors.transparent,

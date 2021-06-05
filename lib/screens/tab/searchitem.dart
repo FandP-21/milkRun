@@ -155,7 +155,7 @@ class _SearchItemState extends State<SearchItem> {
                           child:
                               new Icon(Icons.arrow_back, color: Colors.black),
                         ),
-                        hintText: "WHAT_ARE_YOU_BUING_TODAY",
+                        hintText: "What are you buing today",
                         fillColor: Color(0xFFF0F0F0),
                         filled: true,
                         focusColor: Colors.black,
@@ -188,7 +188,7 @@ class _SearchItemState extends State<SearchItem> {
                           Padding(
                             padding: const EdgeInsets.only(top: 100.0),
                             child: Text(
-                              "TYPE_TO_SEARCH",
+                              "Type to search",
                               textAlign: TextAlign.center,
                               style: hintSfMediumprimary(),
                             ),

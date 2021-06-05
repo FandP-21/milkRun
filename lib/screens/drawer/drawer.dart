@@ -82,7 +82,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 20.0),
                   child: _buildMenuTileList('lib/assets/icons/Home.png',
-                      "HOME", 0,
+                      "Home", 0,
                       route: Home(
                         // locale: widget.locale,
                         // localizedValues: widget.localizedValues,
@@ -90,7 +90,7 @@ class _DrawerPageState extends State<DrawerPage> {
                       )),
                 ),
                 _buildMenuTileList('lib/assets/icons/products.png',
-                    "PRODUCTS", 0,
+                    "Products", 0,
                     route: AllProducts(
                       locale: widget.locale,
                       localizedValues: widget.localizedValues,
@@ -98,7 +98,7 @@ class _DrawerPageState extends State<DrawerPage> {
                     )),
                 _buildMenuTileList(
                   'lib/assets/icons/categories.png',
-                  "ALL_CATEGROIES",
+                  "All Categroies",
                   0,
                   route: AllCategories(
                     locale: widget.locale,
@@ -108,7 +108,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 ),
                 _buildMenuTileList(
                     'lib/assets/icons/deals.png',
-                    "TOP_DEALS",
+                    "Top Deals",
                     0,
                     route: AllDealsList(
                         locale: widget.locale,
@@ -120,7 +120,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 getTokenValue
                     ? _buildMenuTileList(
                         'lib/assets/images/profileIcon.png',
-                        "PROFILE",
+                        "Profile",
                         0,
                         route: Home(
                           // locale: widget.locale,
@@ -131,7 +131,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 getTokenValue
                     ? _buildMenuTileList(
                         'lib/assets/icons/history.png',
-                        "MY_ORDERS",
+                        "My orders",
                         0,
                         route: Orders(
                           locale: widget.locale,
@@ -141,7 +141,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 getTokenValue
                     ? _buildMenuTileList(
                         'lib/assets/icons/location.png',
-                        "ADDRESS",
+                        "Address",
                         0,
                         route: Address(
                           locale: widget.locale,
@@ -151,7 +151,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 getTokenValue
                     ? _buildMenuTileList(
                         'lib/assets/icons/fav.png',
-                    "FAVORITE",
+                    "Favorite",
                         0,
                         route: Home(
                           // locale: widget.locale,
@@ -168,42 +168,42 @@ class _DrawerPageState extends State<DrawerPage> {
                         ))
                     : Container(),
                 _buildMenuTileList('lib/assets/icons/about.png',
-                    "ABOUT_US", 0,
+                    "About us", 0,
                     route: AboutUs(
                         locale: widget.locale,
                         localizedValues: widget.localizedValues)),
                 _buildMenuTileList(
                   'lib/assets/icons/about.png',
-                  "PRIVACY_POLICY",
+                  "Privacy policy",
                   0,
                   route: TandCandPrivacyPolicy(
                     locale: widget.locale,
                     localizedValues: widget.localizedValues,
                     endPoint: "/pages/privacy-policy",
-                    title: "PRIVACY_POLICY",
+                    title: "Privacy policy",
                   ),
                 ),
                 _buildMenuTileList(
                   'lib/assets/icons/about.png',
-                  "TERMS_CONDITIONS",
+                  "Terms conditions",
                   0,
                   route: TandCandPrivacyPolicy(
                     locale: widget.locale,
                     localizedValues: widget.localizedValues,
                     endPoint: "/pages/terms-and-conditions",
-                    title: "TERMS_CONDITIONS",
+                    title: "Terms conditions",
                   ),
                 ),
                 SizedBox(height: 20.0),
                 getTokenValue
                     ? _buildMenuTileList1(
                         'lib/assets/icons/lg.png',
-                    "LOGOUT",
+                    "Logout",
                         0,
                         route: null)
                     : _buildMenuTileList1(
                         'lib/assets/icons/lg.png',
-                    "LOGIN",
+                    "Login",
                         0,
                         route: Login(
                           locale: widget.locale,

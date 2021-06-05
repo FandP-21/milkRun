@@ -654,10 +654,11 @@ class _AllProductsState extends State<AllProducts> {
                                                                   'dealPercent']
                                                               .toString() +
                                                           "% " +
-                                                          MyLocalizations.of(
+                                                          "OFF"
+                                                          /*MyLocalizations.of(
                                                                   context)
                                                               .getLocalizations(
-                                                                  "OFF"),
+                                                                  "OFF")*/,
                                                       style:
                                                           hintSfboldwhitemed(),
                                                       textAlign:
@@ -714,11 +715,12 @@ class _AllProductsState extends State<AllProducts> {
                           width: MediaQuery.of(context).size.width * 0.35,
                           child: Column(
                             children: <Widget>[
+                              /*MyLocalizations.of(context)
+                                  .getLocalizations("ITEMS")*/
                               SizedBox(height: 7),
                               new Text(
                                 '(${cartData['products'].length})  ' +
-                                    MyLocalizations.of(context)
-                                        .getLocalizations("ITEMS"),
+                                    "Items",
                                 style: textBarlowRegularWhite(),
                               ),
                               new Text(
@@ -729,10 +731,9 @@ class _AllProductsState extends State<AllProducts> {
                           ),
                         ),
                         Row(
-                          children: <Widget>[
-                            new Text(
-                              MyLocalizations.of(context)
-                                  .getLocalizations("GO_TO_CART"),
+                          children: <Widget>[/*MyLocalizations.of(context)
+                              .getLocalizations("GO_TO_CART")*/
+                            new Text("Go to cart",
                               style: textBarlowRegularBlack(),
                             ),
                             SizedBox(width: 4),

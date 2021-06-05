@@ -766,10 +766,9 @@ class _ProductDetailsState extends State<ProductDetails>
                             )
                           : Text(""),
                       Padding(
-                        padding: const EdgeInsets.only(left: 0.0),
-                        child: new Text(
-                          MyLocalizations.of(context)
-                              .getLocalizations("ADD_TO_CART"),
+                        padding: const EdgeInsets.only(left: 0.0),/*MyLocalizations.of(context)
+                              .getLocalizations("ADD_TO_CART")*/
+                        child: new Text("Add to cart",
                           style: textBarlowRegularBlack(),
                         ),
                       ),

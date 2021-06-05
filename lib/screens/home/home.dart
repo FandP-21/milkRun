@@ -136,7 +136,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                "YOUR_LOCATION",
+                "Search hear..",
                 style: textBarlowRegularrBlacksm(),
               ),
               Text(
@@ -226,7 +226,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         ),
       ),
       BottomNavigationBarItem(
-        title: Text("MY_CART"),
+        title: Text("MY CART"),
         icon: Padding(
           padding: const EdgeInsets.only(top: 8.0),
           child: GFIconBadge(

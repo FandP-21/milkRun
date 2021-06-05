@@ -184,8 +184,8 @@ class _OtpState extends State<Otp> {
             bottomRight: Radius.circular(20),
           ),
         ),
-        title: Text(
-          MyLocalizations.of(context).getLocalizations("WELCOME"),
+        title: Text("WELCOME"
+          /*MyLocalizations.of(context).getLocalizations("WELCOME")*/,
           style: textbarlowSemiBoldwhite(),
         ),
         centerTitle: true,
@@ -207,8 +207,8 @@ class _OtpState extends State<Otp> {
               text: TextSpan(
                 children: <TextSpan>[
                   TextSpan(
-                      text: MyLocalizations.of(context)
-                          .getLocalizations("CODE_MSG"),
+                      text: "Code msg"/*MyLocalizations.of(context)
+                          .getLocalizations("CODE_MSG")*/,
                       style: textBarlowRegularBlack()),
                   TextSpan(
                     text: ' ${widget.email}',
@@ -243,9 +243,9 @@ class _OtpState extends State<Otp> {
                 top: 20.0, bottom: 5.0, left: 20.0, right: 20.0),
             child: GFTypography(
               showDivider: false,
-              child: Text(
-                MyLocalizations.of(context)
-                    .getLocalizations("ENTER_VERIFICATION_CODE", true),
+              child: Text( "Enter verification code"
+                /*MyLocalizations.of(context)
+                    .getLocalizations("ENTER_VERIFICATION_CODE", true)*/,
                 style: textBarlowRegularBlack(),
               ),
             ),

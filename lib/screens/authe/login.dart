@@ -256,7 +256,7 @@ class _LoginState extends State<Login> {
       child: GFTypography(
         showDivider: false,
         child: Text(
-          "WELCOME_BACK",
+          "Welcome Back",
           style: textbarlowMediumBlack(),
         ),
       ),
@@ -300,8 +300,8 @@ class _LoginState extends State<Login> {
           },
           validator: (String value) {
             if (value.isEmpty) {
-              return MyLocalizations.of(context)
-                  .getLocalizations("ENTER_YOUR_EMAIL");
+              return "Enter your email";/*MyLocalizations.of(context)
+                  .getLocalizations("ENTER_YOUR_EMAIL")*/
             } else if (!RegExp(
                     r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
                 .hasMatch(value)) {
@@ -335,8 +335,8 @@ class _LoginState extends State<Login> {
         text: TextSpan(
           children: <TextSpan>[
             TextSpan(
-                text: MyLocalizations.of(context)
-                    .getLocalizations("PASSWORD", true),
+                text: "Password"/*MyLocalizations.of(context)
+                    .getLocalizations("PASSWORD", true)*/,
                 style: textbarlowRegularBlackdull()),
             TextSpan(
               text: ' *',
@@ -360,8 +360,8 @@ class _LoginState extends State<Login> {
         },
         validator: (String value) {
           if (value.isEmpty) {
-            return MyLocalizations.of(context)
-                .getLocalizations("ENTER_PASSWORD");
+            return "Enter password";/*MyLocalizations.of(context)
+                .getLocalizations("ENTER_PASSWORD");*/
           } else if (value.length < 6) {
             return "ERROR_PASS";
           } else
@@ -453,9 +453,10 @@ class _LoginState extends State<Login> {
           text: TextSpan(
             children: <TextSpan>[
               TextSpan(
-                  text: MyLocalizations.of(context)
-                          .getLocalizations("FORGET_PASSWORD") +
+                  text: "Forgot password" +
                       "?",
+                  /*MyLocalizations.of(context)
+                          .getLocalizations("FORGET_PASSWORD")*/
                   style: textbarlowRegularBlackFont()),
               TextSpan(
                 text: '',
