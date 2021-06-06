@@ -14,7 +14,6 @@ import 'package:location/location.dart';
 
 import '../../style/style.dart';
 
-SentryError sentryError = new SentryError();
 
 class EditAddress extends StatefulWidget {
   const EditAddress(
@@ -118,7 +117,6 @@ class _EditAddressState extends State<EditAddress> {
             isUpdateAddressLoading = false;
           });
         }
-        sentryError.reportError(onError, null);
       });
     } else {
       if (mounted) {

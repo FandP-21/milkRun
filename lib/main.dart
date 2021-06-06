@@ -12,7 +12,6 @@ import 'package:groceryPro/service/localizations.dart';
 import 'package:groceryPro/service/sentry-service.dart';
 import 'package:groceryPro/style/style.dart';
 
-SentryError sentryError = new SentryError();
 
 bool get isInDebugMode {
   bool inDebugMode = false;
@@ -40,7 +39,6 @@ void initializeMain() async {
     ));
     return Future.value(null);
   }, onError: (error, stackTrace) {
-    sentryError.reportError(error, stackTrace);
   });
   Common.getSelectedLanguage().then((selectedLocale) {
     Map localizedValues;
@@ -86,7 +84,6 @@ void getToken() async {
       });
     }
   }).catchError((error) {
-    sentryError.reportError(error, null);
   });
 }
 
@@ -94,7 +91,6 @@ void userInfoMethod() async {
   await LoginService.getUserInfo().then((onValue) async {
     await Common.setUserID(onValue['response_data']['_id']);
   }).catchError((error) {
-    sentryError.reportError(error, null);
   });
 }
 

@@ -11,7 +11,6 @@ import 'package:groceryPro/widgets/dealsCard.dart';
 import 'package:groceryPro/widgets/loader.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-SentryError sentryError = new SentryError();
 
 class AllDealsList extends StatefulWidget {
   final Map localizedValues;
@@ -75,7 +74,6 @@ class _AllDealsListState extends State<AllDealsList> {
           isAllDealsLoadingList = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -100,7 +98,6 @@ class _AllDealsListState extends State<AllDealsList> {
           isAllDealsLoadingList = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 

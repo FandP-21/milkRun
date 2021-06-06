@@ -13,7 +13,6 @@ import 'package:groceryPro/style/style.dart';
 import 'package:groceryPro/widgets/loader.dart';
 import 'package:stripe_payment/stripe_payment.dart';
 
-SentryError sentryError = new SentryError();
 
 class Payment extends StatefulWidget {
   final String locale;
@@ -96,7 +95,6 @@ class _PaymentState extends State<Payment> {
           isCardListLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -158,7 +156,6 @@ class _PaymentState extends State<Payment> {
           isPlaceOrderLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -184,7 +181,6 @@ class _PaymentState extends State<Payment> {
         isWalletLoading = false;
         walletUsedOrNotValue = false;
       });
-      sentryError.reportError(error, null);
     });
   }
 
@@ -207,7 +203,6 @@ class _PaymentState extends State<Payment> {
         isWalletLoading = true;
         walletUsedOrNotValue = false;
       });
-      sentryError.reportError(error, null);
     });
   }
 

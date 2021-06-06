@@ -13,7 +13,6 @@ import 'package:groceryPro/widgets/loader.dart';
 import 'package:groceryPro/widgets/subCategoryProductCart.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-SentryError sentryError = new SentryError();
 
 class AllProducts extends StatefulWidget {
   final Map localizedValues;
@@ -90,7 +89,6 @@ class _AllProductsState extends State<AllProducts> {
           isLoadingSubCatProductsList = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -122,7 +120,6 @@ class _AllProductsState extends State<AllProducts> {
           getTokenValue = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -158,7 +155,6 @@ class _AllProductsState extends State<AllProducts> {
           isNewProductsLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -198,7 +194,6 @@ class _AllProductsState extends State<AllProducts> {
           isLoadingSubCatProductsList = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 

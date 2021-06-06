@@ -8,7 +8,6 @@ import 'package:groceryPro/service/localizations.dart';
 import 'package:groceryPro/service/sentry-service.dart';
 import 'package:groceryPro/style/style.dart';
 
-SentryError sentryError = new SentryError();
 
 class BottonSheetClassDryClean extends StatefulWidget {
   final List variantsList;
@@ -141,7 +140,6 @@ class _BottonSheetClassDryCleanState extends State<BottonSheetClassDryClean> {
             addProductTocart = false;
           });
         }
-        sentryError.reportError(error, null);
       });
     } else {
       if (mounted) {

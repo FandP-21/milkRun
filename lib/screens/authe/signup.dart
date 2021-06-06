@@ -8,7 +8,6 @@ import 'package:groceryPro/service/sentry-service.dart';
 
 import '../../style/style.dart';
 
-SentryError sentryError = new SentryError();
 
 class Signup extends StatefulWidget {
   final Map localizedValues;
@@ -116,7 +115,6 @@ class _SignupState extends State<Signup> {
             registerationLoading = false;
           });
         }
-        sentryError.reportError(error, null);
       });
       // } else {
       //   showSnackbar(

@@ -16,7 +16,7 @@ import 'package:async/async.dart';
 import 'dart:ui';
 import 'package:groceryPro/widgets/loader.dart';
 
-SentryError sentryError = new SentryError();
+//SentryError sentryError = new SentryError();
 
 class EditProfile extends StatefulWidget {
   final Map<String, dynamic> userInfo;
@@ -63,7 +63,7 @@ class _EditProfileState extends State<EditProfile> {
           isLoading = false;
         });
       }
-      sentryError.reportError(error, null);
+     // sentryError.reportError(error, null);
     });
   }
 
@@ -86,7 +86,7 @@ class _EditProfileState extends State<EditProfile> {
           isPicUploading = false;
         });
       }
-      sentryError.reportError(error, null);
+      //sentryError.reportError(error, null);
     });
   }
 
@@ -122,7 +122,6 @@ class _EditProfileState extends State<EditProfile> {
             profileEdit = false;
           });
         }
-        sentryError.reportError(error, null);
       });
     }
   }
@@ -174,7 +173,6 @@ class _EditProfileState extends State<EditProfile> {
           isPicUploading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
 
     request.headers['Authorization'] = 'bearer $token';
@@ -191,7 +189,6 @@ class _EditProfileState extends State<EditProfile> {
           isPicUploading = true;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -293,7 +290,6 @@ class _EditProfileState extends State<EditProfile> {
           isPicUploading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 

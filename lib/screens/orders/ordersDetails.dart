@@ -13,7 +13,6 @@ import 'package:groceryPro/service/sentry-service.dart';
 import 'package:groceryPro/style/style.dart';
 import 'package:groceryPro/widgets/loader.dart';
 
-SentryError sentryError = new SentryError();
 
 class OrderDetails extends StatefulWidget {
   final String orderId, locale;
@@ -67,7 +66,6 @@ class _OrderDetailsState extends State<OrderDetails> {
           isLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -92,7 +90,6 @@ class _OrderDetailsState extends State<OrderDetails> {
           isOrderCancleLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -169,7 +166,6 @@ class _OrderDetailsState extends State<OrderDetails> {
           getOrderHistory();
       });
     }).catchError((error) {
-      sentryError.reportError(error, null);
     });
   }
 

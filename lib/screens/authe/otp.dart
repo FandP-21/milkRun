@@ -9,7 +9,6 @@ import 'package:groceryPro/style/style.dart';
 import 'package:pin_entry_text_field/pin_entry_text_field.dart';
 import 'package:groceryPro/widgets/loader.dart';
 
-SentryError sentryError = new SentryError();
 
 class Otp extends StatefulWidget {
   Otp({Key key, this.email, this.locale, this.localizedValues})
@@ -98,7 +97,6 @@ class _OtpState extends State<Otp> {
               isOtpVerifyLoading = false;
             });
           }
-          sentryError.reportError(error, null);
         });
       } else {
         return;

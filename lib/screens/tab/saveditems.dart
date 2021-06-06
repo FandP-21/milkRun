@@ -14,7 +14,6 @@ import 'package:groceryPro/widgets/subCategoryProductCart.dart';
 
 import '../../style/style.dart';
 
-SentryError sentryError = new SentryError();
 
 class SavedItems extends StatefulWidget {
   final Map localizedValues;
@@ -65,7 +64,6 @@ class _SavedItemsState extends State<SavedItems> {
           favProductList = [];
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -100,7 +98,6 @@ class _SavedItemsState extends State<SavedItems> {
           isGetTokenLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 

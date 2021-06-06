@@ -10,7 +10,6 @@ import 'package:groceryPro/style/style.dart';
 import 'package:groceryPro/widgets/loader.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-SentryError sentryError = new SentryError();
 
 class AllCategories extends StatefulWidget {
   final Map localizedValues;
@@ -64,7 +63,6 @@ class _AllCategoriesState extends State<AllCategories>
           isLoadingcategoryList = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 

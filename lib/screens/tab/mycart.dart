@@ -15,7 +15,6 @@ import 'package:groceryPro/screens/checkout/checkout.dart';
 import 'package:groceryPro/widgets/loader.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-SentryError sentryError = new SentryError();
 
 class MyCart extends StatefulWidget {
   final Map localizedValues;
@@ -72,7 +71,6 @@ class _MyCartState extends State<MyCart> {
           isMinAmountCheckLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -107,7 +105,6 @@ class _MyCartState extends State<MyCart> {
           isGetTokenLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -181,7 +178,6 @@ class _MyCartState extends State<MyCart> {
           cartItem['products'][i]['isQuantityUpdating'] = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -243,7 +239,6 @@ class _MyCartState extends State<MyCart> {
           isLoadingCart = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -270,7 +265,6 @@ class _MyCartState extends State<MyCart> {
           cartItem = null;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -284,7 +278,6 @@ class _MyCartState extends State<MyCart> {
         });
       }
     }).catchError((error) {
-      sentryError.reportError(error, null);
     });
   }
 
@@ -331,7 +324,6 @@ class _MyCartState extends State<MyCart> {
           isCheckProductAvailableOrNot = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 

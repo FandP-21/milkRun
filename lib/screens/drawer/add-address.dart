@@ -10,7 +10,6 @@ import 'package:groceryPro/service/address-service.dart';
 import 'package:location/location.dart';
 import 'package:flutter_map_picker/flutter_map_picker.dart';
 
-SentryError sentryError = new SentryError();
 
 class AddAddress extends StatefulWidget {
   const AddAddress(
@@ -96,7 +95,6 @@ class _AddAddressState extends State<AddAddress> {
             isAddAddressLoading = false;
           });
         }
-        sentryError.reportError(onError, null);
       });
     }
   }

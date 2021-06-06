@@ -11,7 +11,6 @@ import 'package:groceryPro/style/style.dart';
 
 import '../../style/style.dart';
 
-SentryError sentryError = new SentryError();
 
 class ChangePassword extends StatefulWidget {
   final String token, locale;
@@ -94,7 +93,6 @@ class _ChangePasswordState extends State<ChangePassword> {
               isChangePasswordLoading = false;
             });
           }
-          sentryError.reportError(error, null);
         });
       }
     } else {

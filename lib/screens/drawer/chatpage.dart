@@ -10,7 +10,6 @@ import 'package:groceryPro/style/style.dart';
 import 'package:groceryPro/widgets/loader.dart';
 import 'package:socket_io_client/socket_io_client.dart' as io;
 
-SentryError sentryError = new SentryError();
 
 class Chat extends StatefulWidget {
   final Map localizedValues, userDetail, chatDetails;
@@ -65,7 +64,6 @@ class _ChatState extends State<Chat> with TickerProviderStateMixin {
           getUserDataLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -96,7 +94,6 @@ class _ChatState extends State<Chat> with TickerProviderStateMixin {
           getUserDataLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 

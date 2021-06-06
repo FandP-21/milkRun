@@ -16,7 +16,6 @@ import 'package:groceryPro/service/sentry-service.dart';
 import '../../main.dart';
 import '../../style/style.dart';
 
-SentryError sentryError = new SentryError();
 
 class DrawerPage extends StatefulWidget {
   DrawerPage({Key key, this.locale, this.localizedValues, this.addressData})

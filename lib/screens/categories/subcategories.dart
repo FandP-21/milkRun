@@ -15,7 +15,6 @@ import 'package:groceryPro/style/style.dart';
 
 import '../../style/style.dart';
 
-SentryError sentryError = new SentryError();
 
 class SubCategories extends StatefulWidget {
   final String catTitle, locale, catId;
@@ -115,7 +114,6 @@ class _SubCategoriesState extends State<SubCategories> {
           isLoadingSubCatProductsList = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -151,7 +149,6 @@ class _SubCategoriesState extends State<SubCategories> {
           isLoadingSubCatProductsList = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 

@@ -16,7 +16,6 @@ import 'package:groceryPro/service/common.dart';
 import 'package:groceryPro/service/auth-service.dart';
 import 'package:groceryPro/widgets/loader.dart';
 
-SentryError sentryError = new SentryError();
 
 class Profile extends StatefulWidget {
   final Map localizedValues;
@@ -78,7 +77,6 @@ class _ProfileState extends State<Profile> {
           isGetTokenLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -100,7 +98,6 @@ class _ProfileState extends State<Profile> {
           isGetTokenLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -124,7 +121,6 @@ class _ProfileState extends State<Profile> {
           languagesList = [];
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 

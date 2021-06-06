@@ -20,7 +20,6 @@ import 'package:dotted_border/dotted_border.dart';
 import '../../service/constants.dart';
 import 'package:flutter_map_picker/flutter_map_picker.dart';
 
-SentryError sentryError = new SentryError();
 
 class Checkout extends StatefulWidget {
   final locale, id;
@@ -84,7 +83,6 @@ class _CheckoutState extends State<Checkout> {
           locationInfo = null;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -120,7 +118,6 @@ class _CheckoutState extends State<Checkout> {
           isLoadingCart = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -162,7 +159,6 @@ class _CheckoutState extends State<Checkout> {
             isDeliveryChargeLoading = true;
           });
         }
-        sentryError.reportError(error, null);
       });
     }
     return value;
@@ -190,7 +186,6 @@ class _CheckoutState extends State<Checkout> {
           deliverySlotsLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -242,7 +237,6 @@ class _CheckoutState extends State<Checkout> {
           addressLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -256,7 +250,6 @@ class _CheckoutState extends State<Checkout> {
         });
       }
     }).catchError((error) {
-      sentryError.reportError(error, null);
     });
   }
 
@@ -315,7 +308,6 @@ class _CheckoutState extends State<Checkout> {
             couponApplied = false;
           });
         }
-        sentryError.reportError(error, null);
       });
     }
   }
@@ -339,7 +331,6 @@ class _CheckoutState extends State<Checkout> {
           isCouponLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 

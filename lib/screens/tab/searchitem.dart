@@ -12,7 +12,6 @@ import 'package:groceryPro/widgets/subCategoryProductCart.dart';
 
 import '../../style/style.dart';
 
-SentryError sentryError = new SentryError();
 
 class SearchItem extends StatefulWidget {
   final String currency, locale;
@@ -75,7 +74,6 @@ class _SearchItemState extends State<SearchItem> {
           isTokenGetLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -102,7 +100,6 @@ class _SearchItemState extends State<SearchItem> {
             isSearching = false;
           });
         }
-        sentryError.reportError(error, null);
       });
     } else {
       searchresult = [];

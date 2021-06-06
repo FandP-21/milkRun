@@ -7,7 +7,6 @@ import 'package:groceryPro/service/localizations.dart';
 import 'package:groceryPro/service/sentry-service.dart';
 import 'package:groceryPro/style/style.dart';
 
-SentryError sentryError = new SentryError();
 
 class ForgotPassword extends StatefulWidget {
   ForgotPassword({Key key, this.title, this.locale, this.localizedValues})
@@ -83,7 +82,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             isVerfyEmailLoading = false;
           });
         }
-        sentryError.reportError(error, null);
       });
     } else {
       if (mounted) {

@@ -8,7 +8,6 @@ import '../../service/sentry-service.dart';
 import '../../style/style.dart';
 import '../../widgets/loader.dart';
 
-SentryError sentryError = new SentryError();
 
 class AboutUs extends StatefulWidget {
   AboutUs({Key key, this.locale, this.localizedValues}) : super(key: key);
@@ -51,7 +50,6 @@ class _AboutUsState extends State<AboutUs> {
             isAboutUsData = false;
           });
         }
-        sentryError.reportError(error, stackTrace);
       }
     }).catchError((error) {
       if (mounted) {
@@ -59,7 +57,6 @@ class _AboutUsState extends State<AboutUs> {
           isAboutUsData = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -83,7 +80,6 @@ class _AboutUsState extends State<AboutUs> {
             isBusinessInfoData = false;
           });
         }
-        sentryError.reportError(error, stackTrace);
       }
     }).catchError((error) {
       if (mounted) {
@@ -91,7 +87,6 @@ class _AboutUsState extends State<AboutUs> {
           isBusinessInfoData = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 

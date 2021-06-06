@@ -18,7 +18,6 @@ import 'package:groceryPro/style/style.dart';
 import 'package:location/location.dart';
 import 'package:groceryPro/widgets/loader.dart';
 
-SentryError sentryError = new SentryError();
 
 class Home extends StatefulWidget {
   final int currentIndex;
@@ -91,7 +90,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           Common.setCurrency('\$');
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -116,7 +114,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           getTokenValue = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 

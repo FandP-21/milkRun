@@ -15,7 +15,6 @@ import 'package:intl/intl.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../../style/style.dart';
 
-SentryError sentryError = new SentryError();
 
 class Orders extends StatefulWidget {
   final String userID, locale;
@@ -87,7 +86,6 @@ class _OrdersState extends State<Orders> {
           isOrderListLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 

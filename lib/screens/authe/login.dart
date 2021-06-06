@@ -10,7 +10,6 @@ import 'package:groceryPro/style/style.dart';
 import 'package:groceryPro/service/sentry-service.dart';
 import 'package:groceryPro/service/auth-service.dart';
 
-SentryError sentryError = new SentryError();
 
 class Login extends StatefulWidget {
   const Login(
@@ -141,7 +140,6 @@ class _LoginState extends State<Login> {
               isUserLoaginLoading = false;
             });
           }
-          sentryError.reportError(error, null);
         });
       });
     } else {

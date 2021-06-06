@@ -7,7 +7,6 @@ import 'package:groceryPro/service/localizations.dart';
 import 'package:groceryPro/service/sentry-service.dart';
 import 'package:groceryPro/style/style.dart';
 
-SentryError sentryError = new SentryError();
 
 class ResetPassword extends StatefulWidget {
   final String verificationToken, locale, email;
@@ -98,7 +97,6 @@ class _ResetPasswordState extends State<ResetPassword> {
             isResetPasswordLoading = false;
           });
         }
-        sentryError.reportError(error, null);
       });
     } else {
       if (mounted) {
@@ -215,7 +213,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                     text: TextSpan(
                       children: <TextSpan>[
                         TextSpan(
-                            text: "RE_ENTER_NEW_PASSWORD",
+                            text: "Re-enter new password",
                             style: textBarlowRegularBlack()),
                         TextSpan(
                           text: ' ',

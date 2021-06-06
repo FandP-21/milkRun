@@ -18,7 +18,6 @@ import 'package:flutter_map_picker/flutter_map_picker.dart';
 
 import '../../style/style.dart';
 
-SentryError sentryError = new SentryError();
 
 class Address extends StatefulWidget {
   final Map localizedValues;
@@ -70,7 +69,6 @@ class _AddressState extends State<Address> {
           addressLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -94,7 +92,6 @@ class _AddressState extends State<Address> {
           isLocationLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -113,7 +110,6 @@ class _AddressState extends State<Address> {
           addressLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 

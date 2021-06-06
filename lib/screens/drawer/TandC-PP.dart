@@ -5,7 +5,6 @@ import '../../service/sentry-service.dart';
 import '../../style/style.dart';
 import '../../widgets/loader.dart';
 
-SentryError sentryError = new SentryError();
 
 class TandCandPrivacyPolicy extends StatefulWidget {
   TandCandPrivacyPolicy(
@@ -50,7 +49,6 @@ class _TandCandPrivacyPolicyState extends State<TandCandPrivacyPolicy> {
             isTandCandPPloading = false;
           });
         }
-        sentryError.reportError(error, stackTrace);
       }
     }).catchError((error) {
       if (mounted) {
@@ -58,7 +56,6 @@ class _TandCandPrivacyPolicyState extends State<TandCandPrivacyPolicy> {
           isTandCandPPloading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 

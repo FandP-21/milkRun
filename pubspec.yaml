@@ -16,7 +16,7 @@ dependencies:
   location: ^4.1.1
   intl: ^0.17.0
   http: ^0.13.3
-  sentry: ^5.0.0
+  #sentry: ^5.0.0
   cupertino_icons: ^1.0.3
   image_picker: ^0.8.0
   async_loader: ^0.1.2

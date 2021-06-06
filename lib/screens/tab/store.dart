@@ -16,7 +16,6 @@ import 'package:groceryPro/style/style.dart';
 import 'package:groceryPro/widgets/loader.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-SentryError sentryError = new SentryError();
 
 class Store extends StatefulWidget {
   final Map localizedValues;
@@ -92,7 +91,6 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
           }
         }
       }).catchError((error) {
-        sentryError.reportError(error, null);
       });
     });
   }
@@ -108,7 +106,6 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
         Common.setCartData(null);
       }
     }).catchError((error) {
-      sentryError.reportError(error, null);
     });
   }
 
@@ -160,7 +157,6 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
           isBannerLoading = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
@@ -212,7 +208,6 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
           isLoadingAllData = false;
         });
       }
-      sentryError.reportError(error, null);
     });
   }
 
