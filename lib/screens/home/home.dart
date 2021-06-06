@@ -93,29 +93,29 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     });
   }
 
-  getToken() async {
-    await Common.getToken().then((onValue) {
-      if (onValue != null) {
-        if (mounted) {
-          setState(() {
-            getTokenValue = true;
-          });
-        }
-      } else {
-        if (mounted) {
-          setState(() {
-            getTokenValue = false;
-          });
-        }
-      }
-    }).catchError((error) {
-      if (mounted) {
-        setState(() {
-          getTokenValue = false;
-        });
-      }
-    });
-  }
+  // getToken() async {
+  //   await Common.getToken().then((onValue) {
+  //     if (onValue != null) {
+  //       if (mounted) {
+  //         setState(() {
+  //           getTokenValue = true;
+  //         });
+  //       }
+  //     } else {
+  //       if (mounted) {
+  //         setState(() {
+  //           getTokenValue = false;
+  //         });
+  //       }
+  //     }
+  //   }).catchError((error) {
+  //     if (mounted) {
+  //       setState(() {
+  //         getTokenValue = false;
+  //       });
+  //     }
+  //   });
+  // }
 
   @override
   void dispose() {

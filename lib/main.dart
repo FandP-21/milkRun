@@ -72,27 +72,27 @@ void initializeMain() async {
   });
 }
 
-void getToken() async {
-  await Common.getToken().then((onValue) async {
-    if (onValue != null) {
-      Common.getPlayerID().then((palyerId) {
-        Common.getSelectedLanguage().then((selectedLocale) async {
-          Map body = {"language": selectedLocale, "playerId": palyerId};
-          await LoginService.updateUserInfo(body);
-          userInfoMethod();
-        });
-      });
-    }
-  }).catchError((error) {
-  });
-}
+// void getToken() async {
+//   await Common.getToken().then((onValue) async {
+//     if (onValue != null) {
+//       Common.getPlayerID().then((palyerId) {
+//         Common.getSelectedLanguage().then((selectedLocale) async {
+//           Map body = {"language": selectedLocale, "playerId": palyerId};
+//           await LoginService.updateUserInfo(body);
+//           userInfoMethod();
+//         });
+//       });
+//     }
+//   }).catchError((error) {
+//   });
+// }
 
-void userInfoMethod() async {
-  await LoginService.getUserInfo().then((onValue) async {
-    await Common.setUserID(onValue['response_data']['_id']);
-  }).catchError((error) {
-  });
-}
+// void userInfoMethod() async {
+//   await LoginService.getUserInfo().then((onValue) async {
+//     await Common.setUserID(onValue['response_data']['_id']);
+//   }).catchError((error) {
+//   });
+// }
 
 /*Future<void> configLocalNotification() async {
   var settings = {
