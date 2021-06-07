@@ -21,7 +21,7 @@ class ProductService {
   // get all product
   static Future<Map<String, dynamic>> getProductListAll(index, limit) async {
     return client
-        .get(Uri.parse(Constants.apiUrl + "/products/list?limit=$limit&page=$index"))
+        .get(Uri.parse(Constants.baseUrl + Constants.GET_ALL_PRODUCTS))
         .then((response) {
       return json.decode(response.body);
     });

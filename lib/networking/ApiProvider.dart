@@ -1,13 +1,15 @@
 import 'dart:io';
 
+import 'package:groceryPro/utils/constants.dart' as Constants;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:phoenix_delivery_app/constants.dart' as Constants;
+
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'dart:io';
 import 'dart:convert';
-import 'package:networking/CustomException.dart';
 import 'dart:io' show Platform;
+
+import 'CustomException.dart';
 
 class ApiProvider{
   //final String _baseUrl = "https://orders.yamee-staging.ws/api/v1";
@@ -16,12 +18,10 @@ class ApiProvider{
     var responseJson;
     try {
       var token = await getAuthToken();
-      PackageInfo packageInfo = await PackageInfo.fromPlatform();
       print(token);
-      final response = await http.patch(Uri.parse(RestConsts.baseUrl + url), headers: {
+      final response = await http.patch(Uri.parse(Constants.baseUrl + url), headers: {
         HttpHeaders.contentTypeHeader: "application/json",
         "Authorization": "Bearer " + token,
-        "client_version" : packageInfo.version,
         "client_device" : Platform.isAndroid?"android":"ios",
         "client_name" : "delivery_app",
       });
@@ -38,12 +38,10 @@ class ApiProvider{
     var responseJson;
     try {
       var token = await getAuthToken();
-      PackageInfo packageInfo = await PackageInfo.fromPlatform();
       print(token);
-      final response = await http.get(Uri.parse(RestConsts.baseUrl + url), headers: {
+      final response = await http.get(Uri.parse(Constants.baseUrl + url), headers: {
         "HttpHeaders.contentTypeHeader": "application/json",
         "Authorization": "Bearer " + token,
-        "client_version" : packageInfo.version,
         "client_device" : Platform.isAndroid?"android":"ios",
         "client_name" : "delivery_app",
       });
@@ -57,12 +55,10 @@ class ApiProvider{
 
   Future<dynamic> post(String url, var body) async {
     var responseJson;
-    PackageInfo packageInfo = await PackageInfo.fromPlatform();
     try {
-      final response = await http.post(Uri.parse(RestConsts.baseUrl + url),
+      final response = await http.post(Uri.parse(Constants.baseUrl + url),
           headers: {
             HttpHeaders.contentTypeHeader: 'application/json',
-            "client_version" : packageInfo.version,
             "client_device" : Platform.isAndroid?"android":"ios",
             "client_name" : "delivery_app",
           },
@@ -81,23 +77,20 @@ class ApiProvider{
     var response;
     try {
       var token = await getAuthToken();
-      PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
       if(body==null){
-        response = await http.put(Uri.parse(RestConsts.baseUrl + url),
+        response = await http.put(Uri.parse(Constants.baseUrl + url),
             headers: {
               HttpHeaders.contentTypeHeader: "application/json",
               "Authorization": "Bearer " + token,
-              "client_version" : packageInfo.version,
               "client_device" : Platform.isAndroid?"android":"ios",
               "client_name" : "delivery_app",
             });
       }else{
-        response = await http.put(Uri.parse(RestConsts.baseUrl + url),
+        response = await http.put(Uri.parse(Constants.baseUrl + url),
             headers: {
               HttpHeaders.contentTypeHeader: "application/json",
               "Authorization": "Bearer " + token,
-              "client_version" : packageInfo.version,
               "client_device" : Platform.isAndroid?"android":"ios",
               "client_name" : "delivery_app",
             },
@@ -116,12 +109,10 @@ class ApiProvider{
     var responseJson;
     try {
       var token = await getAuthToken();
-      PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
-      final response = await http.post(Uri.parse(RestConsts.baseUrl + url),
+      final response = await http.post(Uri.parse(Constants.baseUrl + url),
           headers: {
             HttpHeaders.contentTypeHeader: "application/json",
-            "client_version" : packageInfo.version,
             "client_device" : Platform.isAndroid?"android":"ios",
             "client_name" : "delivery_app",
             "Authorization": "Bearer " + token

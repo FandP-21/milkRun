@@ -805,76 +805,13 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
             getAllDataMethod();
           });
         },
-        child: isLoadingAllData || isBannerLoading
+        child: (isLoadingAllData || isBannerLoading) && categoryList ==null&& productsList ==null&& dealList ==null&&
+          topDealList ==null&&
+          bannerList ==null
             ? SquareLoader()
-            : categoryList.length == 0 &&
-                    productsList.length == 0 &&
-                    dealList.length == 0 &&
-                    topDealList.length == 0 &&
-                    bannerList.length == 0
-                ? Center(
+          : Center(
                     child: Image.asset('lib/assets/images/no-orders.png'),
                   )
-                : SingleChildScrollView(
-                    physics: ScrollPhysics(),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Column(
-                        children: <Widget>[
-                          bannerList.length == 0
-                              ? Container()
-                              : SizedBox(height: 20),
-                          bannerList.length == 0 ? Container() : banner(),
-                          bannerList.length == 0
-                              ? Container()
-                              : SizedBox(height: 15),
-                          categoryList.length == 0
-                              ? Container()
-                              : categoryRow(),
-                          categoryList.length == 0 ? Container() : Divider(),
-                          categoryList.length == 0
-                              ? Container()
-                              : SizedBox(height: 10),
-                          topDealList.length == 0
-                              ? Container()
-                              : topDealsRow(
-                              "TOP_DEALS",
-                                  topDealList,
-                                  "TopDeals"),
-                          topDealList.length == 0
-                              ? Container()
-                              : SizedBox(height: 10),
-                          topDealList.length == 0 ? Container() : Divider(),
-                          topDealList.length == 0
-                              ? Container()
-                              : SizedBox(height: 10),
-                          productRow(
-                              "PRODUCTS",
-                              productsList),
-                          productsList.length == 0
-                              ? Container()
-                              : SizedBox(height: 10),
-                          productsList.length == 0 ? Container() : Divider(),
-                          productsList.length == 0
-                              ? Container()
-                              : SizedBox(height: 10),
-                          dealList.length == 0
-                              ? Container()
-                              : todayDealsRow(
-                              "DEALS_OF_THE_DAYS",
-                                  dealList,
-                                  "TodayDeals"),
-                          dealList.length == 0
-                              ? Container()
-                              : SizedBox(height: 10),
-                          dealList.length == 0 ? Container() : Divider(),
-                          dealList.length == 0
-                              ? Container()
-                              : SizedBox(height: 10),
-                        ],
-                      ),
-                    ),
-                  ),
       ),
     );
   }

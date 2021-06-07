@@ -1,5 +1,5 @@
-import 'package:admin/screens/login/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:groceryPro/screens/authe/login.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -9,33 +9,23 @@ const bgColor = Color(0xFF212332);
 
 const defaultPadding = 16.0;
 
-var baseUrl = 'https://337a6c0d7f46.ngrok.io';
+// https://{{api_key}}:{{api_password}}@{{store_name}}.myshopify.com/admin/api/{{api_version}}/orders.json
+var baseUrl = 'https://$API_KEY:$API_PASSWORD@$STORE_NAME.myshopify.com/admin/api/$API_VERSION';
 
 const String AUTHTOKEN = "auth_token";
 
 const String NO_INTERNET = "No Internet";
 
 //api end points
-const String SING_IN = "/v1/auth/backend-signin";//Admin login
+const String GET_ALL_PRODUCTS = "/products";//List all products
 
-//user
-const String GET_ALL_USER = "/v1/user"; //List user by admin
-const String CREATE_USER = "/v1/user"; //Create new user by admin
-const String GET_USER_BY_ID = "/v1/user/{id}"; //Create new user by admin
-const String DELETE_USER_BY_ID = "/v1/user/"; //Delete user by admin
-const String ACTIVE_DEACTIVE_USER = "/v1/user/active-deactive-user/"; //Enable disable user by admin
+//auth keys
+const String API_KEY = "cd5845fe0a28f4a78b0e0158621ec405";
+const String API_PASSWORD = "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";
+const String STORE_NAME = "milkrun-rabbit";
+const String API_VERSION = "2021-04";
 
-//category
-const String GET_ALL_CATEGORY = "/v1/category"; //List category by admin
-const String CREATE_CATEGORY = "/v1/category"; //Create new category by admin
-const String DELETE_CATEGORY = "/v1/category/"; //Delete category by admin
-const String UPDATE_CATEGORY = "/v1/category/"; //update category by admin
 
-//category
-const String GET_ALL_PRODUCTS = "/v1/products"; //List products by admin and reseller
-const String CREATE_PRODUCTS = "/v1/products"; //Create new products by admin and reseller
-const String DELETE_PRODUCTS = "/v1/products/"; //Delete products by admin and reseller
-const String UPDATE_PRODUCTS = "/v1/products/"; //update products by admin and reseller
 
 
 void onLoading(BuildContext context) {
@@ -57,7 +47,7 @@ void onLoading(BuildContext context) {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Lottie.asset('assets/loader.json', width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height)
+              Lottie.asset('lib/assets/loader.json', width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height)
             ],
           ),
         ),
@@ -114,7 +104,7 @@ Future<void> showMyDialog(String msg, BuildContext context) async {
                     prefs.clear();
 
                     Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                        LoginPage()), (Route<dynamic> route) => false);
+                        Login()), (Route<dynamic> route) => false);
                   }else{
                     Navigator.of(context).pop();
                   }
