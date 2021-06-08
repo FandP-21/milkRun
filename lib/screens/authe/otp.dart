@@ -9,7 +9,6 @@ import 'package:groceryPro/style/style.dart';
 import 'package:pin_entry_text_field/pin_entry_text_field.dart';
 import 'package:groceryPro/widgets/loader.dart';
 
-
 class Otp extends StatefulWidget {
   Otp({Key key, this.email, this.locale, this.localizedValues})
       : super(key: key);
@@ -182,7 +181,8 @@ class _OtpState extends State<Otp> {
             bottomRight: Radius.circular(20),
           ),
         ),
-        title: Text("WELCOME"
+        title: Text(
+          "WELCOME"
           /*MyLocalizations.of(context).getLocalizations("WELCOME")*/,
           style: textbarlowSemiBoldwhite(),
         ),
@@ -205,8 +205,10 @@ class _OtpState extends State<Otp> {
               text: TextSpan(
                 children: <TextSpan>[
                   TextSpan(
-                      text: "Code msg"/*MyLocalizations.of(context)
-                          .getLocalizations("CODE_MSG")*/,
+                      text:
+                          "Code msg" /*MyLocalizations.of(context)
+                          .getLocalizations("CODE_MSG")*/
+                      ,
                       style: textBarlowRegularBlack()),
                   TextSpan(
                     text: ' ${widget.email}',
@@ -240,10 +242,13 @@ class _OtpState extends State<Otp> {
             padding: const EdgeInsets.only(
                 top: 20.0, bottom: 5.0, left: 20.0, right: 20.0),
             child: GFTypography(
+              text: null,
               showDivider: false,
-              child: Text( "Enter verification code"
+              child: Text(
+                "Enter verification code"
                 /*MyLocalizations.of(context)
-                    .getLocalizations("ENTER_VERIFICATION_CODE", true)*/,
+                    .getLocalizations("ENTER_VERIFICATION_CODE", true)*/
+                ,
                 style: textBarlowRegularBlack(),
               ),
             ),

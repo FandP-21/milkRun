@@ -11,7 +11,6 @@ import 'package:groceryPro/style/style.dart';
 
 import '../../style/style.dart';
 
-
 class ChangePassword extends StatefulWidget {
   final String token, locale;
   final Map localizedValues;
@@ -134,6 +133,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                     const EdgeInsets.only(left: 20.0, bottom: 5.0, right: 20.0),
                 child: GFTypography(
                   showDivider: false,
+                  text: null,
                   child: Padding(
                     padding: const EdgeInsets.only(top: 20.0, bottom: 2.0),
                     child: RichText(
@@ -204,6 +204,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                 padding:
                     const EdgeInsets.only(left: 20.0, bottom: 5.0, right: 20.0),
                 child: GFTypography(
+                  text: null,
                   showDivider: false,
                   child: RichText(
                     text: TextSpan(
@@ -273,6 +274,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                 padding:
                     const EdgeInsets.only(left: 20.0, bottom: 5.0, right: 20.0),
                 child: GFTypography(
+                  text: null,
                   showDivider: false,
                   child: RichText(
                     text: TextSpan(

@@ -1,6 +1,7 @@
 name: groceryPro
 description: Grocery pro user app
 
+publish_to: none
 version: 2.0.4+19
 
 environment:
@@ -44,11 +45,11 @@ dependencies:
 #    sdk: flutter
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_driver:
-    sdk: flutter
-  test: 1.16.4
+  # flutter_test:
+  #   sdk: flutter
+  # flutter_driver:
+  #   sdk: flutter
+  # test: 1.16.4
   # screenshots: ^2.1.0
   flutter_launcher_icons: ^0.9.0
 

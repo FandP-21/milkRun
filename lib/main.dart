@@ -11,7 +11,7 @@ import 'package:groceryPro/service/constants.dart';
 import 'package:groceryPro/service/localizations.dart';
 import 'package:groceryPro/service/sentry-service.dart';
 import 'package:groceryPro/style/style.dart';
-
+import 'package:groceryPro/utils/theme.dart';
 
 bool get isInDebugMode {
   bool inDebugMode = false;
@@ -27,7 +27,7 @@ void main() {
 
 void initializeMain() async {
   await DotEnv().load('.env');
-   WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   // configLocalNotification();
   // oneSignalTimer = Timer.periodic(Duration(seconds: 4), (timer) {
   //   configLocalNotification();
@@ -38,8 +38,7 @@ void initializeMain() async {
       debugShowCheckedModeBanner: false,
     ));
     return Future.value(null);
-  }, onError: (error, stackTrace) {
-  });
+  }, onError: (error, stackTrace) {});
   Common.getSelectedLanguage().then((selectedLocale) {
     Map localizedValues;
     String defaultLocale = '';
@@ -55,9 +54,9 @@ void initializeMain() async {
       }
     };
     runApp(MainScreen(
-      /* locale: locale,
+        /* locale: locale,
           localizedValues: localizedValues,*/
-    ));
+        ));
 /*    LoginService.getLanguageJson(locale).then((value) async {
       localizedValues = value['response_data']['json'];
       locale = value['response_data']['languageCode'];
@@ -142,11 +141,11 @@ class MainScreen extends StatelessWidget {
       supportedLocales: [Locale(locale)],*/
       debugShowCheckedModeBanner: false,
       title: Constants.appName,
-      theme: ThemeData(primaryColor: primary, accentColor: primary),
+      theme: ThemeHelper.getThemeData,
       home: Home(
-        // locale: locale,
-        // localizedValues: localizedValues,
-      ),
+          // locale: locale,
+          // localizedValues: localizedValues,
+          ),
     );
   }
 }

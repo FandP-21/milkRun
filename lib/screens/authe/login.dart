@@ -10,7 +10,6 @@ import 'package:groceryPro/style/style.dart';
 import 'package:groceryPro/service/sentry-service.dart';
 import 'package:groceryPro/service/auth-service.dart';
 
-
 class Login extends StatefulWidget {
   const Login(
       {Key key,
@@ -130,8 +129,7 @@ class _LoginState extends State<Login> {
                     (Route<dynamic> route) => false);
               }
             } else {
-              showSnackbar(
-                  "INVAILD_USER");
+              showSnackbar("INVAILD_USER");
             }
           }
         }).catchError((error) {
@@ -252,6 +250,7 @@ class _LoginState extends State<Login> {
     return Padding(
       padding: const EdgeInsets.only(top: 10.0),
       child: GFTypography(
+        text: null,
         showDivider: false,
         child: Text(
           "Welcome Back",
@@ -265,13 +264,13 @@ class _LoginState extends State<Login> {
     return Padding(
       padding: const EdgeInsets.only(top: 20.0),
       child: GFTypography(
+        text: null,
         showDivider: false,
         child: RichText(
           text: TextSpan(
             children: <TextSpan>[
               TextSpan(
-                text:
-                "EMAIL",
+                text: "EMAIL",
                 style: textbarlowRegularBlackdull(),
               ),
               TextSpan(
@@ -298,7 +297,8 @@ class _LoginState extends State<Login> {
           },
           validator: (String value) {
             if (value.isEmpty) {
-              return "Enter your email";/*MyLocalizations.of(context)
+              return "Enter your email";
+              /*MyLocalizations.of(context)
                   .getLocalizations("ENTER_YOUR_EMAIL")*/
             } else if (!RegExp(
                     r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
@@ -328,13 +328,16 @@ class _LoginState extends State<Login> {
 
   Widget buildPasswordText() {
     return GFTypography(
+      text: null,
       showDivider: false,
       child: RichText(
         text: TextSpan(
           children: <TextSpan>[
             TextSpan(
-                text: "Password"/*MyLocalizations.of(context)
-                    .getLocalizations("PASSWORD", true)*/,
+                text:
+                    "Password" /*MyLocalizations.of(context)
+                    .getLocalizations("PASSWORD", true)*/
+                ,
                 style: textbarlowRegularBlackdull()),
             TextSpan(
               text: ' *',
@@ -358,7 +361,8 @@ class _LoginState extends State<Login> {
         },
         validator: (String value) {
           if (value.isEmpty) {
-            return "Enter password";/*MyLocalizations.of(context)
+            return "Enter password";
+            /*MyLocalizations.of(context)
                 .getLocalizations("ENTER_PASSWORD");*/
           } else if (value.length < 6) {
             return "ERROR_PASS";
@@ -451,8 +455,7 @@ class _LoginState extends State<Login> {
           text: TextSpan(
             children: <TextSpan>[
               TextSpan(
-                  text: "Forgot password" +
-                      "?",
+                  text: "Forgot password" + "?",
                   /*MyLocalizations.of(context)
                           .getLocalizations("FORGET_PASSWORD")*/
                   style: textbarlowRegularBlackFont()),
@@ -493,8 +496,7 @@ class _LoginState extends State<Login> {
           text: TextSpan(
             children: <TextSpan>[
               TextSpan(
-                text: "REGISTER" +
-                    "?",
+                text: "REGISTER" + "?",
                 style: textbarlowRegularaPrimary(),
               ),
               TextSpan(
