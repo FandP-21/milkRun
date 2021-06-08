@@ -8,7 +8,6 @@ import 'package:groceryPro/service/sentry-service.dart';
 
 import '../../style/style.dart';
 
-
 class Signup extends StatefulWidget {
   final Map localizedValues;
   final String locale;
@@ -252,10 +251,10 @@ class _SignupState extends State<Signup> {
     return Padding(
       padding: const EdgeInsets.only(top: 10.0),
       child: GFTypography(
+        text: null,
         showDivider: false,
         child: Text(
-          "Lets get started" +
-              " !",
+          "Lets get started" + " !",
           style: textbarlowMediumBlack(),
         ),
       ),
@@ -266,13 +265,12 @@ class _SignupState extends State<Signup> {
     return Padding(
       padding: const EdgeInsets.only(top: 20.0),
       child: GFTypography(
+        text: null,
         showDivider: false,
         child: RichText(
           text: TextSpan(
             children: <TextSpan>[
-              TextSpan(
-                  text: "First Name",
-                  style: textbarlowRegularBlackdull()),
+              TextSpan(text: "First Name", style: textbarlowRegularBlackdull()),
               TextSpan(
                 text: ' *',
                 style: TextStyle(color: Colors.red),
@@ -322,12 +320,11 @@ class _SignupState extends State<Signup> {
       padding: const EdgeInsets.only(top: 20.0),
       child: GFTypography(
         showDivider: false,
+        text: null,
         child: RichText(
           text: TextSpan(
             children: <TextSpan>[
-              TextSpan(
-                  text:"Last Name",
-                  style: textbarlowRegularBlackdull()),
+              TextSpan(text: "Last Name", style: textbarlowRegularBlackdull()),
               TextSpan(
                 text: ' *',
                 style: TextStyle(color: Colors.red),
@@ -376,13 +373,12 @@ class _SignupState extends State<Signup> {
     return Padding(
       padding: const EdgeInsets.only(),
       child: GFTypography(
+        text: null,
         showDivider: false,
         child: RichText(
           text: TextSpan(
             children: <TextSpan>[
-              TextSpan(
-                  text: "EMAIL",
-                  style: textbarlowRegularBlackdull()),
+              TextSpan(text: "EMAIL", style: textbarlowRegularBlackdull()),
               TextSpan(
                 text: ' *',
                 style: TextStyle(color: Color(0xFFF44242)),
@@ -433,13 +429,12 @@ class _SignupState extends State<Signup> {
 
   Widget buildPasswordText() {
     return GFTypography(
+      text: null,
       showDivider: false,
       child: RichText(
         text: TextSpan(
           children: <TextSpan>[
-            TextSpan(
-                text: "PASSWORD",
-                style: textbarlowRegularBlackdull()),
+            TextSpan(text: "PASSWORD", style: textbarlowRegularBlackdull()),
             TextSpan(
               text: ' *',
               style: TextStyle(color: Color(0xFFF44242)),
@@ -458,7 +453,8 @@ class _SignupState extends State<Signup> {
         keyboardType: TextInputType.text,
         validator: (String value) {
           if (value.isEmpty) {
-            return "Enter password";/*MyLocalizations.of(context)
+            return "Enter password";
+            /*MyLocalizations.of(context)
                 .getLocalizations("ENTER_PASSWORD");*/
           } else if (value.length < 6) {
             return "ERROR_PASS";
@@ -504,13 +500,16 @@ class _SignupState extends State<Signup> {
 
   Widget buildMobileNumberText() {
     return GFTypography(
+      text: null,
       showDivider: false,
       child: RichText(
         text: TextSpan(
           children: <TextSpan>[
             TextSpan(
-                text: "Contact number"/*MyLocalizations.of(context)
-                    .getLocalizations("CONTACT_NUMBER", true)*/,
+                text:
+                    "Contact number" /*MyLocalizations.of(context)
+                    .getLocalizations("CONTACT_NUMBER", true)*/
+                ,
                 style: textbarlowRegularBlack()),
             TextSpan(
               text: ' *',
@@ -531,8 +530,9 @@ class _SignupState extends State<Signup> {
         keyboardType: TextInputType.number,
         validator: (String value) {
           if (value.isEmpty) {
-            return "Enter your contact number"/*MyLocalizations.of(context)
-                .getLocalizations("ENTER_YOUR_CONTACT_NUMBER")*/;
+            return "Enter your contact number" /*MyLocalizations.of(context)
+                .getLocalizations("ENTER_YOUR_CONTACT_NUMBER")*/
+                ;
           } else
             return null;
         },

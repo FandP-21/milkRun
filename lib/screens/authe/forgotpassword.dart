@@ -7,7 +7,6 @@ import 'package:groceryPro/service/localizations.dart';
 import 'package:groceryPro/service/sentry-service.dart';
 import 'package:groceryPro/style/style.dart';
 
-
 class ForgotPassword extends StatefulWidget {
   ForgotPassword({Key key, this.title, this.locale, this.localizedValues})
       : super(key: key);
@@ -120,18 +119,22 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               Padding(
                 padding: const EdgeInsets.only(
                     top: 40.0, left: 18.0, bottom: 8.0, right: 20.0),
-                child: Text("Password reset"
+                child: Text(
+                  "Password reset"
                   /*MyLocalizations.of(context)
-                      .getLocalizations("PASSWORD_RESET")*/,
+                      .getLocalizations("PASSWORD_RESET")*/
+                  ,
                   style: textbarlowMediumBlack(),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(
                     left: 18.0, bottom: 25.0, right: 20.0),
-                child: Text("Forgot pass message"
+                child: Text(
+                  "Forgot pass message"
                   /*MyLocalizations.of(context)
-                      .getLocalizations("FORET_PASS_MESSAGE")*/,
+                      .getLocalizations("FORET_PASS_MESSAGE")*/
+                  ,
                   style: textbarlowRegularBlack(),
                 ),
               ),
@@ -139,13 +142,16 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 padding:
                     const EdgeInsets.only(left: 20.0, bottom: 5.0, right: 20.0),
                 child: GFTypography(
+                  text: null,
                   showDivider: false,
                   child: RichText(
                     text: TextSpan(
                       children: <TextSpan>[
                         TextSpan(
-                            text: "Email" /*MyLocalizations.of(context)
-                                .getLocalizations("EMAIL", true)*/,
+                            text:
+                                "Email" /*MyLocalizations.of(context)
+                                .getLocalizations("EMAIL", true)*/
+                            ,
                             style: textbarlowRegularBlack()),
                         TextSpan(
                           text: ' *',
@@ -166,12 +172,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     },
                     validator: (String value) {
                       if (value.isEmpty) {
-                        return "Enter your email";/*MyLocalizations.of(context)
+                        return "Enter your email";
+                        /*MyLocalizations.of(context)
                             .getLocalizations("ENTER_YOUR_EMAIL")*/
                       } else if (!RegExp(
                               r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
                           .hasMatch(value)) {
-                        return "Error email"; /*MyLocalizations.of(context)
+                        return "Error email";
+                        /*MyLocalizations.of(context)
                             .getLocalizations("ERROR_MAIL");*/
                       } else
                         return null;

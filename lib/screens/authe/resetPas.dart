@@ -7,7 +7,6 @@ import 'package:groceryPro/service/localizations.dart';
 import 'package:groceryPro/service/sentry-service.dart';
 import 'package:groceryPro/style/style.dart';
 
-
 class ResetPassword extends StatefulWidget {
   final String verificationToken, locale, email;
   final Map localizedValues;
@@ -136,6 +135,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                 padding:
                     const EdgeInsets.only(left: 20.0, bottom: 5.0, right: 20.0),
                 child: GFTypography(
+                  text: null,
                   showDivider: false,
                   child: Padding(
                     padding: const EdgeInsets.only(top: 20.0, bottom: 2.0),
@@ -208,6 +208,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                 padding:
                     const EdgeInsets.only(left: 20.0, bottom: 5.0, right: 20.0),
                 child: GFTypography(
+                  text: null,
                   showDivider: false,
                   child: RichText(
                     text: TextSpan(

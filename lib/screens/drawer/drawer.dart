@@ -16,7 +16,6 @@ import 'package:groceryPro/service/sentry-service.dart';
 import '../../main.dart';
 import '../../style/style.dart';
 
-
 class DrawerPage extends StatefulWidget {
   DrawerPage({Key key, this.locale, this.localizedValues, this.addressData})
       : super(key: key);
@@ -80,16 +79,16 @@ class _DrawerPageState extends State<DrawerPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 20.0),
-                  child: _buildMenuTileList('lib/assets/icons/Home.png',
-                      "Home", 0,
-                      route: Home(
-                        // locale: widget.locale,
-                        // localizedValues: widget.localizedValues,
-                        currentIndex: 0,
-                      )),
+                  child:
+                      _buildMenuTileList('lib/assets/icons/Home.png', "Home", 0,
+                          route: Home(
+                            // locale: widget.locale,
+                            // localizedValues: widget.localizedValues,
+                            currentIndex: 0,
+                          )),
                 ),
-                _buildMenuTileList('lib/assets/icons/products.png',
-                    "Products", 0,
+                _buildMenuTileList(
+                    'lib/assets/icons/products.png', "Products", 0,
                     route: AllProducts(
                       locale: widget.locale,
                       localizedValues: widget.localizedValues,
@@ -105,10 +104,7 @@ class _DrawerPageState extends State<DrawerPage> {
                     getTokenValue: getTokenValue,
                   ),
                 ),
-                _buildMenuTileList(
-                    'lib/assets/icons/deals.png',
-                    "Top Deals",
-                    0,
+                _buildMenuTileList('lib/assets/icons/deals.png', "Top Deals", 0,
                     route: AllDealsList(
                         locale: widget.locale,
                         localizedValues: widget.localizedValues,
@@ -118,9 +114,7 @@ class _DrawerPageState extends State<DrawerPage> {
                         title: "TOP_DEALS")),
                 getTokenValue
                     ? _buildMenuTileList(
-                        'lib/assets/images/profileIcon.png',
-                        "Profile",
-                        0,
+                        'lib/assets/images/profileIcon.png', "Profile", 0,
                         route: Home(
                           // locale: widget.locale,
                           // localizedValues: widget.localizedValues,
@@ -129,9 +123,7 @@ class _DrawerPageState extends State<DrawerPage> {
                     : Container(),
                 getTokenValue
                     ? _buildMenuTileList(
-                        'lib/assets/icons/history.png',
-                        "My orders",
-                        0,
+                        'lib/assets/icons/history.png', "My orders", 0,
                         route: Orders(
                           locale: widget.locale,
                           localizedValues: widget.localizedValues,
@@ -139,9 +131,7 @@ class _DrawerPageState extends State<DrawerPage> {
                     : Container(),
                 getTokenValue
                     ? _buildMenuTileList(
-                        'lib/assets/icons/location.png',
-                        "Address",
-                        0,
+                        'lib/assets/icons/location.png', "Address", 0,
                         route: Address(
                           locale: widget.locale,
                           localizedValues: widget.localizedValues,
@@ -149,9 +139,7 @@ class _DrawerPageState extends State<DrawerPage> {
                     : Container(),
                 getTokenValue
                     ? _buildMenuTileList(
-                        'lib/assets/icons/fav.png',
-                    "Favorite",
-                        0,
+                        'lib/assets/icons/fav.png', "Favorite", 0,
                         route: Home(
                           // locale: widget.locale,
                           // localizedValues: widget.localizedValues,
@@ -159,15 +147,13 @@ class _DrawerPageState extends State<DrawerPage> {
                         ))
                     : Container(),
                 getTokenValue
-                    ? _buildMenuTileList('lib/assets/icons/chat.png',
-                    "CHAT", 0,
+                    ? _buildMenuTileList('lib/assets/icons/chat.png', "CHAT", 0,
                         route: Chat(
                           locale: widget.locale,
                           localizedValues: widget.localizedValues,
                         ))
                     : Container(),
-                _buildMenuTileList('lib/assets/icons/about.png',
-                    "About us", 0,
+                _buildMenuTileList('lib/assets/icons/about.png', "About us", 0,
                     route: AboutUs(
                         locale: widget.locale,
                         localizedValues: widget.localizedValues)),
@@ -196,14 +182,9 @@ class _DrawerPageState extends State<DrawerPage> {
                 SizedBox(height: 20.0),
                 getTokenValue
                     ? _buildMenuTileList1(
-                        'lib/assets/icons/lg.png',
-                    "Logout",
-                        0,
+                        'lib/assets/icons/lg.png', "Logout", 0,
                         route: null)
-                    : _buildMenuTileList1(
-                        'lib/assets/icons/lg.png',
-                    "Login",
-                        0,
+                    : _buildMenuTileList1('lib/assets/icons/lg.png', "Login", 0,
                         route: Login(
                           locale: widget.locale,
                           localizedValues: widget.localizedValues,

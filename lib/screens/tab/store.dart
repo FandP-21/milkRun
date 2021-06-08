@@ -17,12 +17,12 @@ import 'package:groceryPro/style/style.dart';
 import 'package:groceryPro/widgets/loader.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-
 class Store extends StatefulWidget {
   final Map localizedValues;
   final String locale, currentLocation;
   AllProductResponseModel allProductResponseModel;
-  Store(this.allProductResponseModel, {Key key, this.currentLocation, this.locale, this.localizedValues})
+  Store(this.allProductResponseModel,
+      {Key key, this.currentLocation, this.locale, this.localizedValues})
       : super(key: key);
   @override
   _StoreState createState() => _StoreState();
@@ -92,8 +92,7 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
             });
           }
         }
-      }).catchError((error) {
-      });
+      }).catchError((error) {});
     });
   }
 
@@ -107,8 +106,7 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
       } else {
         Common.setCartData(null);
       }
-    }).catchError((error) {
-    });
+    }).catchError((error) {});
   }
 
   getBanner() async {
@@ -650,9 +648,7 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
                               overflow: TextOverflow.ellipsis,
                               style: textBarlowSemiBoldwbig()),
                           Text(
-                            list[i]['dealPercent'].toString() +
-                                "% " +
-                                "OFF",
+                            list[i]['dealPercent'].toString() + "% " + "OFF",
                             style: textBarlowRegularrwhsm(),
                           )
                         ],
@@ -763,10 +759,7 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
-                          Text(
-                              list[i]['dealPercent'].toString() +
-                                  "% " +
-                                  "OFF",
+                          Text(list[i]['dealPercent'].toString() + "% " + "OFF",
                               style: textoswaldboldwhite()),
                           SizedBox(
                             height: 5,
@@ -807,9 +800,12 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
             getAllDataMethod();
           });
         },
-        child: (isLoadingAllData || isBannerLoading) && categoryList ==null&& productsList ==null&& dealList ==null&&
-          topDealList ==null&&
-          bannerList ==null
+        child: (isLoadingAllData || isBannerLoading) &&
+                categoryList == null &&
+                productsList == null &&
+                dealList == null &&
+                topDealList == null &&
+                bannerList == null
             ? SquareLoader()
             : categoryList.length == 0 &&
                     productsList.length == 0 &&
