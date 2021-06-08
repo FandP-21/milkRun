@@ -13,6 +13,8 @@ import 'package:groceryPro/service/sentry-service.dart';
 import 'package:groceryPro/style/style.dart';
 import 'package:groceryPro/utils/theme.dart';
 
+import 'screens/test_screen/testScreen.dart';
+
 bool get isInDebugMode {
   bool inDebugMode = false;
   assert(inDebugMode = true);
@@ -142,10 +144,12 @@ class MainScreen extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: Constants.appName,
       theme: ThemeHelper.getThemeData,
-      home: Home(
-          // locale: locale,
-          // localizedValues: localizedValues,
-          ),
+      home: TestScreen(),
+
+      // home: Home(
+      //     // locale: locale,
+      //     // localizedValues: localizedValues,
+      //     ),
     );
   }
 }
