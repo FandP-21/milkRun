@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:getwidget/getwidget.dart';
-
 import 'package:groceryPro/service/product-service.dart';
-import 'package:groceryPro/style/style.dart';
-import 'package:groceryPro/widgets/categoryCard.dart';
 import 'package:groceryPro/widgets/customAppbar.dart';
 import 'package:groceryPro/widgets/loader.dart';
+import 'package:groceryPro/widgets/productCard.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-class AllCategoriesScreen extends StatefulWidget {
+class CategoryProductScreen extends StatefulWidget {
   final bool getTokenValue;
-  AllCategoriesScreen({Key key, this.getTokenValue});
+  CategoryProductScreen({Key key, this.getTokenValue});
 
   @override
-  _AllCategoriesState createState() => _AllCategoriesState();
+  _CategoryProductState createState() => _CategoryProductState();
 }
 
-class _AllCategoriesState extends State<AllCategoriesScreen>
+class _CategoryProductState extends State<CategoryProductScreen>
     with TickerProviderStateMixin {
   bool isLoadingProductsList = false, isLoadingcategoryList = false;
 
@@ -57,7 +54,7 @@ class _AllCategoriesState extends State<AllCategoriesScreen>
     return Scaffold(
       appBar: CustomAppBar(
         appBarType: AppBarType.backArrow,
-        titleText: "Categories",
+        titleText: "Fruits and Veg",
         context: context,
       ),
       body: SmartRefresher(
@@ -77,31 +74,20 @@ class _AllCategoriesState extends State<AllCategoriesScreen>
                   itemCount: 20,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: 164 / 64,
                     crossAxisSpacing: 16,
                     mainAxisSpacing: 16,
                   ),
                   itemBuilder: (BuildContext context, int index) {
-                    return CategoriesCard(
+                    return ProductCard(
                       imageUrl:
                           "https://live-production.wcms.abc-cdn.net.au/b983edcea41673904b177071b138dadb?impolicy=wcms_crop_resize&cropH=861&cropW=1529&xPos=0&yPos=345&width=862&height=485",
                       onTap: () {
-                        //TODO: Navigate to Proper SubCategory
-                        print("Navigate to Proper SubCategory");
-
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (BuildContext context) => SubCategories(
-                        //         locale: widget.locale,
-                        //         localizedValues: widget.localizedValues,
-                        //         catId: categoryList[index]['_id'],
-                        //         catTitle:
-                        //             '${categoryList[index]['title'][0].toUpperCase()}${categoryList[index]['title'].substring(1)}',
-                        //         token: widget.getTokenValue),
-                        //   ),
-                        // );
+                        //TODO: Add to Cart
+                        print("Add to Cart");
                       },
+                      productName: 'The odd bunch cool Apple',
+                      price: "\$1234",
+                      scale: 'each',
                     );
                   },
                 ),

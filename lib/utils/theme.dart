@@ -100,13 +100,13 @@ class ThemeHelper {
         fontSize: 12,
         fontWeight: FontWeight.w400,
         letterSpacing: 0.4,
-        color: AppColors.neutralBlack,
+        color: AppColors.neutralGrey700,
       ),
       overline: TextStyle(
         fontSize: 10,
         fontWeight: FontWeight.w400,
         letterSpacing: 1.5,
-        color: AppColors.neutralBlack,
+        color: AppColors.neutralGrey700,
       ),
     );
   }

@@ -81,12 +81,28 @@ class AppColors {
     return Hexcolor('#666666');
   }
 
+  static Color get neutralGrey700 {
+    return Hexcolor('#808080');
+  }
+
+  static Color get neutralGrey600 {
+    return Hexcolor('##B3B3B3');
+  }
+
   static Color get neutralGrey500 {
     return Hexcolor('#CCCCCC');
   }
 
   static Color get neutralGrey400 {
     return Hexcolor('#D7D7D7');
+  }
+
+  static Color get neutralGrey300 {
+    return Hexcolor('#E6E6E6');
+  }
+
+  static Color get neutralGrey200 {
+    return Hexcolor('#F8F8F8');
   }
 
   //System Colors
