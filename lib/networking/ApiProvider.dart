@@ -37,13 +37,9 @@ class ApiProvider{
   Future<dynamic> get(String url) async {
     var responseJson;
     try {
-      var token = await getAuthToken();
-      print(token);
+
       final response = await http.get(Uri.parse(Constants.baseUrl + url), headers: {
-        "HttpHeaders.contentTypeHeader": "application/json",
-        "Authorization": "Bearer " + token,
-        "client_device" : Platform.isAndroid?"android":"ios",
-        "client_name" : "delivery_app",
+        HttpHeaders.contentTypeHeader: "application/json",
       });
       responseJson = _response(response);
     } on SocketException {

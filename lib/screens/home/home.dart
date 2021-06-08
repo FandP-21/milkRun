@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:groceryPro/model/AllProductResponseModel.dart';
+import 'package:groceryPro/utils/constants.dart' as Constants;
 import 'package:flutter/widgets.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:getwidget/getwidget.dart';
-
+import 'package:groceryPro/networking/Response.dart';
+import 'package:groceryPro/networking/bloc/ProductsBloc.dart';
+import 'package:groceryPro/networking/repository/Repositories.dart';
 import 'package:groceryPro/model/counterModel.dart';
 import 'package:groceryPro/screens/drawer/drawer.dart';
 import 'package:groceryPro/screens/tab/mycart.dart';
@@ -46,21 +50,50 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   var addressData;
 
-  // void initState() {
-  //   if (widget.currentIndex != null) {
-  //     if (mounted) {
-  //       setState(() {
-  //         currentIndex = widget.currentIndex;
-  //       });
-  //     }
-  //   }
-  //   getToken();
-  //   getResult();
-  //   getGlobalSettingsData();
-  //
-  //   tabController = TabController(length: 4, vsync: this);
-  //   super.initState();
-  // }
+  ProductsBloc _productsBloc;
+  AllProductResponseModel _allProductResponseModel;
+
+  void initState() {
+    _productsBloc = ProductsBloc();
+    _productsBloc.getProducts();
+    _productsBloc.ordersStream.listen((event) {
+      setState(() {
+        switch (event.status) {
+          case Status.LOADING:
+            Constants.onLoading(context);
+            break;
+          case Status.COMPLETED:
+            print(event.message);
+            Constants.stopLoader(context);
+            // navigateToTab(context);
+            _allProductResponseModel = event.data;
+            break;
+          case Status.ERROR:
+            print(event.message);
+            Constants.stopLoader(context);
+            if (event.message == "Invalid Request: null") {
+              Constants.showMyDialog("Invalid Credentials.", context);
+            } else {
+              Constants.showMyDialog(event.message, context);
+            }
+            break;
+        }
+      });
+    });
+    // if (widget.currentIndex != null) {
+    //   if (mounted) {
+    //     setState(() {
+    //       currentIndex = widget.currentIndex;
+    //     });
+    //   }
+    // }
+    // getToken();
+    // getResult();
+    // getGlobalSettingsData();
+    //
+    // tabController = TabController(length: 4, vsync: this);
+    super.initState();
+  }
 
   getGlobalSettingsData() async {
     if (mounted) {
@@ -267,6 +300,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
     List<Widget> _screens = [
       Store(
+          _allProductResponseModel
         // locale: widget.locale,
         // localizedValues: widget.localizedValues,
       ),

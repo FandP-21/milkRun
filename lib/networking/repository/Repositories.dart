@@ -6,18 +6,20 @@ import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'dart:io';
 import 'dart:convert';
-
+import 'package:groceryPro/model/AllProductResponseModel.dart';
 import '../ApiProvider.dart';
 
 
 
-class UserRepository {
+class ProductRepository {
   ApiProvider _apiProvider = ApiProvider();
- /* Future<AllUserResponseModel> getAllUser(UserRequest userRequest) async {
-    final response = await _apiProvider.get("${Constants.GET_ALL_USER}?limit=${userRequest.limit}&"
-        "page_no=${userRequest.page_no}&userRole=${userRequest.userRole}&search=${userRequest.search}");
-    return AllUserResponseModel.fromJson(response);
+
+  Future<AllProductResponseModel> getAllUser() async {
+    final response = await _apiProvider.get("${Constants.GET_ALL_PRODUCTS}");/*?limit=${userRequest.limit}&"
+        "page_no=${userRequest.page_no}&userRole=${userRequest.userRole}&search=${userRequest.search}*/
+    return AllProductResponseModel.fromJson(response);
   }
+ /*
 
   Future<UserResponseModel> createUser(CreateUserRequest userRequest) async {
     final response = await _apiProvider.post(Constants.CREATE_USER, jsonEncode(userRequest));

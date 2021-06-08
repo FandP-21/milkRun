@@ -62,7 +62,7 @@ class Product {
   String adminGraphqlApiId;
   List<Variant> variants;
   List<Option> options;
-  List<dynamic> images;
+  List<String> images;
   dynamic image;
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
@@ -82,7 +82,7 @@ class Product {
     adminGraphqlApiId: json["admin_graphql_api_id"] == null ? null : json["admin_graphql_api_id"],
     variants: json["variants"] == null ? null : List<Variant>.from(json["variants"].map((x) => Variant.fromJson(x))),
     options: json["options"] == null ? null : List<Option>.from(json["options"].map((x) => Option.fromJson(x))),
-    images: json["images"] == null ? null : List<dynamic>.from(json["images"].map((x) => x)),
+    images: json["images"] == null ? null : List<String>.from(json["images"].map((x) => x)),
     image: json["image"] == null ? null : json["image"],
   );
 
@@ -101,9 +101,9 @@ class Product {
     "published_scope": publishedScope,
     "tags": tags,
     "admin_graphql_api_id": adminGraphqlApiId,
-    "variants": List<dynamic>.from(variants.map((x) => x.toJson())),
-    "options": List<dynamic>.from(options.map((x) => x.toJson())),
-    "images": List<dynamic>.from(images.map((x) => x)),
+    "variants": List<Variant>.from(variants.map((x) => x.toJson())),
+    "options": List<Option>.from(options.map((x) => x.toJson())),
+    "images": List<String>.from(images.map((x) => x)),
     "image": image,
   };
 }
@@ -189,7 +189,7 @@ class Variant {
   String barcode;
   int grams;
   dynamic imageId;
-  int weight;
+  String weight;
   String weightUnit;
   int inventoryItemId;
   int inventoryQuantity;
@@ -217,7 +217,7 @@ class Variant {
     barcode: json["barcode"] == null ? null : json["barcode"],
     grams: json["grams"] == null ? null : json["grams"],
     imageId: json["image_id"] == null ? null : json["image_id"],
-    weight: json["weight"] == null ? null : json["weight"],
+    weight: json["weight"] == null ? null : json["weight"].toString(),
     weightUnit: json["weight_unit"] == null ? null : json["weight_unit"],
     inventoryItemId: json["inventory_item_id"] == null ? null : json["inventory_item_id"],
     inventoryQuantity: json["inventory_quantity"] == null ? null : json["inventory_quantity"],

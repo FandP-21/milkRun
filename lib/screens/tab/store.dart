@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:groceryPro/model/AllProductResponseModel.dart';
 import 'package:groceryPro/screens/categories/allcategories.dart';
 import 'package:groceryPro/screens/categories/subcategories.dart';
 import 'package:groceryPro/screens/product/all_deals.dart';
@@ -20,7 +21,8 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 class Store extends StatefulWidget {
   final Map localizedValues;
   final String locale, currentLocation;
-  Store({Key key, this.currentLocation, this.locale, this.localizedValues})
+  AllProductResponseModel allProductResponseModel;
+  Store(this.allProductResponseModel, {Key key, this.currentLocation, this.locale, this.localizedValues})
       : super(key: key);
   @override
   _StoreState createState() => _StoreState();
@@ -809,9 +811,77 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
           topDealList ==null&&
           bannerList ==null
             ? SquareLoader()
-          : Center(
+            : categoryList.length == 0 &&
+                    productsList.length == 0 &&
+                    dealList.length == 0 &&
+                    topDealList.length == 0 &&
+                    bannerList.length == 0
+                ? Center(
                     child: Image.asset('lib/assets/images/no-orders.png'),
                   )
+                : SingleChildScrollView(
+                    physics: ScrollPhysics(),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Column(
+                        children: <Widget>[
+                          bannerList.length == 0
+                              ? Container()
+                              : SizedBox(height: 20),
+                          bannerList.length == 0 ? Container() : banner(),
+                          bannerList.length == 0
+                              ? Container()
+                              : SizedBox(height: 15),
+                          categoryList.length == 0
+                              ? Container()
+                              : categoryRow(),
+                          categoryList.length == 0 ? Container() : Divider(),
+                          categoryList.length == 0
+                              ? Container()
+                              : SizedBox(height: 10),
+                          topDealList.length == 0
+                              ? Container()
+                              : topDealsRow(
+                                  MyLocalizations.of(context)
+                                      .getLocalizations("TOP_DEALS"),
+                                  topDealList,
+                                  "TopDeals"),
+                          topDealList.length == 0
+                              ? Container()
+                              : SizedBox(height: 10),
+                          topDealList.length == 0 ? Container() : Divider(),
+                          topDealList.length == 0
+                              ? Container()
+                              : SizedBox(height: 10),
+                          productRow(
+                              MyLocalizations.of(context)
+                                  .getLocalizations("PRODUCTS"),
+                              productsList),
+                          productsList.length == 0
+                              ? Container()
+                              : SizedBox(height: 10),
+                          productsList.length == 0 ? Container() : Divider(),
+                          productsList.length == 0
+                              ? Container()
+                              : SizedBox(height: 10),
+                          dealList.length == 0
+                              ? Container()
+                              : todayDealsRow(
+                                  MyLocalizations.of(context)
+                                      .getLocalizations("DEALS_OF_THE_DAYS"),
+                                  dealList,
+                                  "TodayDeals"),
+                          dealList.length == 0
+                              ? Container()
+                              : SizedBox(height: 10),
+                          dealList.length == 0 ? Container() : Divider(),
+                          dealList.length == 0
+                              ? Container()
+                              : SizedBox(height: 10),
+                        ],
+                      ),
+                    ),
+                  ),
       ),
     );
   }

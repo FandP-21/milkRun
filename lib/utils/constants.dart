@@ -17,7 +17,7 @@ const String AUTHTOKEN = "auth_token";
 const String NO_INTERNET = "No Internet";
 
 //api end points
-const String GET_ALL_PRODUCTS = "/products";//List all products
+const String GET_ALL_PRODUCTS = "/products.json";//List all products
 
 //auth keys
 const String API_KEY = "cd5845fe0a28f4a78b0e0158621ec405";
