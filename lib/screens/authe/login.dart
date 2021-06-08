@@ -9,6 +9,8 @@ import 'package:groceryPro/service/localizations.dart';
 import 'package:groceryPro/style/style.dart';
 import 'package:groceryPro/service/sentry-service.dart';
 import 'package:groceryPro/service/auth-service.dart';
+import 'package:groceryPro/utils/colorConstants.dart';
+import 'package:groceryPro/widgets/customAppbar.dart';
 
 class Login extends StatefulWidget {
   const Login(
@@ -192,18 +194,10 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: GFAppBar(
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20))),
-        title: Text(
-          "LOGIN",
-          style: textbarlowSemiBoldwhite(),
-        ),
-        centerTitle: true,
-        backgroundColor: primary,
-        iconTheme: IconThemeData(color: Colors.black),
+      appBar: CustomAppBar(
+        context: context,
+        appBarType: AppBarType.onlyTile,
+        titleText: "LOGIN",
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -412,7 +406,7 @@ class _LoginState extends State<Login> {
       ]),
       child: GFButton(
         size: GFSize.LARGE,
-        color: primary,
+        color: AppColors.primaryBlue600,
         blockButton: true,
         onPressed: userLogin,
         child: Row(

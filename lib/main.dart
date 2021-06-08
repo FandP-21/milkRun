@@ -13,6 +13,8 @@ import 'package:groceryPro/service/sentry-service.dart';
 import 'package:groceryPro/style/style.dart';
 import 'package:groceryPro/utils/theme.dart';
 
+import 'screens/tab/profile.dart';
+import 'screens/test_screen/allCategoriesScreen.dart';
 import 'screens/test_screen/testScreen.dart';
 
 bool get isInDebugMode {
@@ -144,7 +146,7 @@ class MainScreen extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: Constants.appName,
       theme: ThemeHelper.getThemeData,
-      home: TestScreen(),
+      home: AllCategoriesScreen(),
 
       // home: Home(
       //     // locale: locale,

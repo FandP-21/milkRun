@@ -1,12 +1,13 @@
-//TODO: Use on Product Page
-// appBar: TransparentAppBarWithBackButton(
-//       context: context,
-//     ),
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-enum AppBarType { tabBarScreens, crossBack, crossBackTransparent, backArrow }
+enum AppBarType {
+  tabBarScreens,
+  onlyTile,
+  crossBack,
+  crossBackTransparent,
+  backArrow
+}
 
 class CustomAppBar extends AppBar {
   final BuildContext context;
@@ -45,44 +46,46 @@ class CustomAppBar extends AppBar {
             CupertinoIcons.person_alt_circle,
           ),
         )
-      : appBarType == AppBarType.crossBack
-          ? IconButton(
-              onPressed: () => Navigator.of(context).pop(),
-              icon: Icon(
-                CupertinoIcons.multiply,
-              ))
-          : appBarType == AppBarType.crossBackTransparent
-              ? Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Transform.scale(
-                    scale: 1,
-                    child: Container(
-                      height: 30,
-                      width: 30,
-                      child: IconButton(
-                        onPressed: () => Navigator.of(context).pop(),
-                        icon: Icon(
-                          CupertinoIcons.back,
-                          size: 14,
-                        ),
-                      ),
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black12,
-                                spreadRadius: 1,
-                                blurRadius: 8)
-                          ]),
-                    ),
-                  ),
-                )
-              : IconButton(
+      : appBarType == AppBarType.onlyTile
+          ? Container()
+          : appBarType == AppBarType.crossBack
+              ? IconButton(
                   onPressed: () => Navigator.of(context).pop(),
                   icon: Icon(
-                    CupertinoIcons.back,
-                  ));
+                    CupertinoIcons.multiply,
+                  ))
+              : appBarType == AppBarType.crossBackTransparent
+                  ? Padding(
+                      padding: const EdgeInsets.only(left: 16),
+                      child: Transform.scale(
+                        scale: 1,
+                        child: Container(
+                          height: 30,
+                          width: 30,
+                          child: IconButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            icon: Icon(
+                              CupertinoIcons.back,
+                              size: 14,
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.black12,
+                                    spreadRadius: 1,
+                                    blurRadius: 8)
+                              ]),
+                        ),
+                      ),
+                    )
+                  : IconButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      icon: Icon(
+                        CupertinoIcons.back,
+                      ));
 
   @override
   Widget get title =>

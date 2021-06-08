@@ -57,7 +57,6 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
   String locale;
   @override
   void initState() {
-    print("object");
     getToken();
     getBanner();
     getAllData();
