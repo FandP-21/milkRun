@@ -19,11 +19,19 @@ const String NO_INTERNET = "No Internet";
 //api end points
 const String GET_ALL_PRODUCTS = "/products.json";//List all products
 
+const String GET_COLLECTION_LISTINGS = "/collection_listings.json";//list all collectoin
+
+const String GET_COLLECTOINS_PRODUCTS = "/products.json";//list all for specific collectoin
+
+
+
 //auth keys
 const String API_KEY = "cd5845fe0a28f4a78b0e0158621ec405";
 const String API_PASSWORD = "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";
 const String STORE_NAME = "milkrun-rabbit";
 const String API_VERSION = "2021-04";
+
+const String COLLECTIONS = "/collections/";
 
 
 

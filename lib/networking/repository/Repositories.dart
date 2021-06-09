@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:groceryPro/model/CollectionsResponseModel.dart';
 import 'package:groceryPro/utils/constants.dart' as Constants;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -14,9 +15,21 @@ import '../ApiProvider.dart';
 class ProductRepository {
   ApiProvider _apiProvider = ApiProvider();
 
-  Future<AllProductResponseModel> getAllUser() async {
+  Future<AllProductResponseModel> getAllProducts() async {
     final response = await _apiProvider.get("${Constants.GET_ALL_PRODUCTS}");/*?limit=${userRequest.limit}&"
         "page_no=${userRequest.page_no}&userRole=${userRequest.userRole}&search=${userRequest.search}*/
+    return AllProductResponseModel.fromJson(response);
+  }
+
+  Future<CollectionsResponseModel> getCollection() async {
+// https://{{api_key}}:{{api_password}}@{{store_name}}.myshopify.com/admin/api/{{api_version}}/collection_listings.json
+    final response = await _apiProvider.get("${Constants.GET_COLLECTION_LISTINGS}");
+    return CollectionsResponseModel.fromJson(response);
+  }
+
+  Future<AllProductResponseModel> getProductForCollection(String collectionId) async {
+// https://{{api_key}}:{{api_password}}@{{store_name}}.myshopify.com/admin/api/{{api_version}}/collections/{{collection_id}}/products.json
+    final response = await _apiProvider.get("${Constants.COLLECTIONS}$collectionId${Constants.GET_COLLECTOINS_PRODUCTS}");
     return AllProductResponseModel.fromJson(response);
   }
  /*

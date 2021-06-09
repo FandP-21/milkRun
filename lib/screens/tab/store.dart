@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:groceryPro/model/AllProductResponseModel.dart';
+import 'package:groceryPro/model/CollectionsResponseModel.dart';
+import 'package:groceryPro/networking/Response.dart';
+import 'package:groceryPro/networking/bloc/ProductsBloc.dart';
 import 'package:groceryPro/screens/categories/allcategories.dart';
 import 'package:groceryPro/screens/categories/subcategories.dart';
 import 'package:groceryPro/screens/product/all_deals.dart';
@@ -15,13 +18,15 @@ import 'package:groceryPro/service/product-service.dart';
 import 'package:groceryPro/service/sentry-service.dart';
 import 'package:groceryPro/style/style.dart';
 import 'package:groceryPro/widgets/loader.dart';
+import 'package:groceryPro/screens/test_screen/categoryProductsScreen.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:groceryPro/utils/constants.dart' as Constantss;
 
 class Store extends StatefulWidget {
   final Map localizedValues;
   final String locale, currentLocation;
-  AllProductResponseModel allProductResponseModel;
-  Store(this.allProductResponseModel,
+
+  Store(
       {Key key, this.currentLocation, this.locale, this.localizedValues})
       : super(key: key);
   @override
@@ -39,12 +44,11 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
       isBannerLoading = false,
       isLoadingAllData = false,
       selectedCategories = false;
-  List categoryList,
-      productsList,
-      searchProductList,
-      dealList,
-      topDealList,
-      bannerList;
+  // List categoryList,
+  //     searchProductList,
+  //     dealList,
+  //     topDealList,
+  //     bannerList;
   String currency;
   int catIndex;
   final List<String> assetImg = [
@@ -55,11 +59,70 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
 
   var addressData;
   String locale;
+
+  ProductsBloc _productsBloc;
+  List<Product> _products = [];
+  List<CollectionListing> _collectionListings = [];
+
   @override
   void initState() {
-    getToken();
-    getBanner();
-    getAllData();
+
+    _productsBloc = ProductsBloc();
+    _productsBloc.getProducts();
+    _productsBloc.productsStream.listen((event) {
+      setState(() {
+        switch (event.status) {
+          case Status.LOADING:
+            Constantss.onLoading(context);
+            break;
+          case Status.COMPLETED:
+            print(event.message);
+            Constantss.stopLoader(context);
+            // navigateToTab(context);
+            _products = event.data.products;
+            break;
+          case Status.ERROR:
+            print(event.message);
+            Constantss.stopLoader(context);
+            if (event.message == "Invalid Request: null") {
+              Constantss.showMyDialog("Invalid Credentials.", context);
+            } else {
+              Constantss.showMyDialog(event.message, context);
+            }
+            break;
+        }
+      });
+    });
+
+    //get collection
+    _productsBloc.getCollection();
+    _productsBloc.collectionStream.listen((event) {
+      setState(() {
+        switch (event.status) {
+          case Status.LOADING:
+            Constantss.onLoading(context);
+            break;
+          case Status.COMPLETED:
+            print(event.message);
+            Constantss.stopLoader(context);
+            _refreshController.refreshCompleted();
+            _collectionListings = event.data.collectionListings;
+            break;
+          case Status.ERROR:
+            print(event.message);
+            Constantss.stopLoader(context);
+            if (event.message == "Invalid Request: null") {
+              Constantss.showMyDialog("Invalid Credentials.", context);
+            } else {
+              Constantss.showMyDialog(event.message, context);
+            }
+            break;
+        }
+      });
+    });
+    // getToken();
+    // getBanner();
+    // getAllData();
 
     super.initState();
     tabController = TabController(length: 4, vsync: this);
@@ -124,15 +187,15 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
         }
       } else {
         if (mounted) {
-          setState(() {
-            if (value['response_data'] == []) {
-              bannerList = [];
-            } else {
-              bannerList = value['response_data'];
-            }
-            getBannerData();
-            isBannerLoading = false;
-          });
+          // setState(() {
+          //   if (value['response_data'] == []) {
+          //     bannerList = [];
+          //   } else {
+          //     bannerList = value['response_data'];
+          //   }
+          //   getBannerData();
+          //   isBannerLoading = false;
+          // });
         }
       }
     });
@@ -142,14 +205,14 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
     await ProductService.getBanner().then((onValue) {
       _refreshController.refreshCompleted();
       if (mounted) {
-        setState(() {
-          if (onValue['response_data'] == []) {
-            bannerList = [];
-          } else {
-            bannerList = onValue['response_data'];
-          }
-          isBannerLoading = false;
-        });
+        // setState(() {
+        //   if (onValue['response_data'] == []) {
+        //     bannerList = [];
+        //   } else {
+        //     bannerList = onValue['response_data'];
+        //   }
+        //   isBannerLoading = false;
+        // });
       }
     }).catchError((error) {
       if (mounted) {
@@ -177,10 +240,10 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
         if (mounted) {
           setState(() {
             isLoadingAllData = false;
-            productsList = value['response_data']['products'];
-            categoryList = value['response_data']['categories'];
-            dealList = value['response_data']['dealsOfDay'];
-            topDealList = value['response_data']['topDeals'];
+            // productsList = value['response_data']['products'];
+            // categoryList = value['response_data']['categories'];
+            // dealList = value['response_data']['dealsOfDay'];
+            // topDealList = value['response_data']['topDeals'];
 
             getAllDataMethod();
           });
@@ -195,10 +258,10 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
 
       if (mounted) {
         setState(() {
-          productsList = onValue['response_data']['products'];
-          categoryList = onValue['response_data']['categories'];
-          dealList = onValue['response_data']['dealsOfDay'];
-          topDealList = onValue['response_data']['topDeals'];
+          // productsList = onValue['response_data']['products'];
+          // categoryList = onValue['response_data']['categories'];
+          // dealList = onValue['response_data']['dealsOfDay'];
+          // topDealList = onValue['response_data']['topDeals'];
           isLoadingAllData = false;
         });
       }
@@ -219,7 +282,7 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
           children: <Widget>[
             Expanded(
               child: Text(
-                "EXPLORE_BY_CATEGORIES",
+                "Explore by categories",
                 style: textBarlowMediumBlack(),
               ),
             ),
@@ -248,13 +311,15 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
           ],
         ),
         SizedBox(height: 20),
+
+        // category
         SizedBox(
           height: 100,
           child: ListView.builder(
             physics: ScrollPhysics(),
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
-            itemCount: categoryList.length != null ? categoryList.length : 0,
+            itemCount: _collectionListings.length != null ? _collectionListings.length : 0,
             itemBuilder: (BuildContext context, int index) {
               return InkWell(
                   onTap: () {
@@ -265,16 +330,17 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SubCategories(
-                            locale: widget.locale,
+                        builder: (context) => CategoryProductScreen(
+                          collectionId: _collectionListings[index].collectionId.toString(),
+                            /*locale: widget.locale,
                             localizedValues: widget.localizedValues,
-                            catId: categoryList[index]['_id'],
-                            isSubCategoryAvailable: categoryList[index]
-                                    ['isSubCategoryAvailable'] ??
-                                false,
-                            catTitle:
-                                '${categoryList[index]['title'][0].toUpperCase()}${categoryList[index]['title'].substring(1)}',
-                            token: getTokenValue),
+                            catId: _collectionListings[index].collectionId.toString(),
+                            isSubCategoryAvailable:*//* _collectionListings[index].
+                                    ['isSubCategoryAvailable'] ??*//*
+                                false,*/
+                            /*catTitle:
+                                '${_collectionListings[index].title[0].toUpperCase()}${_collectionListings[index].title.substring(1)}',
+                            token: getTokenValue*/),
                       ),
                     );
                   },
@@ -290,16 +356,14 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.network(
-                            categoryList[index]['filePath'] == null
-                                ? categoryList[index]['imageUrl']
-                                : Constants.imageUrlPath +
-                                    "/tr:dpr-auto,tr:w-500" +
-                                    categoryList[index]['filePath'],
+                            _collectionListings[index].image == null
+                                ? _collectionListings[index].image.src
+                                : _collectionListings[index].image.src,
                             height: 40,
                             width: 40),
                         SizedBox(height: 5),
                         Text(
-                          '${categoryList[index]['title'][0].toUpperCase()}${categoryList[index]['title'].substring(1)}',
+                          '${_collectionListings[index].title[0].toUpperCase()}${_collectionListings[index].title.substring(1)}',
                           style: selectedCategories && catIndex == index
                               ? textmontserratsmediumw()
                               : textmontserratsmedium(),
@@ -319,34 +383,34 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
       autoPlay: true,
       viewportFraction: 1.0,
       aspectRatio: 2.4,
-      items: bannerList.map((url) {
+      items: _collectionListings.map((url) {
         return InkWell(
           onTap: () {
-            if (url['bannerType'] == "PRODUCT") {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ProductDetails(
-                    locale: widget.locale,
-                    localizedValues: widget.localizedValues,
-                    productID: url['productId'],
-                  ),
-                ),
-              );
-            } else {
+            // if (url['bannerType'] == "PRODUCT") {
+            //   Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //       builder: (context) => ProductDetails(
+            //         locale: widget.locale,
+            //         localizedValues: widget.localizedValues,
+            //         productID: url['productId'],
+            //       ),
+            //     ),
+            //   );
+            // } else {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => SubCategories(
                       locale: widget.locale,
                       localizedValues: widget.localizedValues,
-                      catId: url['categoryId'],
+                      catId: url.collectionId.toString()/*['categoryId']*/,
                       catTitle:
-                          '${url['title'][0].toUpperCase()}${url['title'].substring(1)}',
+                          '${url.title[0].toUpperCase()}${url.title.substring(1)}',
                       token: getTokenValue),
                 ),
               );
-            }
+            // }
           },
           child: Container(
               margin: EdgeInsets.all(10),
@@ -364,7 +428,7 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '${url['title'][0].toUpperCase()}${url['title'].substring(1).split(',').join('\n')}',
+                            '${url.title[0].toUpperCase()}${url.title.substring(1).split(',').join('\n')}',
                             overflow: TextOverflow.ellipsis,
                             maxLines: 2,
                             style: textfuturabold(),
@@ -378,14 +442,12 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
                   Flexible(
                       fit: FlexFit.tight,
                       flex: 4,
-                      child: url['filePath'] == null && url['imageURL'] == null
+                      child: url.image == null
                           ? Container()
                           : Image.network(
-                              url['filePath'] == null
-                                  ? url['imageURL']
-                                  : Constants.imageUrlPath +
-                                      "/tr:dpr-auto,tr:w-500" +
-                                      url['filePath'],
+                              url.image == null
+                                  ? url.image.src
+                                  :"",
                               width: 106,
                               height: 94,
                             )),
@@ -396,7 +458,7 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
     );
   }
 
-  productRow(titleTranslate, list) {
+  productRow(titleTranslate,List<Product> list) {
     return Column(
       children: <Widget>[
         Row(
@@ -442,9 +504,9 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
             childAspectRatio: MediaQuery.of(context).size.width / 435,
           ),
           itemBuilder: (BuildContext context, int i) {
-            if (list[i]['averageRating'] == null) {
+            /*if (list[i].['averageRating'] == null) {
               list[i]['averageRating'] = 0;
-            }
+            }*/
 
             return Padding(
                 padding: const EdgeInsets.all(1.0),
@@ -456,7 +518,7 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
                           builder: (context) => ProductDetails(
                             locale: widget.locale,
                             localizedValues: widget.localizedValues,
-                            productID: list[i]['_id'],
+                            productID: list[i].id.toString(),
                           ),
                         ),
                       );
@@ -467,11 +529,11 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Image.network(
-                              list[i]['filePath'] != null
-                                  ? Constants.imageUrlPath +
+                              list[i].image.src != null
+                                  ? /*Constants.imageUrlPath +
                                       "/tr:dpr-auto,tr:w-500" +
-                                      list[i]['filePath']
-                                  : list[i]['imageUrl'],
+                                     */ list[i].image.src
+                                  : list[i].image.src,
                               fit: BoxFit.cover,
                               height: 123,
                             ),
@@ -484,14 +546,14 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      '${list[i]['title'][0].toUpperCase()}${list[i]['title'].substring(1)}',
+                                      '${list[i].title[0].toUpperCase()}${list[i].title.substring(1)}',
                                       maxLines: 2,
                                       overflow: TextOverflow.ellipsis,
                                       style: textmontserratregularsml(),
                                     ),
                                   ],
                                 )),
-                                list[i]['averageRating'] == null ||
+                                /*list[i]['averageRating'] == null ||
                                         list[i]['averageRating'] == 0 ||
                                         list[i]['averageRating'] == '0'
                                     ? Container()
@@ -512,7 +574,7 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
                                               color: Colors.black
                                                   .withOpacity(0.40),
                                             )
-                                          ]))
+                                          ]))*/
                               ],
                             ),
                             SizedBox(height: 5),
@@ -520,20 +582,20 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
                               children: [
                                 Expanded(
                                   child: Text(
-                                    list[i]['isDealAvailable'] == true
-                                        ? '$currency${(list[i]['variant'][0]['price'] - (list[i]['variant'][0]['price'] * list[i]['dealPercent']) / 100).toDouble().toStringAsFixed(2)}/${list[i]['variant'][0]['unit']}'
-                                        : '$currency${(list[i]['variant'][0]['price']).toDouble().toStringAsFixed(2)}/${list[i]['variant'][0]['unit']}',
+                                    list[i].status == "active"
+                                        ? '$currency${(list[i].variants[0].price)}'
+                                        : '$currency${(list[i].variants[0].weightUnit)}',
                                     style: textmontserratsbold(),
                                   ),
                                 ),
                                 SizedBox(width: 3),
-                                list[i]['isDealAvailable'] != true
+                                list[i].status != "active"
                                     ? Container()
                                     : Padding(
                                         padding:
                                             const EdgeInsets.only(top: 5.0),
                                         child: Text(
-                                          '$currency${list[i]['variant'][0]['price'].toDouble().toStringAsFixed(2)}',
+                                          '$currency${list[i].variants[0].price}',//.toStringAsFixed(2)
                                           style: textmontserratsboldLine(),
                                         ),
                                       ),
@@ -796,22 +858,25 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
           setState(() {
             isLoadingAllData = true;
             isBannerLoading = true;
-            getBannerData();
-            getAllDataMethod();
+            // getBannerData();
+            // getAllDataMethod();
+            _productsBloc.getProducts();
+            _productsBloc.getCollection();
           });
         },
         child: (isLoadingAllData || isBannerLoading) &&
-                categoryList == null &&
-                productsList == null &&
-                dealList == null &&
-                topDealList == null &&
-                bannerList == null
+                // categoryList == null &&
+                _products == null
+                //&& dealList == null &&
+                // topDealList == null &&
+                // bannerList == null
             ? SquareLoader()
-            : categoryList.length == 0 &&
-                    productsList.length == 0 &&
-                    dealList.length == 0 &&
+            : /*categoryList.length == 0 &&*/
+            _products== null||
+                    _products.length == 0
+                    /*&& dealList.length == 0 &&
                     topDealList.length == 0 &&
-                    bannerList.length == 0
+                    bannerList.length == 0*/
                 ? Center(
                     child: Image.asset('lib/assets/images/no-orders.png'),
                   )
@@ -821,46 +886,45 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Column(
                         children: <Widget>[
-                          bannerList.length == 0
+                          _collectionListings.length == 0
                               ? Container()
                               : SizedBox(height: 20),
-                          bannerList.length == 0 ? Container() : banner(),
-                          bannerList.length == 0
+                          _collectionListings.length == 0 ? Container() : banner(),
+                          _collectionListings.length == 0
                               ? Container()
                               : SizedBox(height: 15),
-                          categoryList.length == 0
+                          _collectionListings.length == 0
                               ? Container()
                               : categoryRow(),
-                          categoryList.length == 0 ? Container() : Divider(),
-                          categoryList.length == 0
+                          _collectionListings.length == 0 ? Container() : Divider(),
+                          _collectionListings.length == 0
                               ? Container()
                               : SizedBox(height: 10),
-                          topDealList.length == 0
-                              ? Container()
-                              : topDealsRow(
-                                  MyLocalizations.of(context)
-                                      .getLocalizations("TOP_DEALS"),
-                                  topDealList,
-                                  "TopDeals"),
-                          topDealList.length == 0
-                              ? Container()
-                              : SizedBox(height: 10),
-                          topDealList.length == 0 ? Container() : Divider(),
-                          topDealList.length == 0
-                              ? Container()
-                              : SizedBox(height: 10),
+                          // topDealList.length == 0
+                          //     ? Container()
+                          //     : topDealsRow(
+                          //         MyLocalizations.of(context)
+                          //             .getLocalizations("TOP_DEALS"),
+                          //         topDealList,
+                          //         "TopDeals"),
+                          // topDealList.length == 0
+                          //     ? Container()
+                          //     : SizedBox(height: 10),
+                          // topDealList.length == 0 ? Container() : Divider(),
+                          // topDealList.length == 0
+                          //     ? Container()
+                          //     : SizedBox(height: 10),
                           productRow(
-                              MyLocalizations.of(context)
-                                  .getLocalizations("PRODUCTS"),
-                              productsList),
-                          productsList.length == 0
+                              "Products",
+                              _products),
+                          _products!=null || _products.length == 0
                               ? Container()
                               : SizedBox(height: 10),
-                          productsList.length == 0 ? Container() : Divider(),
-                          productsList.length == 0
+                          _products!=null || _products.length == 0 ? Container() : Divider(),
+                          _products!=null || _products.length == 0
                               ? Container()
                               : SizedBox(height: 10),
-                          dealList.length == 0
+                          /*dealList.length == 0
                               ? Container()
                               : todayDealsRow(
                                   MyLocalizations.of(context)
@@ -873,7 +937,7 @@ class _StoreState extends State<Store> with TickerProviderStateMixin {
                           dealList.length == 0 ? Container() : Divider(),
                           dealList.length == 0
                               ? Container()
-                              : SizedBox(height: 10),
+                              : SizedBox(height: 10),*/
                         ],
                       ),
                     ),

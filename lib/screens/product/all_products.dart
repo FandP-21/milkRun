@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:groceryPro/model/AllProductResponseModel.dart';
 import 'package:groceryPro/model/counterModel.dart';
 import 'package:groceryPro/screens/home/home.dart';
 import 'package:groceryPro/screens/product/product-details.dart';
@@ -18,7 +19,7 @@ class AllProducts extends StatefulWidget {
   final Map localizedValues;
   final String locale, currency;
   final bool token;
-  final List productsList;
+  final List<Product> productsList;
 
   AllProducts(
       {Key key,
@@ -32,7 +33,7 @@ class AllProducts extends StatefulWidget {
 }
 
 class _AllProductsState extends State<AllProducts> {
-  List productsList = [], subCategryByProduct, subCategryList;
+  List<Product> productsList = [], subCategryByProduct, subCategryList;
   String currency, currentSubCategoryId;
   bool getTokenValue = false,
       isSelected = true,

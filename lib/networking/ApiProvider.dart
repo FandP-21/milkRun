@@ -12,7 +12,6 @@ import 'dart:io' show Platform;
 import 'CustomException.dart';
 
 class ApiProvider{
-  //final String _baseUrl = "https://orders.yamee-staging.ws/api/v1";
 
   Future<dynamic> patch(String url) async {
     var responseJson;
@@ -22,8 +21,6 @@ class ApiProvider{
       final response = await http.patch(Uri.parse(Constants.baseUrl + url), headers: {
         HttpHeaders.contentTypeHeader: "application/json",
         "Authorization": "Bearer " + token,
-        "client_device" : Platform.isAndroid?"android":"ios",
-        "client_name" : "delivery_app",
       });
       print(response.request);
       responseJson = _response(response);
@@ -55,8 +52,6 @@ class ApiProvider{
       final response = await http.post(Uri.parse(Constants.baseUrl + url),
           headers: {
             HttpHeaders.contentTypeHeader: 'application/json',
-            "client_device" : Platform.isAndroid?"android":"ios",
-            "client_name" : "delivery_app",
           },
           body: body);
       print(response.request);
@@ -79,16 +74,12 @@ class ApiProvider{
             headers: {
               HttpHeaders.contentTypeHeader: "application/json",
               "Authorization": "Bearer " + token,
-              "client_device" : Platform.isAndroid?"android":"ios",
-              "client_name" : "delivery_app",
             });
       }else{
         response = await http.put(Uri.parse(Constants.baseUrl + url),
             headers: {
               HttpHeaders.contentTypeHeader: "application/json",
               "Authorization": "Bearer " + token,
-              "client_device" : Platform.isAndroid?"android":"ios",
-              "client_name" : "delivery_app",
             },
             body: json.encode(body));
       }
@@ -109,8 +100,6 @@ class ApiProvider{
       final response = await http.post(Uri.parse(Constants.baseUrl + url),
           headers: {
             HttpHeaders.contentTypeHeader: "application/json",
-            "client_device" : Platform.isAndroid?"android":"ios",
-            "client_name" : "delivery_app",
             "Authorization": "Bearer " + token
           },
           body: body);

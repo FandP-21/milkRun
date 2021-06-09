@@ -62,8 +62,8 @@ class Product {
   String adminGraphqlApiId;
   List<Variant> variants;
   List<Option> options;
-  List<String> images;
-  dynamic image;
+  List<ImageData> images;
+  ImageData image;
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
     id: json["id"] == null ? null : json["id"],
@@ -82,8 +82,8 @@ class Product {
     adminGraphqlApiId: json["admin_graphql_api_id"] == null ? null : json["admin_graphql_api_id"],
     variants: json["variants"] == null ? null : List<Variant>.from(json["variants"].map((x) => Variant.fromJson(x))),
     options: json["options"] == null ? null : List<Option>.from(json["options"].map((x) => Option.fromJson(x))),
-    images: json["images"] == null ? null : List<String>.from(json["images"].map((x) => x)),
-    image: json["image"] == null ? null : json["image"],
+    images: json["images"] == null ? null : List<ImageData>.from(json["images"].map((x) => ImageData.fromJson(json["image"]))),
+    image: json["image"] == null ? null : ImageData.fromJson(json["image"]),
   );
 
   Map<String, dynamic> toJson() => {
@@ -105,6 +105,63 @@ class Product {
     "options": List<Option>.from(options.map((x) => x.toJson())),
     "images": List<String>.from(images.map((x) => x)),
     "image": image,
+  };
+}
+
+
+class ImageData {
+  ImageData({
+    this.id,
+    this.productId,
+    this.position,
+    this.createdAt,
+    this.updatedAt,
+    this.alt,
+    this.width,
+    this.height,
+    this.src,
+    this.variantIds,
+    this.adminGraphqlApiId,
+  });
+
+  int id;
+  int productId;
+  int position;
+  DateTime createdAt;
+  DateTime updatedAt;
+  dynamic alt;
+  int width;
+  int height;
+  String src;
+  List<dynamic> variantIds;
+  String adminGraphqlApiId;
+
+  factory ImageData.fromJson(Map<String, dynamic> json) => ImageData(
+    id: json["id"] == null ? null : json["id"],
+    productId: json["product_id"] == null ? null : json["product_id"],
+    position: json["position"] == null ? null : json["position"],
+    createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
+    updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
+    alt: json["alt"] == null ? null : json["alt"],
+    width: json["width"] == null ? null : json["width"],
+    height: json["height"] == null ? null : json["height"],
+    src: json["src"] == null ? null : json["src"],
+    variantIds: json["variant_ids"] == null ? null : List<dynamic>.from(json["variant_ids"].map((x) => x)),
+    adminGraphqlApiId: json["admin_graphql_api_id"] == null ? null : json["admin_graphql_api_id"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "product_id": productId,
+    "position": position,
+    "created_at": createdAt.toIso8601String(),
+    "updated_at": updatedAt.toIso8601String(),
+    "alt": alt,
+    "width": width,
+    "height": height,
+    "src": src,
+    "variant_ids": List<dynamic>.from(variantIds.map((x) => x)),
+    "admin_graphql_api_id": adminGraphqlApiId,
   };
 }
 
@@ -136,7 +193,7 @@ class Option {
     "product_id": productId,
     "name": name,
     "position": position,
-    "values": List<dynamic>.from(values.map((x) => x)),
+    "values": List<String>.from(values.map((x) => x)),
   };
 }
 
@@ -211,8 +268,8 @@ class Variant {
     option1: json["option1"] == null ? null : json["option1"],
     option2: json["option2"] == null ? null : json["option2"],
     option3: json["option3"] == null ? null : json["option3"],
-    createdAt: DateTime.parse(json["created_at"]) == null ? null : DateTime.parse(json["created_at"]),
-    updatedAt: DateTime.parse(json["updated_at"]) == null ? null : DateTime.parse(json["updated_at"]),
+    createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
+    updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
     taxable: json["taxable"] == null ? null : json["taxable"],
     barcode: json["barcode"] == null ? null : json["barcode"],
     grams: json["grams"] == null ? null : json["grams"],

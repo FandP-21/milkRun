@@ -147,12 +147,12 @@ class MainScreen extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: Constants.appName,
       theme: ThemeHelper.getThemeData,
-      home: CategoryProductScreen(),
+      // home: CategoryProductScreen(),
 
-      // home: Home(
-      //     // locale: locale,
-      //     // localizedValues: localizedValues,
-      //     ),
+      home: Home(
+          // locale: locale,
+          // localizedValues: localizedValues,
+          ),
     );
   }
 }

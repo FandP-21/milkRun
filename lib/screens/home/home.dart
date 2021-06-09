@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:groceryPro/model/AllProductResponseModel.dart';
+import 'package:groceryPro/model/CollectionsResponseModel.dart';
 import 'package:groceryPro/utils/constants.dart' as Constants;
 import 'package:flutter/widgets.dart';
 import 'package:geocoder/geocoder.dart';
@@ -52,11 +53,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   ProductsBloc _productsBloc;
   AllProductResponseModel _allProductResponseModel;
+  CollectionsResponseModel _collectionsResponseModel;
 
   void initState() {
     _productsBloc = ProductsBloc();
-    _productsBloc.getProducts();
-    _productsBloc.ordersStream.listen((event) {
+    // _productsBloc.getProducts();
+    _productsBloc.productsStream.listen((event) {
       setState(() {
         switch (event.status) {
           case Status.LOADING:
@@ -67,6 +69,34 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             Constants.stopLoader(context);
             // navigateToTab(context);
             _allProductResponseModel = event.data;
+            break;
+          case Status.ERROR:
+            print(event.message);
+            Constants.stopLoader(context);
+            if (event.message == "Invalid Request: null") {
+              Constants.showMyDialog("Invalid Credentials.", context);
+            } else {
+              Constants.showMyDialog(event.message, context);
+            }
+            break;
+        }
+      });
+    });
+
+
+    //get collection
+    // _productsBloc.getCollection();
+    _productsBloc.collectionStream.listen((event) {
+      setState(() {
+        switch (event.status) {
+          case Status.LOADING:
+            Constants.onLoading(context);
+            break;
+          case Status.COMPLETED:
+            print(event.message);
+            Constants.stopLoader(context);
+
+            _collectionsResponseModel = event.data;
             break;
           case Status.ERROR:
             print(event.message);
@@ -300,7 +330,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
     List<Widget> _screens = [
       Store(
-          _allProductResponseModel
         // locale: widget.locale,
         // localizedValues: widget.localizedValues,
       ),
